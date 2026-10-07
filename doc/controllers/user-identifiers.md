@@ -140,7 +140,7 @@ catch (ApiException e)
 
 # Create Identifier
 
-Creates a new identifier for a user that will be used for transaction reporting obligations. This identifier is required for user activation if the user's nationalities do not allow reporting using the CONCAT format.
+Creates a new identifier for a user that will be used for transaction reporting obligations. This identifier is required before the user's `OWNER` role can become active if the user's nationalities do not allow reporting using the CONCAT format.
 
 See the User identifiers guide ([TOL](https://docs.upvest.co/products/tol/guides/users/users_identifiers) / [BYOL](https://docs.upvest.co/products/byol/guides/users/users_identifiers)) for details.
 

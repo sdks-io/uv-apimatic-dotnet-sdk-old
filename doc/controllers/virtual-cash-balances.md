@@ -17,7 +17,11 @@ VirtualCashBalancesApi virtualCashBalancesApi = client.VirtualCashBalancesApi;
 
 # Create Virtual Cash Increase
 
-Trigger a virtual cash increase
+Increases an account group's virtual cash balance, making the specified `amount` available for trading before the corresponding real cash has settled.
+
+Requires the `Idempotency-Key` header to prevent duplicate increases.
+
+See the Virtual cash guide ([TOL](https://docs.upvest.co/products/tol/guides/virtual_cash/implementing_virtual_cash) / [BYOL](https://docs.upvest.co/products/byol/guides/virtual_cash/implementing_virtual_cash)) for supported use cases.
 
 ```csharp
 CreateVirtualCashIncreaseAsync(
@@ -115,7 +119,11 @@ catch (ApiException e)
 
 # Create Virtual Cash Decrease
 
-Trigger a virtual cash decrease
+Decreases an account group's virtual cash balance, for example after an order has settled or before a withdrawal.
+
+If the account group does not yet have sufficient real cash, the decrease is queued with status `QUEUED` and confirmed automatically once funds arrive rather than being rejected. Requires the `Idempotency-Key` header to prevent duplicate decreases.
+
+See the Virtual cash guide ([TOL](https://docs.upvest.co/products/tol/guides/virtual_cash/implementing_virtual_cash) / [BYOL](https://docs.upvest.co/products/byol/guides/virtual_cash/implementing_virtual_cash)) for supported use cases.
 
 ```csharp
 CreateVirtualCashDecreaseAsync(

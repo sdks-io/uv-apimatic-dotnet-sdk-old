@@ -25,7 +25,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal FilesApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Retrieve a file metadata.
+        /// Returns the metadata of the file identified by `folder` and `file_name`, together with a signed URL for downloading it.
+        /// Downloading a file is a two-step process: request the metadata here, then fetch the file from the returned `signed_url`. The signed URL is a one-time link that expires after 15 minutes, so download the file shortly after requesting it. Set `redirect=1` to have the API respond with an HTTP redirect to the download location instead of returning the URL in the body.
+        /// See the file retrieval guide ([TOL](https://docs.upvest.co/products/tol/guides/files/retrieving_data) / [BYOL](https://docs.upvest.co/products/byol/guides/files/retrieving_data) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/files/retrieving_data)) for the download process.
         /// </summary>
         /// <param name="folder">Required parameter: Folder containing the file. Must match the pattern `^[a-z0-9-_\.]{1,32}$`..</param>
         /// <param name="fileName">Required parameter: Name of the file to retrieve. Must match the pattern `^[a-z0-9-_\.]{1,255}$`..</param>
@@ -42,7 +44,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(FetchingFileMetadataAsync(folder, fileName, upvestClientId, upvestApiVersion, redirect));
 
         /// <summary>
-        /// Retrieve a file metadata.
+        /// Returns the metadata of the file identified by `folder` and `file_name`, together with a signed URL for downloading it.
+        /// Downloading a file is a two-step process: request the metadata here, then fetch the file from the returned `signed_url`. The signed URL is a one-time link that expires after 15 minutes, so download the file shortly after requesting it. Set `redirect=1` to have the API respond with an HTTP redirect to the download location instead of returning the URL in the body.
+        /// See the file retrieval guide ([TOL](https://docs.upvest.co/products/tol/guides/files/retrieving_data) / [BYOL](https://docs.upvest.co/products/byol/guides/files/retrieving_data) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/files/retrieving_data)) for the download process.
         /// </summary>
         /// <param name="folder">Required parameter: Folder containing the file. Must match the pattern `^[a-z0-9-_\.]{1,32}$`..</param>
         /// <param name="fileName">Required parameter: Name of the file to retrieve. Must match the pattern `^[a-z0-9-_\.]{1,255}$`..</param>

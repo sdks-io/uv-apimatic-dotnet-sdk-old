@@ -24,7 +24,7 @@ Schema for business company information.
 | `Identification` | [`Identification8`](../../doc/models/identification-8.md) | Required | Identification information of the business. |
 | `TermsAndConditions` | [`TermsAndConditions4`](../../doc/models/terms-and-conditions-4.md) | Required | Terms and conditions agreement. |
 | `DataPrivacyAndSharingAgreement` | [`DataPrivacyAndSharingAgreement4`](../../doc/models/data-privacy-and-sharing-agreement-4.md) | Required | Data privacy and sharing agreement. |
-| `Status` | [`Status103`](../../doc/models/status-103.md) | Required | Status of the business.<br><br>* ACTIVE -<br>* INACTIVE -<br>* OFFBOARDING -<br>* OFFBOARDED - |
+| `Status` | [`Status99`](../../doc/models/status-99.md) | Required | Status of the business.<br><br>* ACTIVE -<br>* INACTIVE -<br>* OFFBOARDING -<br>* OFFBOARDED - |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example
@@ -95,7 +95,7 @@ BusinessesResponse businessesResponse = new BusinessesResponse
             DateTimeStyles.RoundtripKind),
         ["exampleAdditionalProperty"] = ApiHelper.JsonDeserialize<object>("{\"key1\":\"val1\",\"key2\":\"val2\"}"),
     },
-    Status = Status103.Active,
+    Status = Status99.Active,
     RegistrationNumber = "registration_number0",
     ["exampleAdditionalProperty"] = ApiHelper.JsonDeserialize<object>("{\"key1\":\"val1\",\"key2\":\"val2\"}"),
 };

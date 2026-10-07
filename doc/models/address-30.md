@@ -1,7 +1,7 @@
 
 # Address 30
 
-User residential address.
+The residential address of the end user, as printed on the report.
 
 *This model accepts additional fields of type object.*
 
@@ -18,7 +18,7 @@ User residential address.
 | `Postcode` | `string` | Optional | Postal code (postcode, PIN or ZIP code)<br><br>**Constraints**: *Pattern*: `^[a-zA-Z0-9][a-zA-Z0-9\s\-]{0,8}[a-zA-Z0-9]?$` |
 | `Country` | `string` | Optional | Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).<br><br>**Constraints**: *Pattern*: `^[A-Z]{2}$` |
 | `State` | `string` | Optional | State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).<br><br>**Constraints**: *Maximum Length*: `50` |
-| `City` | `string` | Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `85` |
+| `City` | `string` | Optional | The name of a city, as it appears in a postal address.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `85` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

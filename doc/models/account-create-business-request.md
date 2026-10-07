@@ -1,6 +1,8 @@
 
 # Account Create Business Request
 
+Request to create an account for a business within an existing account group.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -12,7 +14,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `BusinessId` | `Guid` | Required | Unique identifier for the business. |
-| `AccountGroupId` | `Guid` | Required | Account group unique identifier. |
+| `AccountGroupId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account group. |
 | `Type` | [`Type16`](../../doc/models/type-16.md) | Required | Account type.<br><br>* TRADING - Orders in accounts of this type are created on a specific instrument basis.<br>* PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available. |
 | `Name` | `string` | Optional | The name of the account.<br><br>**Constraints**: *Maximum Length*: `100` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |

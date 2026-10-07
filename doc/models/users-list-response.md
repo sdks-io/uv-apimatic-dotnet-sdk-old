@@ -11,7 +11,7 @@ Paginated response containing the list of all users.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
 | `Data` | [`UsersListResponseData`](../../doc/models/containers/users-list-response-data.md) | Required | This is a container for one-of cases. |
 
 ## Example

@@ -39,15 +39,15 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Amount.
+        /// A decimal-string monetary amount used in account valuation calculations.
         /// </summary>
         [JsonProperty("amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency Currency { get; set; }

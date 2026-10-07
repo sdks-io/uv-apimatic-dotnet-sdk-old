@@ -1,9 +1,9 @@
 
 # Instrument Id Type
 
-The type of the ID used in the request.
+The kind of identifier given in `instrument_id`.
 
-* ISIN -
+* ISIN — International Securities Identification Number.
 
 ## Enumeration
 

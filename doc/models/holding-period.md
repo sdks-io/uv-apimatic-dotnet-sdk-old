@@ -1,7 +1,7 @@
 
 # Holding Period
 
-Holding period.
+The holding period assumed when estimating the costs in this report. Costs are projected on the basis that the instrument is held for this period before being sold.
 
 *This model accepts additional fields of type object.*
 
@@ -13,8 +13,8 @@ Holding period.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Unit` | [`Unit?`](../../doc/models/unit.md) | Optional | Unit of time.<br><br>* YEAR -<br><br>**Default**: `Unit.YEAR` |
-| `Quantity` | `int?` | Optional | Quantity of time units. |
+| `Unit` | [`Unit?`](../../doc/models/unit.md) | Optional | The unit in which the holding period is counted.<br><br>* YEAR — The holding period is counted in years.<br><br>**Default**: `Unit.YEAR` |
+| `Quantity` | `int?` | Optional | The number of holding period units assumed, for example 3 for a three-year holding period. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

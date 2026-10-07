@@ -50,16 +50,16 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("account_group_id")]
         public Guid AccountGroupId { get; set; }
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
-        /// * USD - The United States dollar
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
+        /// * USD — The United States dollar.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency1 Currency { get; set; }
@@ -71,13 +71,13 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Balance { get; set; }
 
         /// <summary>
-        /// Gets or sets LockedForTrading.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonProperty("locked_for_trading")]
         public string LockedForTrading { get; set; }
 
         /// <summary>
-        /// Gets or sets PendingSettlement.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonProperty("pending_settlement")]
         public string PendingSettlement { get; set; }

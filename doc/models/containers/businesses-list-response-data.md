@@ -71,7 +71,7 @@ BusinessesListResponseData value = BusinessesListResponseData.FromBusiness2(
                 provider: CultureInfo.InvariantCulture,
                 DateTimeStyles.RoundtripKind),
         },
-        Status = Status103.Offboarding,
+        Status = Status99.Offboarding,
     }
 );
 ```
@@ -129,7 +129,7 @@ BusinessesListResponseData value = BusinessesListResponseData.FromBusiness21(
                 provider: CultureInfo.InvariantCulture,
                 DateTimeStyles.RoundtripKind),
         },
-        Status = Status103.Active,
+        Status = Status99.Active,
     }
 );
 ```

@@ -1,6 +1,8 @@
 
 # Meta 26
 
+Offset/limit pagination metadata for this page of results.
+
 *This model accepts additional fields of type object.*
 
 ## Structure

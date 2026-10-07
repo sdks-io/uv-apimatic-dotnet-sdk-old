@@ -1,6 +1,8 @@
 
 # Positions List Response
 
+Paginated list of positions held by the account. Contains a `data` array of position objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `PositionsListResponse`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Data` | [`List<Datum1>`](../../doc/models/datum-1.md) | Required | - |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
+| `Data` | [`List<Datum1>`](../../doc/models/datum-1.md) | Required | The list of position objects for the current page of results. |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
 
 ## Example
 

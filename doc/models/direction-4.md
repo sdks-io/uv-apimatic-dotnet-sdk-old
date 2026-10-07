@@ -1,10 +1,10 @@
 
 # Direction 4
 
-Direction of the securities transfer
+Direction of the ISA transfer
 
-* `INCOMING` - Securities transfer is incoming to the user.
-* `OUTGOING` - Securities transfer is outgoing from the user.
+* INCOMING - Transfer is incoming to the user.
+* OUTGOING - Transfer is outgoing from the user.
 
 ## Enumeration
 

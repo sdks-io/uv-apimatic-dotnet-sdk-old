@@ -1,7 +1,7 @@
 
 # Details
 
-Details
+Additional descriptive detail about an instrument, including where it may be distributed.
 
 *This model accepts additional fields of type object.*
 
@@ -13,7 +13,7 @@ Details
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `DistributionCountries` | `List<string>` | Optional | Distribution Countries<br><br>**Constraints**: *Pattern*: `^[A-Z]{2}$` |
+| `DistributionCountries` | `List<string>` | Optional | The countries in which an instrument may be distributed, as ISO 3166-1 alpha-2 codes.<br><br>**Constraints**: *Pattern*: `^[A-Z]{2}$` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

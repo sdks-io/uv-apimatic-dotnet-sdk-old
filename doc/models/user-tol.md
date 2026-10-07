@@ -19,14 +19,14 @@ A user onboarded under the Take Our Licence (TOL) operating model, where Upvest 
 | `Salutation` | [`Salutation?`](../../doc/models/salutation.md) | Optional | Salutation of the user used in reports and statements.<br><br>* (empty string) -<br>* SALUTATION_MALE -<br>* SALUTATION_FEMALE -<br>* SALUTATION_FEMALE_MARRIED -<br>* SALUTATION_DIVERSE - |
 | `Title` | [`Title?`](../../doc/models/title.md) | Optional | Title of the user used in reports and statements.<br><br>* (empty string) -<br>* DR - Doctor<br>* PROF - Professor<br>* PROF_DR -<br>* DIPL_ING - Graduate engineer (Diplom-Ingenieur)<br>* MAGISTER - |
 | `BirthDate` | `DateTime` | Required | Birth date of the user in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) |
-| `BirthCity` | `string` | Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `85` |
+| `BirthCity` | `string` | Optional | The name of a city, as it appears in a postal address.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `85` |
 | `BirthCountry` | [`BirthCountry?`](../../doc/models/birth-country.md) | Optional | Accepted country code. [ISO 3166-1 alpha-2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
 | `BirthName` | `string` | Optional | If applicable, birth name of the user.<br><br>**Constraints**: *Maximum Length*: `100` |
 | `DeceaseDate` | `DateTime?` | Optional | - |
 | `Nationalities` | [`List<Nationality>`](../../doc/models/nationality.md) | Required | Nationalities of the user. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).<br><br>**Constraints**: *Minimum Items*: `1` |
 | `Address` | [`Address`](../../doc/models/address.md) | Required | Address. Must not be a P.O. box or c/o address. |
 | `PostalAddress` | [`Address`](../../doc/models/address.md) | Optional | User postal address. Needs to be specified if different to the residential address, otherwise it is automatically populated. |
-| `Status` | [`Status`](../../doc/models/status.md) | Required | Status of the user.<br><br>* ACTIVE -<br>* INACTIVE -<br>* OFFBOARDING -<br>* OFFBOARDED - |
+| `Status` | [`Status`](../../doc/models/status.md) | Required | Deprecated: do not build new integrations on this field. Status of the user. To know when the user has met the onboarding requirements for an account group or business, listen for the `ROLE.ACTIVATED` webhook event of the user's role (for example, the `OWNER` role for a `PERSONAL` account group). To track offboarding, listen for the `USER.OFFBOARDING_INITIATED` and `USER.OFFBOARDED` webhook events.<br><br>* ACTIVE -<br>* INACTIVE -<br>* OFFBOARDING -<br>* OFFBOARDED - |
 | `Email` | `string` | Optional | Email of the user. Must be a valid email address.<br><br>**Constraints**: *Maximum Length*: `100` |
 | `PhoneNumber` | `string` | Optional | Phone number of the user. [Phone number E.164 format](https://en.wikipedia.org/wiki/E.164).<br><br>**Constraints**: *Pattern*: `^([0-9]{8,15})?$` |
 | `Fatca` | [`Fatca`](../../doc/models/fatca.md) | Optional | The user's FATCA status and when it was confirmed |
@@ -35,7 +35,7 @@ A user onboarded under the Take Our Licence (TOL) operating model, where Upvest 
 | `BranchId` | `Guid?` | Optional | Unique identifier of the market the user is onboarded on. Only relevant if the client is operating in different markets and the client is configured accordingly |
 | `Gender` | [`Gender?`](../../doc/models/gender.md) | Optional | Gender of the user. Required for users applying for the German pension government bonus.<br><br>* (empty string) -<br>* MALE -<br>* FEMALE -<br>* DIVERSE - |
 | `SocialSecurityNumber` | `string` | Optional | The user's assigned social security number (German social insurance number, e.g. `25300972S014`). Required for users applying for the German pension government bonus.<br><br>**Constraints**: *Pattern*: `^(\d{2}(0[1-9]\|[12]\d\|3[01])(0[1-9]\|1[0-2])\d{2}[A-Z]\d{3})?$` |
-| `Tags` | [`List<Tag>`](../../doc/models/tag.md) | Optional | Labels applied to the user by the tenant. Omitted for users that have no tags.<br><br>* CLIENT_EMPLOYEE - The user is an employee of the tenant.<br><br>Providing this field in a data change request replaces the full set of tags; send an empty array to remove all tags.<br><br>**Constraints**: *Unique Items Required* |
+| `Tags` | [`List<Tag>`](../../doc/models/tag.md) | Optional | Labels applied to the user by the client. Omitted for users that have no tags.<br><br>* CLIENT_EMPLOYEE - The user is an employee of the client.<br><br>Providing this field in a data change request replaces the full set of tags; send an empty array to remove all tags.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Example
 

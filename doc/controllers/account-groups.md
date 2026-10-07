@@ -140,7 +140,7 @@ catch (ApiException e)
 
 # Retrieve Account Group
 
-Returns the account group specified by its ID.
+Returns the account group specified by its ID, including its type, status, and securities account number.
 
 ```csharp
 RetrieveAccountGroupAsync(
@@ -245,7 +245,11 @@ catch (ApiException e)
 
 # Account Group Closure
 
-Initiates the closure request for an account group specified by its ID.
+Initiates the closure of the account group specified by its ID.
+
+Closure is a two-step process: the account group status changes to `CLOSING`, and once all preconditions are met it transitions to `CLOSED`. Subscribe to the `ACCOUNT_GROUP.CLOSING_INITIATED` and `ACCOUNT_GROUP.CLOSED` webhook events to track progress.
+
+See the Closing accounts guide ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_close_accounts) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_close_accounts)) for preconditions and implementation details.
 
 ```csharp
 AccountGroupClosureAsync(
@@ -324,7 +328,11 @@ catch (ApiException e)
 
 # List Account Groups
 
-Returns a list of all account groups.
+Returns a paginated list of account groups.
+
+Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching account groups. Both user and business account groups are returned.
+
+See the Accounts overview ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/accounts/accounts_overview)) for account group types and the account hierarchy.
 
 ```csharp
 ListAccountGroupsAsync(
@@ -346,7 +354,7 @@ This endpoint requires [oauth-client-credentials](../../doc/auth/oauth-2-client-
 |  --- | --- | --- | --- |
 | `upvestClientId` | `Guid` | Header, Required | Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID). |
 | `upvestApiVersion` | [`UpvestApiVersion?`](../../doc/models/upvest-api-version.md) | Header, Optional | Upvest API version (Note: Do not include quotation marks)<br><br>**Default**: `UpvestApiVersion.Enum_1` |
-| `sort` | [`Sort1?`](../../doc/models/sort-1.md) | Query, Optional | Sort the result by `created_at`, `updated_at`.<br><br>**Default**: `Sort1.created_at` |
+| `sort` | [`Sort1?`](../../doc/models/sort-1.md) | Query, Optional | The field to sort the results by. One of `created_at` or `updated_at`; defaults to `created_at`.<br><br>**Default**: `Sort1.created_at` |
 | `order` | [`Order?`](../../doc/models/order.md) | Query, Optional | Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.<br><br>**Default**: `Order.ASC` |
 | `offset` | `int?` | Query, Optional | Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.<br><br>**Constraints**: `>= 0` |
 | `limit` | `int?` | Query, Optional | Use the `limit` argument to specify the maximum number of items returned.<br><br>**Default**: `100`<br><br>**Constraints**: `>= 1`, `<= 1000` |
@@ -439,7 +447,11 @@ catch (ApiException e)
 
 # Create Account Group
 
-Creates an account group.
+Creates an account group for a user or a business.
+
+An account group aggregates the accounts within it for tax calculation and regulatory reporting purposes and holds positions in the form of cash; the official securities account number is assigned at account group level. The account group is created with status `PENDING_APPROVAL` and switches to `ACTIVE` once onboarding is complete.
+
+See the Creating account groups guide ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_create_account_groups) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_create_account_groups)) for implementation details.
 
 ```csharp
 CreateAccountGroupAsync(

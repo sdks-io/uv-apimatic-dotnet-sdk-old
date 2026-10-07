@@ -35,6 +35,8 @@ OAuth 2 scopes supported by the API
 | `CashBalanceTransfersadmin` | Cash balance transfer operations |
 | `CashBalanceTransfersread` | Cash balance transfer read operations |
 | `CreditFundingsread` | Credit Fundings read operations |
+| `CashCreditsadmin` | Cash credits operations |
+| `CashCreditsread` | Cash credits read operations |
 | `SecuritiesTransfersread` | Securities Transfers read transfers |
 | `SecuritiesTransfersadmin` | Securities Transfers operations |
 | `IsaTransfersadmin` | ISA Transfers operations |
@@ -72,6 +74,6 @@ OAuth 2 scopes supported by the API
 ```csharp
 using UpvestInvestmentApi.Standard.Models;
 
-OauthScope oauthScope = OauthScope.Businessesadmin;
+OauthScope oauthScope = OauthScope.CashCreditsadmin;
 ```
 

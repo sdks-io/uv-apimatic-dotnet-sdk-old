@@ -1,6 +1,8 @@
 
 # Account Valuation Security Position
 
+The value contributed by a single instrument position to an account valuation, including its quantity, value, and weight in the account.
+
 ## Structure
 
 `AccountValuationSecurityPosition`
@@ -11,9 +13,9 @@
 |  --- | --- | --- | --- |
 | `Instrument` | [`Instrument6`](../../doc/models/instrument-6.md) | Required | Entity representing the financial instrument. |
 | `Quantity` | `string` | Required | **Constraints**: *Pattern*: `^-?[0-9]{0,63}(\.[0-9]{1,10})?$` |
-| `MValue` | [`MValue`](../../doc/models/m-value.md) | Required | - |
+| `MValue` | [`MValue`](../../doc/models/m-value.md) | Required | The value of this instrument position, or `null` if no price was available at the requested price quality. |
 | `Weight` | `string` | Required | Total weight of the instrument (10 decimal places).<br><br>**Constraints**: *Pattern*: `^-?[0-9]{0,63}(\.[0-9]{1,10})?$` |
-| `PriceQuality` | [`PriceQuality5?`](../../doc/models/price-quality-5.md) | Optional | The price quality used for the calculation of the value of the position.<br><br>* EOD - end of day price<br>* REALTIME - realtime price<br>* DELAYED - delayed price<br>* NA - no available price |
+| `PriceQuality` | [`PriceQuality5?`](../../doc/models/price-quality-5.md) | Optional | The price quality used to calculate the value of this position.<br><br>* EOD - End of day price<br>* REALTIME - Real-time price<br>* DELAYED - Delayed price<br>* NA - No price was available. |
 
 ## Example
 

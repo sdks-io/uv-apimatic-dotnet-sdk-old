@@ -84,7 +84,7 @@ namespace UpvestInvestmentApi.Standard.Models
             Guid savingsPlanId,
             string cashAmount,
             Models.Currency currency,
-            Models.Status93 status,
+            Models.Status89 status,
             string type,
             string executionDate,
             SavingsPlanExecutionPortfolioOrderId orderId = null,
@@ -144,7 +144,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         [JsonRequired]
@@ -164,7 +164,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public SavingsPlanExecutionPortfolioOrderId OrderId { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("cash_amount")]
@@ -173,8 +173,8 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         [JsonRequired]
@@ -190,7 +190,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// </summary>
         [JsonProperty("status")]
         [JsonRequired]
-        public Models.Status93 Status { get; set; }
+        public Models.Status89 Status { get; set; }
 
         /// <summary>
         /// The type of savings plan must be "PORTFOLIO".

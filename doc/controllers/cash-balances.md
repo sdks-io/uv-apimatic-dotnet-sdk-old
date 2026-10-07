@@ -19,7 +19,9 @@ CashBalancesApi cashBalancesApi = client.CashBalancesApi;
 
 **This endpoint is deprecated.**
 
-Retrieve an account group's cash balance
+**Deprecated.** Use `GET /account_groups/{account_group_id}/payments/cash_balances/{currency}` instead.
+
+Returns the account group's cash balance.
 
 ```csharp
 RetrieveCashBalanceAsync(
@@ -106,7 +108,9 @@ catch (ApiException e)
 
 # Retrieve Cash Balances
 
-Retrieve an account group's cash balances
+Returns the list of cash balances held by the account group.
+
+See the Cash balances guide ([TOL](https://docs.upvest.co/products/tol/guides/payments/cash_balances/cash_balances_intro) / [BYOL](https://docs.upvest.co/products/byol/guides/payments/cash_balances/cash_balances_intro)) for how `balance`, `locked_for_trading`, `pending_settlement`, `available_for_withdrawal`, and `available_for_trading` relate to each other.
 
 ```csharp
 RetrieveCashBalancesAsync(
@@ -221,7 +225,9 @@ catch (ApiException e)
 
 # Retrieve Cash Balance with Currency
 
-Retrieve an account group's cash balance for particular ISO currency code
+Returns the account group's cash balance for the given `currency`.
+
+See the Cash balances guide ([TOL](https://docs.upvest.co/products/tol/guides/payments/cash_balances/cash_balances_retrieving) / [BYOL](https://docs.upvest.co/products/byol/guides/payments/cash_balances/cash_balances_retrieving)) for implementation details.
 
 ```csharp
 RetrieveCashBalanceWithCurrencyAsync(

@@ -93,7 +93,8 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.Status56 Status { get; set; }
 
         /// <summary>
-        /// Types of the ISA tax wrapper
+        /// The kind of ISA that the tax wrapper represents.
+        /// * STOCKS_AND_SHARES_ISA — A Stocks and Shares ISA.
         /// </summary>
         [JsonProperty("type")]
         public string Type { get; set; }

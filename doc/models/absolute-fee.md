@@ -16,7 +16,7 @@ A fixed cash fee applied to an order, specified as an absolute amount in a given
 | `Type` | [`FeeType`](../../doc/models/fee-type.md) | Required | Fee type<br><br>* TRANSACTION_FEE_BUY -<br>* TRANSACTION_FEE_SELL - |
 | `ValueType` | `string` | Required | The value type must be “ABSOLUTE”.<br><br>**Default**: `"ABSOLUTE"` |
 | `ChargeMethod` | [`FeeChargeMethod`](../../doc/models/fee-charge-method.md) | Required | Indicates whether the fee will be charged by client or by other methods.<br><br>* CHARGED_BY_CLIENT -<br>* COLLECTED_BY_UPVEST - |
-| `CashAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
+| `CashAmount` | `string` | Required | A positive cash amount, as a decimal string with up to two decimal places.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
 | `Currency` | [`Currency29`](../../doc/models/currency-29.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - British Pound<br>* USD - US Dollar |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 

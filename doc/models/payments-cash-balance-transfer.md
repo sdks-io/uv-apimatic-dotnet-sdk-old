@@ -16,8 +16,8 @@ Represents an internal cash balance transfer between two account groups belongin
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `SourceAccountGroupId` | `Guid` | Required | The account group the cash is transferred from. Must differ from `target_account_group_id` and belong to the same user and tenant. Allowed account group types are `PERSONAL`, `CHILD`, and `BUSINESS`, and the source and target account groups must be of the same type. |
 | `TargetAccountGroupId` | `Guid` | Required | The account group the cash is transferred to. Must differ from `source_account_group_id` and belong to the same user and tenant. Allowed account group types are `PERSONAL`, `CHILD`, and `BUSINESS`, and the source and target account groups must be of the same type. |
-| `Amount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `Amount` | `string` | Required | A positive cash amount, as a decimal string with up to two decimal places.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `Status` | [`Status37`](../../doc/models/status-37.md) | Required | Status of the cash balance transfer.<br><br>* ISSUED - Transfer has been created and the cash movement is in progress.<br>* CONFIRMED - Cash was successfully moved from the source to the target account group.<br>* CANCELLED - Transfer was cancelled and no cash was moved. |
 | `CancellationReason` | `string` | Optional | Reason the transfer was cancelled. Present only when `status` is `CANCELLED`, otherwise `null`. |
 

@@ -1,6 +1,8 @@
 
 # Business Account
 
+An account held by a business. Accounts belong to an account group and hold positions in the form of units.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -11,15 +13,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid` | Required | Account unique identifier. |
+| `Id` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `AccountGroupId` | `Guid` | Required | Account group unique identifier. |
+| `AccountGroupId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account group. |
 | `Type` | [`Type16`](../../doc/models/type-16.md) | Required | Account type.<br><br>* TRADING - Orders in accounts of this type are created on a specific instrument basis.<br>* PORTFOLIO - Orders in accounts of this type are created on a portfolio basis and additional portfolio functionality is available. |
 | `BusinessId` | `Guid` | Required | Unique identifier for the business. |
 | `AccountNumber` | `int` | Required | The serial account number of the account in the account group.<br><br>**Constraints**: `>= 1` |
 | `Name` | `string` | Required | The name of the account.<br><br>**Constraints**: *Maximum Length*: `100` |
-| `Status` | [`Status21`](../../doc/models/status-21.md) | Required | The status of the account<br><br>* PENDING_APPROVAL - Account approval is pending - the account is visible through our API but cannot be acted on.<br>* ACTIVE - Account is active - full functionality of the Investment API is accessible.<br>* CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.<br>* CLOSED - Account is closed with zero balance successfully.<br>* LOCKED - Account is locked for all actions. |
+| `Status` | [`Status21`](../../doc/models/status-21.md) | Required | The status of the account.<br><br>* `PENDING_APPROVAL` — Account approval is pending — the account is visible through our API but cannot be acted on.<br>* `ACTIVE` — Account is active — full functionality of the Investment API is accessible.<br>* `CLOSING` — Account is closing — only sell orders or the transfer of positions out are permissible before the account is closed.<br>* `CLOSED` — Account is closed with zero balance.<br>* `LOCKED` — Account is locked for all actions. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

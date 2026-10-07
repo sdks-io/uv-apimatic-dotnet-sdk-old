@@ -1,7 +1,7 @@
 
 # Report Data
 
-Contents of the report.
+The contents of a report, including the account it relates to and references to the resources that triggered it.
 
 *This model accepts additional fields of type object.*
 
@@ -13,8 +13,8 @@ Contents of the report.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Account` | [`Account7`](../../doc/models/account-7.md) | Optional | Account information. |
-| `References` | [`List<ReportReferenceData>`](../../doc/models/report-reference-data.md) | Optional | - |
+| `Account` | [`Account7`](../../doc/models/account-7.md) | Optional | The account that the report relates to. |
+| `References` | [`List<ReportReferenceData>`](../../doc/models/report-reference-data.md) | Optional | Identifiers of the resources that the report relates to, such as the order or corporate action that triggered it. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

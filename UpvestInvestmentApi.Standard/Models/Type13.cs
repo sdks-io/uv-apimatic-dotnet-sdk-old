@@ -44,6 +44,12 @@ namespace UpvestInvestmentApi.Standard.Models
         /// Child.
         /// </summary>
         [EnumMember(Value = "CHILD")]
-        Child
+        Child,
+
+        /// <summary>
+        /// Joint.
+        /// </summary>
+        [EnumMember(Value = "JOINT")]
+        Joint
     }
 }

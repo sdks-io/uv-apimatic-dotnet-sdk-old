@@ -1,7 +1,7 @@
 
 # Business
 
-Business details.
+The business that the report is addressed to.
 
 *This model accepts additional fields of type object.*
 

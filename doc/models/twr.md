@@ -1,6 +1,8 @@
 
 # Twr
 
+The account's time-weighted return (TWR), which measures investment performance independently of deposits, withdrawals, and other external cash flows.
+
 *This model accepts additional fields of type object.*
 
 ## Structure

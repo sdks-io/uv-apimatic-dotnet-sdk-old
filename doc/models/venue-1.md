@@ -1,7 +1,7 @@
 
 # Venue 1
 
-Venue details.
+The execution venue on which the planned order would be executed.
 
 *This model accepts additional fields of type object.*
 
@@ -13,7 +13,7 @@ Venue details.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Name` | `string` | Optional | Venue name.<br><br>**Constraints**: *Maximum Length*: `100` |
+| `Name` | `string` | Optional | The name of the execution venue.<br><br>**Constraints**: *Maximum Length*: `100` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

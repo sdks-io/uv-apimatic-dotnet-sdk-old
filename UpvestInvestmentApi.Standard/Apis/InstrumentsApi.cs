@@ -26,7 +26,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal InstrumentsApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// List instruments.
+        /// Returns the list of instruments available on the Upvest platform.
+        /// Narrow the list with the `trading_status` query parameter, and page through results with `offset` and `limit`; `meta.total_count` gives the total number of matching instruments. The instrument universe reflects onboarding, delisting, and trading bans as they occur.
+        /// See the instruments guide ([TOL](https://docs.upvest.co/products/tol/guides/instruments/implementing_instruments) / [BYOL](https://docs.upvest.co/products/byol/guides/instruments/implementing_instruments) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/instruments/implementing_instruments)) for instrument onboarding, delisting, and trading bans.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -47,7 +49,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(ListInstrumentsAsync(upvestClientId, upvestApiVersion, tradingStatus, sort, order, offset, limit));
 
         /// <summary>
-        /// List instruments.
+        /// Returns the list of instruments available on the Upvest platform.
+        /// Narrow the list with the `trading_status` query parameter, and page through results with `offset` and `limit`; `meta.total_count` gives the total number of matching instruments. The instrument universe reflects onboarding, delisting, and trading bans as they occur.
+        /// See the instruments guide ([TOL](https://docs.upvest.co/products/tol/guides/instruments/implementing_instruments) / [BYOL](https://docs.upvest.co/products/byol/guides/instruments/implementing_instruments) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/instruments/implementing_instruments)) for instrument onboarding, delisting, and trading bans.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -91,7 +95,8 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Returns the instrument.
+        /// Returns the instrument identified by `instrument_id`, including its identifiers, name, trading status, and whether it supports fractional investing.
+        /// See the instruments guide ([TOL](https://docs.upvest.co/products/tol/guides/instruments/implementing_instruments) / [BYOL](https://docs.upvest.co/products/byol/guides/instruments/implementing_instruments) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/instruments/implementing_instruments)) for instrument onboarding, delisting, and trading bans.
         /// </summary>
         /// <param name="instrumentId">Required parameter: The unique identifier of the instrument, provided as either an `isin:` URN or a `uuid:` URN..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -104,7 +109,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveInstrumentAsync(instrumentId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Returns the instrument.
+        /// Returns the instrument identified by `instrument_id`, including its identifiers, name, trading status, and whether it supports fractional investing.
+        /// See the instruments guide ([TOL](https://docs.upvest.co/products/tol/guides/instruments/implementing_instruments) / [BYOL](https://docs.upvest.co/products/byol/guides/instruments/implementing_instruments) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/instruments/implementing_instruments)) for instrument onboarding, delisting, and trading bans.
         /// </summary>
         /// <param name="instrumentId">Required parameter: The unique identifier of the instrument, provided as either an `isin:` URN or a `uuid:` URN..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>

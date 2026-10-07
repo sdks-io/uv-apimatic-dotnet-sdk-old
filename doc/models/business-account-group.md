@@ -1,6 +1,8 @@
 
 # Business Account Group
 
+An account group owned by a business. Aggregates its accounts for tax calculation and regulatory reporting, holds positions in the form of cash, and carries the official securities account number.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -11,13 +13,13 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid` | Required | Account group unique identifier. |
+| `Id` | `Guid` | Required | Universally Unique Identifier (UUID) of the account group. |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `BusinessId` | `Guid` | Required | Unique identifier for the business. |
-| `Status` | [`Status18`](../../doc/models/status-18.md) | Required | Status of the account group<br><br>* PENDING_APPROVAL - Account group approval is pending - the account group is visible through our API but cannot be acted on.<br>* ACTIVE - Account group is active - full functionality of the Investment API is accessible.<br>* CLOSING - Account group is closing.<br>* CLOSED - Account group is closed.<br>* LOCKED - Account group is locked for all actions. |
+| `Status` | [`Status18`](../../doc/models/status-18.md) | Required | Status of the account group.<br><br>* `PENDING_APPROVAL` — Account group approval is pending — the account group is visible through our API but cannot be acted on.<br>* `ACTIVE` — Account group is active — full functionality of the Investment API is accessible.<br>* `CLOSING` — Account group is closing.<br>* `CLOSED` — Account group is closed.<br>* `LOCKED` — Account group is locked for all actions. |
 | `Type` | `string` | Required, Constant | Account group type.<br><br>* BUSINESS - Account group of a business holding assets.<br><br>**Value**: `"BUSINESS"` |
-| `SecuritiesAccountNumber` | `string` | Required | Account unique identifier. |
+| `SecuritiesAccountNumber` | `string` | Required | Official securities account number, assigned at account group level. A string of 7 to 12 digits. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

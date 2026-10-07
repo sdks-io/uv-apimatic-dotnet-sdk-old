@@ -80,7 +80,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string TierId { get; set; }
 
         /// <summary>
-        /// Gets or sets BaseAmountFrom.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("base_amount_from")]
@@ -88,7 +88,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string BaseAmountFrom { get; set; }
 
         /// <summary>
-        /// Gets or sets FeeAmount.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("fee_amount")]

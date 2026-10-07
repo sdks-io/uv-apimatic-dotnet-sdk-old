@@ -61,7 +61,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("account_group_id")]
         public Guid AccountGroupId { get; set; }

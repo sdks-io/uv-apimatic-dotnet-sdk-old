@@ -1,6 +1,8 @@
 
 # Datum 7
 
+A financial instrument available on the Upvest platform.
+
 ## Structure
 
 `Datum7`
@@ -14,10 +16,10 @@
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `Isin` | `string` | Optional | International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).<br><br>**Constraints**: *Pattern*: `^[A-Z]{2}[A-Z0-9]{9}[0-9]$` |
 | `Wkn` | `string` | Optional | German securities identification code known as [Wertpapierkennnummer](https://en.wikipedia.org/wiki/Wertpapierkennnummer).<br><br>**Constraints**: *Pattern*: `^[A-HJ-NP-Z0-9]{6}$` |
-| `Name` | `string` | Required | Instrument name<br><br>**Constraints**: *Maximum Length*: `100` |
+| `Name` | `string` | Required | The name of the instrument.<br><br>**Constraints**: *Maximum Length*: `100` |
 | `FractionalTrading` | `bool` | Required | Determines whether the platform can handle fractional investments within this instrument. |
 | `TradingStatus` | [`InstrumentTradingStatus`](../../doc/models/instrument-trading-status.md) | Required | Instrument trading status<br><br>* ACTIVE - The instrument can currently be traded on the Upvest platform.<br>* INACTIVE - The instrument cannot currently be traded on the Upvest platform. |
-| `Details` | [`Details`](../../doc/models/details.md) | Optional | Details |
+| `Details` | [`Details`](../../doc/models/details.md) | Optional | Additional descriptive detail about an instrument, including where it may be distributed. |
 
 ## Example
 

@@ -13,9 +13,9 @@ Represents an incoming SEPA Credit Transfer received by Upvest and credited to a
 |  --- | --- | --- | --- |
 | `Id` | `Guid` | Required | Credit Funding request unique identifier |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `AccountGroupId` | `Guid` | Required | Account group unique identifier. |
-| `CashAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `AccountGroupId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account group. |
+| `CashAmount` | `string` | Required | A positive cash amount, as a decimal string with up to two decimal places.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `Status` | [`Status32?`](../../doc/models/status-32.md) | Optional | Status of the credit funding<br><br>* CONFIRMED - Credit Funding was confirmed.<br>* CANCELLED - Credit Funding was cancelled. |
 | `RemittanceInformation` | `string` | Required | Payment reference the one that was used by the end user for the corresponding SEPA Credit Transfer |
 | `Counterparty` | [`Counterparty`](../../doc/models/counterparty.md) | Required | - |

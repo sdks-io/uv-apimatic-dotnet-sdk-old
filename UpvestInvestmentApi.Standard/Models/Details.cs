@@ -65,7 +65,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Distribution Countries
+        /// The countries in which an instrument may be distributed, as ISO 3166-1 alpha-2 codes.
         /// </summary>
         [JsonProperty("distribution_countries", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> DistributionCountries { get; set; }

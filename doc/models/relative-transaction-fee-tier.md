@@ -14,10 +14,10 @@ A single tier of a transaction fee model based on a percentage (defined in basis
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `TierId` | `string` | Required | Unique identifier of the fee tier within the transaction fee model. A numeric string of up to 63 digits.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,63}$` |
-| `BaseAmountFrom` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `FeeBps` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `MinFeeAmount` | `string` | Optional | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `MaxFeeAmount` | `string` | Optional | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `BaseAmountFrom` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `FeeBps` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `MinFeeAmount` | `string` | Optional | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `MaxFeeAmount` | `string` | Optional | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

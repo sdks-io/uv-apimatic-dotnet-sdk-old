@@ -68,14 +68,14 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Unit of time.
-        /// * YEAR -
+        /// The unit in which the holding period is counted.
+        /// * YEAR — The holding period is counted in years.
         /// </summary>
         [JsonProperty("unit", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Unit? Unit { get; set; }
 
         /// <summary>
-        /// Quantity of time units.
+        /// The number of holding period units assumed, for example 3 for a three-year holding period.
         /// </summary>
         [JsonProperty("quantity", NullValueHandling = NullValueHandling.Ignore)]
         public int? Quantity { get; set; }

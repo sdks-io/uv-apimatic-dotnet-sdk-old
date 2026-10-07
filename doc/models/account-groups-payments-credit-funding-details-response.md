@@ -11,7 +11,7 @@ Virtual bank account details for funding an account group via SEPA Credit Transf
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
 | `Data` | [`List<Datum4>`](../../doc/models/datum-4.md) | Required | - |
 
 ## Example

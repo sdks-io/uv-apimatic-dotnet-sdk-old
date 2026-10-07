@@ -72,10 +72,10 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Fee type
-        /// * TRANSACTION_FEE_BUY -
-        /// * TRANSACTION_FEE_SELL -
-        /// * ANNUAL_AUM_BASED_FEE -
+        /// What the fee is charged for.
+        /// * TRANSACTION_FEE_BUY — A fee charged on a buy order.
+        /// * TRANSACTION_FEE_SELL — A fee charged on a sell order.
+        /// * ANNUAL_AUM_BASED_FEE — An annual fee charged as a percentage of assets under management.
         /// </summary>
         [JsonProperty("type")]
         [JsonRequired]

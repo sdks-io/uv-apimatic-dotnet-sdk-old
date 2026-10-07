@@ -18,7 +18,7 @@ Address. Must not be a P.O. box or c/o address.
 | `Postcode` | `string` | Required | Postal code (postcode, PIN or ZIP code)<br><br>**Constraints**: *Pattern*: `^[a-zA-Z0-9][a-zA-Z0-9\s\-]{0,8}[a-zA-Z0-9]?$` |
 | `Country` | [`Country`](../../doc/models/country.md) | Required | Accepted country code. [ISO 3166-1 alpha-2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
 | `State` | `string` | Optional | State, province, county. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).<br><br>**Constraints**: *Maximum Length*: `50` |
-| `City` | `string` | Required | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `85` |
+| `City` | `string` | Required | The name of a city, as it appears in a postal address.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `85` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

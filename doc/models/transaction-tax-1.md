@@ -12,8 +12,8 @@ Entity representing the transaction tax.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `Amount` | `string` | Required | **Constraints**: *Pattern*: `^-?[0-9]{1,9}(\.[0-9]{2})?$` |
-| `Currency` | [`Currency1`](../../doc/models/currency-1.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling<br>* USD - The United States dollar |
-| `Type` | [`Type49`](../../doc/models/type-49.md) | Required | Type of the tax. |
+| `Currency` | [`Currency1`](../../doc/models/currency-1.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling.<br>* USD — The United States dollar. |
+| `Type` | [`Type49`](../../doc/models/type-49.md) | Required | The kind of tax this component represents.<br><br>* CAPITAL_GAINS — Capital gains tax.<br>* CHURCH_TAX — German church tax (Kirchensteuer).<br>* SOLIDARITY_SURCHARGE — German solidarity surcharge (Solidaritätszuschlag).<br>* FINANCIAL_TRANSACTION_TAX — Financial transaction tax.<br>* STAMP_DUTY — Stamp duty.<br>* INTERNATIONAL_WITHHOLDING_TAX — Withholding tax levied in another jurisdiction. |
 | `TaxingJurisdiction` | `string` | Required | Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).<br><br>**Constraints**: *Pattern*: `^[A-Z]{2}$` |
 
 ## Example

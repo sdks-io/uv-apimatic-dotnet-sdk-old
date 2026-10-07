@@ -1,9 +1,9 @@
 
 # Unit
 
-Unit of time.
+The unit in which the holding period is counted.
 
-* YEAR -
+* YEAR — The holding period is counted in years.
 
 ## Enumeration
 

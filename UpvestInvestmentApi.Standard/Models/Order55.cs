@@ -73,10 +73,10 @@ namespace UpvestInvestmentApi.Standard.Models
             Guid? accountId = null,
             string cashAmount = null,
             Models.Currency? currency = null,
-            Models.Side8? side = null,
+            Models.Side10? side = null,
             string instrumentId = null,
             Models.InstrumentIdType? instrumentIdType = Models.InstrumentIdType.Isin,
-            Models.OrderType4? orderType = null,
+            Models.OrderType6? orderType = null,
             string quantity = null,
             string limitPrice = null,
             string stopPrice = null,
@@ -99,7 +99,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// The ID of the business.
+        /// The unique identifier of the business placing the order, as a UUID.
         /// </summary>
         [JsonProperty("business_id", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? BusinessId { get; set; }
@@ -111,24 +111,24 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid? AccountId { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// The cash amount the planned order would invest, as a decimal string.
         /// </summary>
         [JsonProperty("cash_amount", NullValueHandling = NullValueHandling.Ignore)]
         public string CashAmount { get; set; }
 
         /// <summary>
-        /// Gets or sets Currency.
+        /// The currency of the planned order, as an [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-letter code.
         /// </summary>
         [JsonProperty("currency", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Currency? Currency { get; set; }
 
         /// <summary>
-        /// Side of the order.
-        /// * BUY -
-        /// * SELL -
+        /// Whether the planned order buys or sells the instrument.
+        /// * BUY — The order buys the instrument.
+        /// * SELL — The order sells the instrument.
         /// </summary>
         [JsonProperty("side", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.Side8? Side { get; set; }
+        public Models.Side10? Side { get; set; }
 
         /// <summary>
         /// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
@@ -137,41 +137,41 @@ namespace UpvestInvestmentApi.Standard.Models
         public string InstrumentId { get; set; }
 
         /// <summary>
-        /// The type of the ID used in the request.
-        /// * ISIN -
+        /// The kind of identifier given in `instrument_id`.
+        /// * ISIN — International Securities Identification Number.
         /// </summary>
         [JsonProperty("instrument_id_type", NullValueHandling = NullValueHandling.Ignore)]
         public Models.InstrumentIdType? InstrumentIdType { get; set; }
 
         /// <summary>
-        /// Order type.
-        /// * MARKET -
-        /// * LIMIT -
-        /// * STOP -
+        /// How the planned order is priced.
+        /// * MARKET — Executes at the best price available.
+        /// * LIMIT — Executes only at the `limit_price` or better.
+        /// * STOP — Becomes a market order once the `stop_price` is reached.
         /// </summary>
         [JsonProperty("order_type", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.OrderType4? OrderType { get; set; }
+        public Models.OrderType6? OrderType { get; set; }
 
         /// <summary>
-        /// Gets or sets Quantity.
+        /// The number of units the planned order would buy or sell, as a decimal string.
         /// </summary>
         [JsonProperty("quantity", NullValueHandling = NullValueHandling.Ignore)]
         public string Quantity { get; set; }
 
         /// <summary>
-        /// Gets or sets LimitPrice.
+        /// The limit price of the planned order, as a decimal string. Applies to `LIMIT` orders.
         /// </summary>
         [JsonProperty("limit_price", NullValueHandling = NullValueHandling.Ignore)]
         public string LimitPrice { get; set; }
 
         /// <summary>
-        /// Gets or sets StopPrice.
+        /// The stop price of the planned order, as a decimal string. Applies to `STOP` orders.
         /// </summary>
         [JsonProperty("stop_price", NullValueHandling = NullValueHandling.Ignore)]
         public string StopPrice { get; set; }
 
         /// <summary>
-        /// Gets or sets Price.
+        /// The price used to estimate the costs of the planned order, as a decimal string.
         /// </summary>
         [JsonProperty("price", NullValueHandling = NullValueHandling.Ignore)]
         public string Price { get; set; }

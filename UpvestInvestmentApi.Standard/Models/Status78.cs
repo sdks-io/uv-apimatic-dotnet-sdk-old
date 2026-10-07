@@ -29,21 +29,15 @@ namespace UpvestInvestmentApi.Standard.Models
         Processing,
 
         /// <summary>
-        /// Settled.
-        /// </summary>
-        [EnumMember(Value = "SETTLED")]
-        Settled,
-
-        /// <summary>
-        /// PartiallySettled.
-        /// </summary>
-        [EnumMember(Value = "PARTIALLY_SETTLED")]
-        PartiallySettled,
-
-        /// <summary>
         /// Cancelled.
         /// </summary>
         [EnumMember(Value = "CANCELLED")]
-        Cancelled
+        Cancelled,
+
+        /// <summary>
+        /// Settled.
+        /// </summary>
+        [EnumMember(Value = "SETTLED")]
+        Settled
     }
 }

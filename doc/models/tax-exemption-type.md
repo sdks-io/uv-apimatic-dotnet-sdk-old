@@ -5,6 +5,7 @@ Tax exemption type
 
 * SINGLE - Tax exemption for Individual.
 * MARRIED - Tax exemption for married couples.
+* CIVIL_PARTNERSHIP - Tax exemption for registered civil partnerships.
 
 ## Enumeration
 
@@ -16,12 +17,13 @@ Tax exemption type
 |  --- |
 | `Single` |
 | `Married` |
+| `CivilPartnership` |
 
 ## Example
 
 ```csharp
 using UpvestInvestmentApi.Standard.Models;
 
-TaxExemptionType taxExemptionType = TaxExemptionType.Single;
+TaxExemptionType taxExemptionType = TaxExemptionType.CivilPartnership;
 ```
 

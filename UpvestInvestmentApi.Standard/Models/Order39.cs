@@ -249,7 +249,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.Status51 Status { get; set; }
 
         /// <summary>
-        /// Gets or sets Fee.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("fee")]
@@ -269,7 +269,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// <summary>
         /// Identifies what triggered the order.
         /// * API — initiated directly via the client API.
-        /// * PORTFOLIO — initiated by a portfolio rebalancing flow.
+        /// * PORTFOLIO — initiated by a portfolio order.
         /// * CASH_DIVIDEND_REINVESTMENT — initiated as part of dividend reinvestment.
         /// * PORTFOLIO_REBALANCING — initiated by an automated rebalancing.
         /// * SELL_TO_COVER_FEES — initiated automatically to cover outstanding fees.

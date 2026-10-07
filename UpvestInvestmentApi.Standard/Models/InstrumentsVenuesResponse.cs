@@ -31,7 +31,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Data.
+        /// The trading venues available for the instrument.
         /// </summary>
         [JsonProperty("data")]
         public List<Models.Venue> Data { get; set; }

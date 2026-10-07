@@ -1,7 +1,7 @@
 
 # Return Impact
 
-Return impact.
+The cumulative effect of the estimated costs on the investment return, shown for each year of the assumed holding period.
 
 *This model accepts additional fields of type object.*
 
@@ -13,9 +13,9 @@ Return impact.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `YearOne` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `YearTwo` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `YearThree` | [`Cost`](../../doc/models/cost.md) | Optional | - |
+| `YearOne` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `YearTwo` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `YearThree` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

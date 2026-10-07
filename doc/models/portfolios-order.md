@@ -15,16 +15,16 @@ Represents a portfolio order — a BUY or SELL instruction that invests or withd
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UserId` | `Guid?` | Optional | Unique identifier of the user, as a UUID. |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `AllocationId` | `Guid?` | Optional | Universally Unique Identifier (UUID) of a portfolio allocation. |
-| `CashAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `CashAmount` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `Status` | [`Status65`](../../doc/models/status-65.md) | Required | Execution status of the Portfolio Order.<br><br>* NEW -<br>* PROCESSING -<br>* FILLED -<br>* SETTLED -<br>* CANCELLED - |
 | `Type` | [`Type46?`](../../doc/models/type-46.md) | Optional | Type of the Portfolio Order.<br><br>* BUY -<br>* SELL -<br>* REBALANCING - |
 | `PostTax` | `bool` | Required | Cash amount is post-tax value<br><br>**Default**: `false` |
 | `Orders` | [`List<PortfoliosOrder1>`](../../doc/models/portfolios-order-1.md) | Required | Orders associated with this portfolio order |
 | `ClientReference` | `string` | Required | A reference string provided by the client to correlate the portfolio order with a record in the client's own system. |
-| `InitiationFlow` | [`InitiationFlowUsedDuringOrderCreation`](../../doc/models/initiation-flow-used-during-order-creation.md) | Required | What triggered the order creation .<br><br>* API -<br>* SAVINGS_PLAN - |
+| `InitiationFlow` | [`InitiationFlowUsedDuringOrderCreation`](../../doc/models/initiation-flow-used-during-order-creation.md) | Required | Identifies what triggered the portfolio order.<br><br>* API — initiated directly via the client API.<br>* SAVINGS_PLAN — initiated by a savings plan execution.<br>* AUTO_INVESTMENT — initiated automatically by auto-investment to invest incoming cash. |
 | `CancellationReason` | [`CancellationReasonCode?`](../../doc/models/cancellation-reason-code.md) | Optional | Explains the reason why the order was cancelled .<br><br>* ACCOUNT_IS_EMPTY -<br>* CANCELLED_BY_CLIENT -<br>* CANCELLED_BY_UPVEST -<br>* PORTFOLIO_IS_BALANCED -<br>* SELL_LIMIT_EXCEEDED - |
 | `CancellationDetails` | `string` | Optional | - |
 
@@ -59,7 +59,7 @@ PortfoliosOrder portfoliosOrder = new PortfoliosOrder
         },
     },
     ClientReference = "client_reference6",
-    InitiationFlow = InitiationFlowUsedDuringOrderCreation.Api,
+    InitiationFlow = InitiationFlowUsedDuringOrderCreation.AutoInvestment,
     UserId = new Guid("000001c4-0000-0000-0000-000000000000"),
     AllocationId = new Guid("00001084-0000-0000-0000-000000000000"),
     Type = Type46.Buy,

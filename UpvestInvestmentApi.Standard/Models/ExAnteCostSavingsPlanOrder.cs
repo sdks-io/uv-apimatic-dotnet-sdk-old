@@ -71,10 +71,10 @@ namespace UpvestInvestmentApi.Standard.Models
             Guid accountId,
             string cashAmount,
             Models.Currency currency,
-            Models.Side8 side,
+            Models.Side10 side,
             string instrumentId,
             string instrumentIdType,
-            Models.OrderType4 orderType,
+            Models.OrderType6 orderType,
             Models.Period period,
             string interval)
         {
@@ -93,7 +93,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// The ID of the user.
+        /// The unique identifier of the end user placing the order, as a UUID.
         /// </summary>
         [JsonProperty("user_id")]
         public Guid UserId { get; set; }
@@ -105,24 +105,24 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid AccountId { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// The cash amount the planned order would invest, as a decimal string.
         /// </summary>
         [JsonProperty("cash_amount")]
         public string CashAmount { get; set; }
 
         /// <summary>
-        /// Gets or sets Currency.
+        /// The currency of the planned order, as an [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-letter code.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency Currency { get; set; }
 
         /// <summary>
-        /// Side of the order.
-        /// * BUY -
-        /// * SELL -
+        /// Whether the planned order buys or sells the instrument.
+        /// * BUY — The order buys the instrument.
+        /// * SELL — The order sells the instrument.
         /// </summary>
         [JsonProperty("side")]
-        public Models.Side8 Side { get; set; }
+        public Models.Side10 Side { get; set; }
 
         /// <summary>
         /// International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).
@@ -131,29 +131,32 @@ namespace UpvestInvestmentApi.Standard.Models
         public string InstrumentId { get; set; }
 
         /// <summary>
-        /// The type of the ID used in the request.
-        /// * ISIN -
+        /// The kind of identifier given in `instrument_id`.
+        /// * ISIN — International Securities Identification Number.
         /// </summary>
         [JsonProperty("instrument_id_type")]
         public string InstrumentIdType { get; set; }
 
         /// <summary>
-        /// Order type.
-        /// * MARKET -
-        /// * LIMIT -
-        /// * STOP -
+        /// How the planned order is priced.
+        /// * MARKET — Executes at the best price available.
+        /// * LIMIT — Executes only at the `limit_price` or better.
+        /// * STOP — Becomes a market order once the `stop_price` is reached.
         /// </summary>
         [JsonProperty("order_type")]
-        public Models.OrderType4 OrderType { get; set; }
+        public Models.OrderType6 OrderType { get; set; }
 
         /// <summary>
-        /// Gets or sets Period.
+        /// The unit of the savings plan interval.
+        /// * WEEK — The interval is counted in weeks.
+        /// * MONTH — The interval is counted in months.
+        /// * YEAR — The interval is counted in years.
         /// </summary>
         [JsonProperty("period")]
         public Models.Period Period { get; set; }
 
         /// <summary>
-        /// Gets or sets Interval.
+        /// A whole number of units, as a string of digits.
         /// </summary>
         [JsonProperty("interval")]
         public string Interval { get; set; }

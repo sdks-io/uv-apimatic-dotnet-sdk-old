@@ -26,14 +26,16 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal TaxExemptionsApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Creates a tax exemption.
+        /// Creates a tax exemption order for end users who are resident in Germany for tax purposes.
+        /// Upvest must hold the end user's Tax Identification Number before an exemption can be created. The request is processed asynchronously: the exemption is created with status `NEW` and moves to `ACTIVE`, which is signalled by a `TAX_EXEMPTION` webhook event. A single exemption covers exactly one `user_ids` entry and an allowance of up to €1,000 per tax year; a joint exemption requires exactly two entries and covers up to €2,000.
+        /// See the [Creating a tax exemption order guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_creating) for implementation details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
         /// <param name="body">Optional parameter: .</param>
-        /// <returns>Returns the ApiResponse of Models.TaxExemptionsCreateResponse response from the API call.</returns>
-        public ApiResponse<Models.TaxExemptionsCreateResponse> CreateTaxExemption(
+        /// <returns>Returns the ApiResponse of Models.WebhookTaxExemptionCreatedTaxExemption response from the API call.</returns>
+        public ApiResponse<Models.WebhookTaxExemptionCreatedTaxExemption> CreateTaxExemption(
                 Guid upvestClientId,
                 Guid idempotencyKey,
                 Models.UpvestApiVersion? upvestApiVersion = Models.UpvestApiVersion.Enum1,
@@ -41,21 +43,23 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateTaxExemptionAsync(upvestClientId, idempotencyKey, upvestApiVersion, body));
 
         /// <summary>
-        /// Creates a tax exemption.
+        /// Creates a tax exemption order for end users who are resident in Germany for tax purposes.
+        /// Upvest must hold the end user's Tax Identification Number before an exemption can be created. The request is processed asynchronously: the exemption is created with status `NEW` and moves to `ACTIVE`, which is signalled by a `TAX_EXEMPTION` webhook event. A single exemption covers exactly one `user_ids` entry and an allowance of up to €1,000 per tax year; a joint exemption requires exactly two entries and covers up to €2,000.
+        /// See the [Creating a tax exemption order guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_creating) for implementation details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.TaxExemptionsCreateResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TaxExemptionsCreateResponse>> CreateTaxExemptionAsync(
+        /// <returns>Returns the ApiResponse of Models.WebhookTaxExemptionCreatedTaxExemption response from the API call.</returns>
+        public async Task<ApiResponse<Models.WebhookTaxExemptionCreatedTaxExemption>> CreateTaxExemptionAsync(
                 Guid upvestClientId,
                 Guid idempotencyKey,
                 Models.UpvestApiVersion? upvestApiVersion = Models.UpvestApiVersion.Enum1,
                 Models.TaxesTaxExemptionsCreateRequest body = null,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.TaxExemptionsCreateResponse>()
+            => await CreateApiCall<Models.WebhookTaxExemptionCreatedTaxExemption>()
               .RequestBuilder(requestBuilder => requestBuilder
                   .Setup(HttpMethod.Post, "/tax_exemptions")
                   .WithAuth("oauth-client-credentials")
@@ -78,7 +82,8 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Returns the tax exemption specified by its ID.
+        /// Returns the tax exemption order identified by `tax_exemption_id`, including its status and the allowance used and remaining for the tax year.
+        /// See the [Retrieving tax exemption orders guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_get) for implementation details.
         /// </summary>
         /// <param name="taxExemptionId">Required parameter: The unique identifier of the tax exemption. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -91,7 +96,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveTaxExemptionByIdAsync(taxExemptionId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Returns the tax exemption specified by its ID.
+        /// Returns the tax exemption order identified by `tax_exemption_id`, including its status and the allowance used and remaining for the tax year.
+        /// See the [Retrieving tax exemption orders guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_get) for implementation details.
         /// </summary>
         /// <param name="taxExemptionId">Required parameter: The unique identifier of the tax exemption. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -123,14 +129,15 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Updates a tax exemption specified by its ID.
+        /// Updates the tax exemption order identified by `tax_exemption_id`.
+        /// See the [Updating a tax exemption guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_update) for the rules governing reduction, increase, and cancellation of an exemption.
         /// </summary>
         /// <param name="taxExemptionId">Required parameter: The unique identifier of the tax exemption. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
         /// <param name="body">Optional parameter: .</param>
-        /// <returns>Returns the ApiResponse of Models.TaxExemptionsUpdateResponse response from the API call.</returns>
-        public ApiResponse<Models.TaxExemptionsUpdateResponse> UpdateTaxExemption(
+        /// <returns>Returns the ApiResponse of Models.WebhookTaxExemptionCreatedTaxExemption response from the API call.</returns>
+        public ApiResponse<Models.WebhookTaxExemptionCreatedTaxExemption> UpdateTaxExemption(
                 Guid taxExemptionId,
                 Guid upvestClientId,
                 Models.UpvestApiVersion? upvestApiVersion = Models.UpvestApiVersion.Enum1,
@@ -138,21 +145,22 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(UpdateTaxExemptionAsync(taxExemptionId, upvestClientId, upvestApiVersion, body));
 
         /// <summary>
-        /// Updates a tax exemption specified by its ID.
+        /// Updates the tax exemption order identified by `tax_exemption_id`.
+        /// See the [Updating a tax exemption guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_update) for the rules governing reduction, increase, and cancellation of an exemption.
         /// </summary>
         /// <param name="taxExemptionId">Required parameter: The unique identifier of the tax exemption. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
         /// <param name="body">Optional parameter: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.TaxExemptionsUpdateResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.TaxExemptionsUpdateResponse>> UpdateTaxExemptionAsync(
+        /// <returns>Returns the ApiResponse of Models.WebhookTaxExemptionCreatedTaxExemption response from the API call.</returns>
+        public async Task<ApiResponse<Models.WebhookTaxExemptionCreatedTaxExemption>> UpdateTaxExemptionAsync(
                 Guid taxExemptionId,
                 Guid upvestClientId,
                 Models.UpvestApiVersion? upvestApiVersion = Models.UpvestApiVersion.Enum1,
                 Models.TaxesTaxExemptionsUpdateRequest body = null,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.TaxExemptionsUpdateResponse>()
+            => await CreateApiCall<Models.WebhookTaxExemptionCreatedTaxExemption>()
               .RequestBuilder(requestBuilder => requestBuilder
                   .Setup(HttpMethod.Put, "/tax_exemptions/{tax_exemption_id}")
                   .WithAuth("oauth-client-credentials")
@@ -175,7 +183,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Deletes a tax exemption specified by its ID.
+        /// Deletes the tax exemption order identified by `tax_exemption_id` and stops it renewing in subsequent tax years.
+        /// Deletion succeeds only while none of the associated end users have claimed an exemption amount in the current tax year. If any amount has already been used, the exemption remains active and the request fails.
+        /// See the [Deleting a tax exemption order guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_deleting) for implementation details.
         /// </summary>
         /// <param name="taxExemptionId">Required parameter: The unique identifier of the tax exemption. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -187,7 +197,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunVoidTask(DeleteTaxExemptionAsync(taxExemptionId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Deletes a tax exemption specified by its ID.
+        /// Deletes the tax exemption order identified by `tax_exemption_id` and stops it renewing in subsequent tax years.
+        /// Deletion succeeds only while none of the associated end users have claimed an exemption amount in the current tax year. If any amount has already been used, the exemption remains active and the request fails.
+        /// See the [Deleting a tax exemption order guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_deleting) for implementation details.
         /// </summary>
         /// <param name="taxExemptionId">Required parameter: The unique identifier of the tax exemption. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -219,7 +231,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Returns the tax exemptions of the user specified by ID.
+        /// Returns the tax exemption orders of the end user identified by `user_id`.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching tax exemptions.
+        /// See the [Retrieving tax exemption orders guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_get) for implementation details.
         /// </summary>
         /// <param name="userId">Required parameter: The unique identifier of the user. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -240,7 +254,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveTaxExemptionsForUserAsync(userId, upvestClientId, upvestApiVersion, sort, order, offset, limit));
 
         /// <summary>
-        /// Returns the tax exemptions of the user specified by ID.
+        /// Returns the tax exemption orders of the end user identified by `user_id`.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching tax exemptions.
+        /// See the [Retrieving tax exemption orders guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_get) for implementation details.
         /// </summary>
         /// <param name="userId">Required parameter: The unique identifier of the user. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>

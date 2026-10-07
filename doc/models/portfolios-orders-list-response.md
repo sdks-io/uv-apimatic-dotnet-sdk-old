@@ -11,7 +11,7 @@ Paginated list of portfolio orders, including cursor-based pagination metadata.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
 | `Data` | [`List<PortfoliosOrder>`](../../doc/models/portfolios-order.md) | Required | - |
 
 ## Example
@@ -60,7 +60,7 @@ PortfoliosOrdersListResponse portfoliosOrdersListResponse = new PortfoliosOrders
                 },
             },
             ClientReference = "client_reference2",
-            InitiationFlow = InitiationFlowUsedDuringOrderCreation.Api,
+            InitiationFlow = InitiationFlowUsedDuringOrderCreation.SavingsPlan,
             UserId = new Guid("0000233a-0000-0000-0000-000000000000"),
             AllocationId = new Guid("000010f2-0000-0000-0000-000000000000"),
             Type = Type46.Rebalancing,

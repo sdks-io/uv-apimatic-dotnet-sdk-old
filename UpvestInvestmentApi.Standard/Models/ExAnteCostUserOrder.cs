@@ -97,7 +97,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// The user's ID.
+        /// The unique identifier of the end user placing the order, as a UUID.
         /// </summary>
         [JsonProperty("user_id")]
         [JsonRequired]
@@ -125,9 +125,9 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.Currency Currency { get; set; }
 
         /// <summary>
-        /// Side of the order.
-        /// * BUY -
-        /// * SELL -
+        /// Whether the order buys or sells the instrument.
+        /// * BUY — The order buys the instrument.
+        /// * SELL — The order sells the instrument.
         /// </summary>
         [JsonProperty("side")]
         [JsonRequired]
@@ -142,8 +142,8 @@ namespace UpvestInvestmentApi.Standard.Models
         public string InstrumentId { get; set; }
 
         /// <summary>
-        /// The type of the ID used in the request.
-        /// * ISIN -
+        /// The kind of identifier given in `instrument_id`.
+        /// * ISIN — International Securities Identification Number.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("instrument_id_type")]
@@ -151,10 +151,10 @@ namespace UpvestInvestmentApi.Standard.Models
         public string InstrumentIdType { get; set; }
 
         /// <summary>
-        /// Order type.
-        /// * MARKET -
-        /// * LIMIT -
-        /// * STOP -
+        /// How the order is priced.
+        /// * MARKET — Executes at the best price available.
+        /// * LIMIT — Executes only at the `limit_price` or better.
+        /// * STOP — Becomes a market order once the `stop_price` is reached.
         /// </summary>
         [JsonProperty("order_type")]
         [JsonRequired]

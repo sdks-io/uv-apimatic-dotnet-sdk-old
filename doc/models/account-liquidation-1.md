@@ -12,8 +12,8 @@ An individual sell order within an account liquidation, corresponding to the sal
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `Id` | `Guid` | Required | Universally Unique Identifier (UUID) of an account liquidation order. |
-| `Side` | `string` | Required | Side of the order.<br><br>* SELL -<br><br>**Default**: `"SELL"` |
-| `Status` | [`Status73`](../../doc/models/status-73.md) | Required | Execution status of the Account liquidation order.<br><br>* NEW -<br>* PROCESSING -<br>* FILLED -<br>* CANCELLED - |
+| `Side` | `string` | Required | Side of the order. Liquidation orders are always `SELL`.<br><br>**Default**: `"SELL"` |
+| `Status` | [`Status73`](../../doc/models/status-73.md) | Required | Execution status of the account liquidation order.<br><br>* `NEW` — The order has been created and awaits processing.<br>* `PROCESSING` — The order is being executed.<br>* `FILLED` — The order has been fully executed.<br>* `CANCELLED` — The order was cancelled before completion. |
 
 ## Example
 

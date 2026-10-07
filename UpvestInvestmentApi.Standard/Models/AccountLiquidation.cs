@@ -50,7 +50,7 @@ namespace UpvestInvestmentApi.Standard.Models
             DateTime updatedAt,
             Guid accountId,
             string cashAmount,
-            Models.Currency167 currency,
+            Models.Currency173 currency,
             Models.Status72 status,
             List<Models.AccountLiquidation1> orders,
             Guid? userId = null,
@@ -135,38 +135,38 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         public Guid AccountId { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonProperty("cash_amount")]
         public string CashAmount { get; set; }
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - British Pound
+        /// * `EUR` — Euro.
+        /// * `GBP` — Pound sterling.
         /// </summary>
         [JsonProperty("currency")]
-        public Models.Currency167 Currency { get; set; }
+        public Models.Currency173 Currency { get; set; }
 
         /// <summary>
-        /// Execution status of the Account liquidation.
-        /// * NEW -
-        /// * PROCESSING -
-        /// * FILLED -
-        /// * CANCELLED -
-        /// * SETTLED -
+        /// Execution status of the account liquidation.
+        /// * `NEW` — The liquidation has been created and awaits processing.
+        /// * `PROCESSING` — The liquidation orders are being executed.
+        /// * `FILLED` — All liquidation orders have been fully executed.
+        /// * `CANCELLED` — The liquidation was cancelled before completion.
+        /// * `SETTLED` — The liquidation proceeds have settled as cash.
         /// </summary>
         [JsonProperty("status")]
         public Models.Status72 Status { get; set; }
 
         /// <summary>
-        /// Position liquidation orders associated with this account liquidation
+        /// The individual position sell orders that make up this account liquidation.
         /// </summary>
         [JsonProperty("orders")]
         public List<Models.AccountLiquidation1> Orders { get; set; }

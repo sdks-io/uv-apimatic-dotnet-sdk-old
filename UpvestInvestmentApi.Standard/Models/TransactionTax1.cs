@@ -47,15 +47,21 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
-        /// * USD - The United States dollar
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
+        /// * USD — The United States dollar.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency1 Currency { get; set; }
 
         /// <summary>
-        /// Type of the tax.
+        /// The kind of tax this component represents.
+        /// * CAPITAL_GAINS — Capital gains tax.
+        /// * CHURCH_TAX — German church tax (Kirchensteuer).
+        /// * SOLIDARITY_SURCHARGE — German solidarity surcharge (Solidaritätszuschlag).
+        /// * FINANCIAL_TRANSACTION_TAX — Financial transaction tax.
+        /// * STAMP_DUTY — Stamp duty.
+        /// * INTERNATIONAL_WITHHOLDING_TAX — Withholding tax levied in another jurisdiction.
         /// </summary>
         [JsonProperty("type")]
         public Models.Type49 Type { get; set; }

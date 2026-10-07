@@ -1,6 +1,8 @@
 
 # Datum 8
 
+The end-of-day price data for an instrument over one interval, as open, high, low, and close values with the traded volume.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -11,7 +13,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Currency` | [`Currency?`](../../doc/models/currency.md) | Optional | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `Currency` | [`Currency?`](../../doc/models/currency.md) | Optional | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `Time` | `DateTime?` | Optional | The date and time indicating start of the interval. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `Open` | `string` | Optional | **Constraints**: *Pattern*: `^-?[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `Close` | `string` | Optional | **Constraints**: *Pattern*: `^-?[0-9]{0,63}(\.[0-9]{1,27})?$` |

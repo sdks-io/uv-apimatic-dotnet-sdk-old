@@ -40,25 +40,25 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Product.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("product", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost Product { get; set; }
 
         /// <summary>
-        /// Gets or sets Service.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("service", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost Service { get; set; }
 
         /// <summary>
-        /// Gets or sets ThirdParty.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("third_party", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost ThirdParty { get; set; }
 
         /// <summary>
-        /// Gets or sets Total.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("total", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost Total { get; set; }

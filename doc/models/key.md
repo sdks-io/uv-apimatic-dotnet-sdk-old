@@ -11,11 +11,11 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Kid` | `Guid?` | Optional | Key ID |
-| `Kty` | [`Kty?`](../../doc/models/kty.md) | Optional | Cryptographic algorithm family used with the key.<br><br>* EC -<br><br>**Default**: `Kty.EC` |
-| `Crv` | [`Crv?`](../../doc/models/crv.md) | Optional | Elliptic curve family.<br><br>* P-521 -<br><br>**Default**: `Crv.P521` |
-| `X` | `string` | Optional | Curve parameter |
-| `Y` | `string` | Optional | Curve parameter |
+| `Kid` | `Guid?` | Optional | The identifier of the key, matching the `kid` in the signature header of a webhook payload. |
+| `Kty` | [`Kty?`](../../doc/models/kty.md) | Optional | The cryptographic algorithm family of the key.<br><br>* EC — Elliptic curve.<br><br>**Default**: `Kty.EC` |
+| `Crv` | [`Crv?`](../../doc/models/crv.md) | Optional | The elliptic curve the key uses.<br><br>* P-521 — NIST P-521.<br><br>**Default**: `Crv.P521` |
+| `X` | `string` | Optional | The x coordinate of the elliptic curve point, base64url encoded. |
+| `Y` | `string` | Optional | The y coordinate of the elliptic curve point, base64url encoded. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

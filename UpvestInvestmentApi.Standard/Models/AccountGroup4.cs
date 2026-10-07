@@ -69,13 +69,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? Id { get; set; }
 
         /// <summary>
-        /// Securities account number.
+        /// The nine-digit securities account number of the account group.
         /// </summary>
         [JsonProperty("securities_account_number", NullValueHandling = NullValueHandling.Ignore)]
         public string SecuritiesAccountNumber { get; set; }

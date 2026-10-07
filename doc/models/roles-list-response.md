@@ -11,7 +11,7 @@ Paginated list of roles. Contains a `data` array of role objects and a `meta` ob
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
 | `Data` | [`List<RolesListResponseData>`](../../doc/models/containers/roles-list-response-data.md) | Required | This is List of a container for one-of cases. |
 
 ## Example
@@ -51,7 +51,7 @@ RolesListResponse rolesListResponse = new RolesListResponse
                 EntityType = "entity_type8",
                 EntityId = new Guid("00001688-0000-0000-0000-000000000000"),
                 RoleType = RoleType.Child,
-                Status = Status115.Active,
+                Status = Status111.Active,
                 CustodyType = CustodyType.SoleCustody,
                 ["exampleAdditionalProperty"] = ApiHelper.JsonDeserialize<object>("{\"key1\":\"val1\",\"key2\":\"val2\"}"),
             }
@@ -70,7 +70,7 @@ RolesListResponse rolesListResponse = new RolesListResponse
                 EntityType = "entity_type8",
                 EntityId = new Guid("00001688-0000-0000-0000-000000000000"),
                 RoleType = RoleType.Child,
-                Status = Status115.Active,
+                Status = Status111.Active,
                 CustodyType = CustodyType.SoleCustody,
                 ["exampleAdditionalProperty"] = ApiHelper.JsonDeserialize<object>("{\"key1\":\"val1\",\"key2\":\"val2\"}"),
             }

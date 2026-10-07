@@ -12,7 +12,7 @@ Request body for recording an incoming bank transaction against a virtual bank a
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `Account` | [`Account15`](../../doc/models/account-15.md) | Required | - |
-| `Amount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
+| `Amount` | `string` | Required | A positive cash amount, as a decimal string with up to two decimal places.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
 | `Currency` | [`BankTransactionCurrency`](../../doc/models/bank-transaction-currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code |
 | `RemittanceInformation` | `string` | Optional | Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.<br><br>**Constraints**: *Maximum Length*: `140`, *Pattern*: `^[0-9A-Za-z+?/\-:()\.,'; ]{0,140}$` |
 | `ClientReference` | `string` | Required | Immutable reference to the API flow that initiated the order. For client initiated API flows, this is a client provided ID. For internal initiations, it is set to the ID of the related object.<br><br>**Constraints**: *Maximum Length*: `35`, *Pattern*: `^[0-9A-Za-z+?/\-:()\.,'; ]{0,35}$` |

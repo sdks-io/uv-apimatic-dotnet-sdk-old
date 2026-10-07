@@ -39,7 +39,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         public Guid AccountId { get; set; }
@@ -52,7 +52,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// Gets or sets Twr.
+        /// The account's time-weighted return (TWR), which measures investment performance independently of deposits, withdrawals, and other external cash flows.
         /// </summary>
         [JsonProperty("twr")]
         public Models.Twr Twr { get; set; }

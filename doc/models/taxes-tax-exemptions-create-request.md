@@ -1,6 +1,8 @@
 
 # Taxes Tax Exemptions Create Request
 
+Request body for creating a tax exemption order for end users who are resident in Germany for tax purposes.
+
 ## Structure
 
 `TaxesTaxExemptionsCreateRequest`
@@ -10,7 +12,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `UserIds` | `List<Guid>` | Required | Ids of the users for whom the tax exemption is to be created. |
-| `TaxExemptionDetails` | [`TaxExemptionRequestGermanTaxExemptionDetails`](../../doc/models/tax-exemption-request-german-tax-exemption-details.md) | Required | - |
+| `TaxExemptionDetails` | [`TaxExemptionRequestGermanTaxExemptionDetails`](../../doc/models/tax-exemption-request-german-tax-exemption-details.md) | Required | The German tax exemption details supplied when creating or updating a tax exemption order. |
 | `Country` | `string` | Required | Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).<br><br>**Constraints**: *Pattern*: `^[A-Z]{2}$` |
 | `ValidToDate` | `DateTime?` | Optional | Date until which the tax exemption is valid. If it is unlimited, it is omitted. For Germany it is always the last day of the year (YYYY-12-31). [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) |
 
@@ -35,7 +37,7 @@ TaxesTaxExemptionsCreateRequest taxesTaxExemptionsCreateRequest = new TaxesTaxEx
             Amount = "amount4",
             Currency = Currency.Eur,
         },
-        TaxExemptionType = TaxExemptionType.Single,
+        TaxExemptionType = TaxExemptionType.CivilPartnership,
     },
     Country = "country2",
     ValidToDate = DateTime.Parse("2016-03-13"),

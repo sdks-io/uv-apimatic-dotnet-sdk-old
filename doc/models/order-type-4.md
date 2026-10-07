@@ -1,11 +1,11 @@
 
 # Order Type 4
 
-Order type.
+How the order is priced.
 
-* MARKET -
-* LIMIT -
-* STOP -
+* MARKET — Executes at the best price available.
+* LIMIT — Executes only at the `limit_price` or better.
+* STOP — Becomes a market order once the `stop_price` is reached.
 
 ## Enumeration
 

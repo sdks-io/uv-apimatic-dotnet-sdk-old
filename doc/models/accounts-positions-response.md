@@ -1,6 +1,8 @@
 
 # Accounts Positions Response
 
+The account's holding of a specific instrument, including the total quantity and how much of it is locked for trading, pending settlement, available for trading, available for instruction, or settled.
+
 ## Structure
 
 `AccountsPositionsResponse`
@@ -9,14 +11,14 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
-| `Instrument` | [`Instrument`](../../doc/models/instrument.md) | Required | - |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
+| `Instrument` | [`Instrument`](../../doc/models/instrument.md) | Required | The instrument this position is held in, identified by its `uuid` and, if assigned, its `isin`. |
 | `Quantity` | `string` | Required | **Constraints**: *Pattern*: `^-?[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `LockedForTrading` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `PendingSettlement` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `LockedForTrading` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `PendingSettlement` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `AvailableForTrading` | `string` | Required | **Constraints**: *Pattern*: `^-?[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `AvailableForInstruction` | `string` | Required | **Constraints**: *Pattern*: `^-?[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `SettledQuantity` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `SettledQuantity` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
 
 ## Example
 

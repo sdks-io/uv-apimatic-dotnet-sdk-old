@@ -1,6 +1,8 @@
 
 # Reports List Response
 
+Paginated list of reports for an end user. Contains a `data` array of report objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `ReportsListResponse`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta27`](../../doc/models/meta-27.md) | Required | - |
-| `Data` | [`List<UserReport>`](../../doc/models/user-report.md) | Required | - |
+| `Meta` | [`Meta27`](../../doc/models/meta-27.md) | Required | Offset/limit pagination metadata for a list response whose sort field and order are always returned. |
+| `Data` | [`List<UserReport>`](../../doc/models/user-report.md) | Required | The reports in this page of results. |
 
 ## Example
 

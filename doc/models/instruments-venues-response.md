@@ -1,6 +1,8 @@
 
 # Instruments Venues Response
 
+The trading venues at which price data is available for an instrument.
+
 ## Structure
 
 `InstrumentsVenuesResponse`
@@ -9,7 +11,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Data` | [`List<Venue>`](../../doc/models/venue.md) | Required | - |
+| `Data` | [`List<Venue>`](../../doc/models/venue.md) | Required | The trading venues available for the instrument. |
 
 ## Example
 

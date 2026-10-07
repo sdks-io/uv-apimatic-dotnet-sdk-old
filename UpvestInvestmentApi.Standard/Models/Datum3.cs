@@ -64,21 +64,21 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("account_group_id")]
         public Guid AccountGroupId { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("cash_amount")]
         public string CashAmount { get; set; }
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency Currency { get; set; }

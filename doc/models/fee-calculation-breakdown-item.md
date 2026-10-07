@@ -1,6 +1,8 @@
 
 # Fee Calculation Breakdown Item
 
+The fees calculated for one fee model over one subperiod of a fee collection period, broken down into individual components.
+
 ## Structure
 
 `FeeCalculationBreakdownItem`
@@ -9,10 +11,10 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `FeeModelId` | `Guid` | Required | Fee model unique identifier. |
-| `SubperiodStart` | `DateTime` | Required | Start date of the fee subperiod in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339 |
-| `SubperiodEnd` | `DateTime` | Required | End date of the fee subperiod in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339 |
-| `SubtotalAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
+| `FeeModelId` | `Guid` | Required | The unique identifier of the fee model, as a UUID. Upvest provides this value when a fee model is set up. |
+| `SubperiodStart` | `DateTime` | Required | The start date of the fee subperiod, as a [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) full date in `YYYY-MM-DD` format. |
+| `SubperiodEnd` | `DateTime` | Required | The end date of the fee subperiod, as a [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) full date in `YYYY-MM-DD` format. |
+| `SubtotalAmount` | `string` | Required | A positive cash amount, as a decimal string with up to two decimal places.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
 | `Components` | [`List<FeeBreakdownComponent>`](../../doc/models/fee-breakdown-component.md) | Required | Individual fee components contributing to the subtotal. |
 
 ## Example

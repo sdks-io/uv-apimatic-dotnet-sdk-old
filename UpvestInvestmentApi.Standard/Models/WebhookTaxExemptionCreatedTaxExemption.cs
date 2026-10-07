@@ -58,7 +58,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Tax Exemption Unique Identifier
+        /// The unique identifier of the tax exemption order, as a UUID.
         /// </summary>
         [JsonProperty("id")]
         public Guid Id { get; set; }
@@ -114,7 +114,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime? ValidToDate { get; set; }
 
         /// <summary>
-        /// Gets or sets TaxExemptionDetails.
+        /// The German tax exemption details returned for a tax exemption order, including the allowance granted and the amounts used and remaining for the tax year.
         /// </summary>
         [JsonProperty("tax_exemption_details")]
         public Models.TaxExemptionGermanTaxExemptionDetails TaxExemptionDetails { get; set; }

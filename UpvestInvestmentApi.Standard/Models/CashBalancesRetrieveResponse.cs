@@ -34,13 +34,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Meta.
+        /// Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources.
         /// </summary>
         [JsonProperty("meta")]
         public Models.Meta Meta { get; set; }
 
         /// <summary>
-        /// Gets or sets Data.
+        /// The list of cash balance objects, one per currency the account group holds.
         /// </summary>
         [JsonProperty("data")]
         public List<Models.Datum> Data { get; set; }

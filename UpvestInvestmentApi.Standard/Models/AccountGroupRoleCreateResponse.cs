@@ -43,7 +43,7 @@ namespace UpvestInvestmentApi.Standard.Models
             string entityType,
             Guid entityId,
             Models.RoleType roleType,
-            Models.Status115 status,
+            Models.Status111 status,
             Models.CustodyType? custodyType = null)
         {
             this.Id = id;
@@ -128,7 +128,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// </summary>
         [JsonProperty("status")]
         [JsonRequired]
-        public Models.Status115 Status { get; set; }
+        public Models.Status111 Status { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

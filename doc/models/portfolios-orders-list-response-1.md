@@ -1,7 +1,7 @@
 
 # Portfolios Orders List Response 1
 
-Paginated list of account liquidations, including cursor-based pagination metadata.
+Paginated list of account liquidations. Contains a `data` array of account liquidation objects and a `meta` object with offset/limit pagination metadata.
 
 ## Structure
 
@@ -11,8 +11,8 @@ Paginated list of account liquidations, including cursor-based pagination metada
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
-| `Data` | [`List<AccountLiquidation>`](../../doc/models/account-liquidation.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
+| `Data` | [`List<AccountLiquidation>`](../../doc/models/account-liquidation.md) | Required | List of account liquidations matching the query. |
 
 ## Example
 
@@ -47,7 +47,7 @@ PortfoliosOrdersListResponse1 portfoliosOrdersListResponse1 = new PortfoliosOrde
                 DateTimeStyles.RoundtripKind),
             AccountId = new Guid("000015ce-0000-0000-0000-000000000000"),
             CashAmount = "cash_amount8",
-            Currency = Currency167.Eur,
+            Currency = Currency173.Eur,
             Status = Status72.Filled,
             Orders = new List<AccountLiquidation1>
             {

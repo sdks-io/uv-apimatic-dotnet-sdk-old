@@ -74,25 +74,25 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Status.
+        /// The HTTP status code returned by the endpoint.
         /// </summary>
         [JsonProperty("status")]
         public int Status { get; set; }
 
         /// <summary>
-        /// Gets or sets Headers.
+        /// The HTTP response headers returned by the endpoint.
         /// </summary>
         [JsonProperty("headers")]
         public Dictionary<string, string> Headers { get; set; }
 
         /// <summary>
-        /// Gets or sets Body.
+        /// The response body returned by the endpoint.
         /// </summary>
         [JsonProperty("body")]
         public string Body { get; set; }
 
         /// <summary>
-        /// Gets or sets Error.
+        /// The reason the test delivery failed. Present only when the endpoint could not be reached or did not respond.
         /// </summary>
         [JsonProperty("error", NullValueHandling = NullValueHandling.Ignore)]
         public string Error { get; set; }

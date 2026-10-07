@@ -1,10 +1,10 @@
 
 # Order 1
 
-The ordering of the response.
+The ordering applied to the list.
 
-* ASC - Ascending order
-* DESC - Descending order
+* ASC — Ascending order.
+* DESC — Descending order.
 
 ## Enumeration
 

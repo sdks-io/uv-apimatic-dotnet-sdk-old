@@ -54,7 +54,7 @@ CreateUserCheckBody value = CreateUserCheckBody.FromUserCheckProofOfResidencyCre
             DateTimeStyles.RoundtripKind),
         IssuanceDate = DateTime.Parse("2016-03-13"),
         DataDownloadLink = "data_download_link8",
-        DocumentType = DocumentType6.BankStatement,
+        DocumentType = DocumentType7.BankStatement,
         ConfirmedAddress = new Address
         {
             AddressLine1 = "address_line16",
@@ -103,7 +103,7 @@ CreateUserCheckBody value = CreateUserCheckBody.FromUserCheckGuardianCreateReque
             provider: CultureInfo.InvariantCulture,
             DateTimeStyles.RoundtripKind),
         RoleId = new Guid("00002540-0000-0000-0000-000000000000"),
-        DocumentType = "BIRTH_CERTIFICATE",
+        DocumentType = DocumentType5.BirthCertificate,
         DataDownloadLink = "data_download_link2",
     }
 );

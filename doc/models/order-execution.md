@@ -12,8 +12,8 @@ Represents a single execution (trade fill) within an order. An order may have mu
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `Id` | `Guid` | Required | - |
-| `CashAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
-| `ShareQuantity` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `CashAmount` | `string` | Required | A positive cash amount, as a decimal string with up to two decimal places.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
+| `ShareQuantity` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `Price` | `string` | Required | Price of an instrument for a trade execution provided as a decimal string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,4})?$` |
 | `TransactionTime` | `DateTime` | Required | Timestamp of when the trade was executed at the market. [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date-time format. |
 | `Taxes` | [`List<Tax3>`](../../doc/models/tax-3.md) | Required | Taxes deducted as part of this execution. |

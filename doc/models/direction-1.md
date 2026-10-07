@@ -1,10 +1,10 @@
 
 # Direction 1
 
-Direction of the account transfer
+Direction of the securities transfer
 
-* INCOMING - account transfer is incoming to the user.
-* OUTGOING - account transfer is outgoing from the user.
+* `INCOMING` - Securities transfer is incoming to the user.
+* `OUTGOING` - Securities transfer is outgoing from the user.
 
 ## Enumeration
 

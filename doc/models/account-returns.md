@@ -1,6 +1,8 @@
 
 # Account Returns
 
+The account's time-weighted return (TWR) as of a specific date, expressed as daily and cumulative percentages.
+
 ## Structure
 
 `AccountReturns`
@@ -9,9 +11,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `Date` | `DateTime` | Required | Date when returns were calculated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `Twr` | [`Twr`](../../doc/models/twr.md) | Required | - |
+| `Twr` | [`Twr`](../../doc/models/twr.md) | Required | The account's time-weighted return (TWR), which measures investment performance independently of deposits, withdrawals, and other external cash flows. |
 
 ## Example
 

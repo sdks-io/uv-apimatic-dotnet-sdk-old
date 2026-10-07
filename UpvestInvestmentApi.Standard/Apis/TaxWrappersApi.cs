@@ -25,7 +25,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal TaxWrappersApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Creates a tax wrapper for ISA account.
+        /// Creates an ISA tax wrapper for an account group, holding the business rules that apply to the tax-wrapped product.
+        /// The account group must have been created with `type` set to `ISA`. For a `STOCKS_AND_SHARES_ISA`, set `is_flexible` to indicate whether the end user may replace withdrawals within the same tax year without using up their annual allowance. A tax wrapper stays inactive until the end user's tax residency has been confirmed, and the ISA account group cannot become `ACTIVE` until the tax wrapper does.
+        /// See the ISA tax wrapper integration guide ([TOL](https://docs.upvest.co/products/tol/guides/tax_wrappers/tax_wrappers_isa_integration) / [BYOL](https://docs.upvest.co/products/byol/guides/tax_wrappers/tax_wrappers_isa_integration)) for the onboarding and activation sequence.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -40,7 +42,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateIsaTaxWrapperAsync(upvestClientId, idempotencyKey, upvestApiVersion, body));
 
         /// <summary>
-        /// Creates a tax wrapper for ISA account.
+        /// Creates an ISA tax wrapper for an account group, holding the business rules that apply to the tax-wrapped product.
+        /// The account group must have been created with `type` set to `ISA`. For a `STOCKS_AND_SHARES_ISA`, set `is_flexible` to indicate whether the end user may replace withdrawals within the same tax year without using up their annual allowance. A tax wrapper stays inactive until the end user's tax residency has been confirmed, and the ISA account group cannot become `ACTIVE` until the tax wrapper does.
+        /// See the ISA tax wrapper integration guide ([TOL](https://docs.upvest.co/products/tol/guides/tax_wrappers/tax_wrappers_isa_integration) / [BYOL](https://docs.upvest.co/products/byol/guides/tax_wrappers/tax_wrappers_isa_integration)) for the onboarding and activation sequence.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -77,7 +81,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Retrieves ISA allowances.
+        /// Returns the ISA allowances of the tax wrapper identified by `tax_wrapper_id`.
+        /// An `ANNUAL` allowance covers one UK tax year, which runs from 6 April to 5 April and is identified in `yyyy/yyyy` form. Allowances expire at `valid_to` and do not roll over; a new allowance is created at the start of each tax year.
+        /// See the ISA tax wrapper integration guide ([TOL](https://docs.upvest.co/products/tol/guides/tax_wrappers/tax_wrappers_isa_integration) / [BYOL](https://docs.upvest.co/products/byol/guides/tax_wrappers/tax_wrappers_isa_integration)) for the onboarding and activation sequence.
         /// </summary>
         /// <param name="taxWrapperId">Required parameter: The unique identifier of the tax wrapper. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -100,7 +106,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveIsaAllowancesAsync(taxWrapperId, upvestClientId, upvestApiVersion, taxYear, sort, order, offset, limit));
 
         /// <summary>
-        /// Retrieves ISA allowances.
+        /// Returns the ISA allowances of the tax wrapper identified by `tax_wrapper_id`.
+        /// An `ANNUAL` allowance covers one UK tax year, which runs from 6 April to 5 April and is identified in `yyyy/yyyy` form. Allowances expire at `valid_to` and do not roll over; a new allowance is created at the start of each tax year.
+        /// See the ISA tax wrapper integration guide ([TOL](https://docs.upvest.co/products/tol/guides/tax_wrappers/tax_wrappers_isa_integration) / [BYOL](https://docs.upvest.co/products/byol/guides/tax_wrappers/tax_wrappers_isa_integration)) for the onboarding and activation sequence.
         /// </summary>
         /// <param name="taxWrapperId">Required parameter: The unique identifier of the tax wrapper. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>

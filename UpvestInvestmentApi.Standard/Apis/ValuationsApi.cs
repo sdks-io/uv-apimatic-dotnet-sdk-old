@@ -25,7 +25,8 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal ValuationsApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Get current valuation for an account.
+        /// Returns the account's current valuation, calculated from its current positions and the requested `price_quality`.
+        /// See the Account valuations guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/valuations) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/valuations)) for the difference between `EOD` and `HIGHEST_AVAILABLE` price quality.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -40,7 +41,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(GetAccountValuationAsync(accountId, upvestClientId, priceQuality, upvestApiVersion));
 
         /// <summary>
-        /// Get current valuation for an account.
+        /// Returns the account's current valuation, calculated from its current positions and the requested `price_quality`.
+        /// See the Account valuations guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/valuations) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/valuations)) for the difference between `EOD` and `HIGHEST_AVAILABLE` price quality.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -76,7 +78,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// List valuation history for an account.
+        /// Returns the account's historical end-of-day valuations.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching valuations.
+        /// See the Account valuations guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/valuations) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/valuations)) for how valuations are calculated.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -101,7 +105,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(ListAccountValuationHistoryAsync(accountId, upvestClientId, upvestApiVersion, startDate, endDate, sort, order, offset, limit));
 
         /// <summary>
-        /// List valuation history for an account.
+        /// Returns the account's historical end-of-day valuations.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching valuations.
+        /// See the Account valuations guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/valuations) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/valuations)) for how valuations are calculated.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>

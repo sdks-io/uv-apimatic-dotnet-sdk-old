@@ -71,7 +71,7 @@ RetrieveBusinessResponse value = RetrieveBusinessResponse.FromBusinessesResponse
                 provider: CultureInfo.InvariantCulture,
                 DateTimeStyles.RoundtripKind),
         },
-        Status = Status103.Active,
+        Status = Status99.Active,
     }
 );
 ```
@@ -129,7 +129,7 @@ RetrieveBusinessResponse value = RetrieveBusinessResponse.FromBusinessesResponse
                 provider: CultureInfo.InvariantCulture,
                 DateTimeStyles.RoundtripKind),
         },
-        Status = Status103.Active,
+        Status = Status99.Active,
     }
 );
 ```

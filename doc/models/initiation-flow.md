@@ -4,7 +4,7 @@
 Identifies what triggered the order.
 
 * API — initiated directly via the client API.
-* PORTFOLIO — initiated by a portfolio rebalancing flow.
+* PORTFOLIO — initiated by a portfolio order.
 * CASH_DIVIDEND_REINVESTMENT — initiated as part of dividend reinvestment.
 * PORTFOLIO_REBALANCING — initiated by an automated rebalancing.
 * SELL_TO_COVER_FEES — initiated automatically to cover outstanding fees.

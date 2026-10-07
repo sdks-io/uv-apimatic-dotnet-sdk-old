@@ -23,7 +23,7 @@ CreateAccountGroupBody value = CreateAccountGroupBody.FromAccountGroupCreateUser
     new AccountGroupCreateUserRequest
     {
         UserId = new Guid("00000f70-0000-0000-0000-000000000000"),
-        Type = Type13.Child,
+        Type = Type13.Personal,
     }
 );
 ```

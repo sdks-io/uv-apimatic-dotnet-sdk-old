@@ -26,6 +26,12 @@ namespace UpvestInvestmentApi.Standard.Models
         /// Married.
         /// </summary>
         [EnumMember(Value = "MARRIED")]
-        Married
+        Married,
+
+        /// <summary>
+        /// CivilPartnership.
+        /// </summary>
+        [EnumMember(Value = "CIVIL_PARTNERSHIP")]
+        CivilPartnership
     }
 }

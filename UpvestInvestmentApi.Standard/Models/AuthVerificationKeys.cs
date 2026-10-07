@@ -31,7 +31,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// List of verification keys
+        /// The public keys available for verifying webhook signatures.
         /// </summary>
         [JsonProperty("keys")]
         public List<Models.Key> Keys { get; set; }

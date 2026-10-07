@@ -59,7 +59,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// <param name="type">type.</param>
         /// <param name="transactionFeeModelId">transaction_fee_model_id.</param>
         public TransactionFee(
-            Models.FeeType type,
+            Models.FeeType10 type,
             Guid transactionFeeModelId)
         {
             this.additionalProperties = new Dictionary<string, JToken>();
@@ -69,13 +69,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Fee type
-        /// * TRANSACTION_FEE_BUY -
-        /// * TRANSACTION_FEE_SELL -
+        /// What the transaction fee is charged for.
+        /// * TRANSACTION_FEE_BUY — A fee charged on a buy order.
+        /// * TRANSACTION_FEE_SELL — A fee charged on a sell order.
         /// </summary>
         [JsonProperty("type")]
         [JsonRequired]
-        public Models.FeeType Type { get; set; }
+        public Models.FeeType10 Type { get; set; }
 
         /// <summary>
         /// The ID of the transaction fee model.

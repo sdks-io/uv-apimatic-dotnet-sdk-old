@@ -42,10 +42,10 @@ namespace UpvestInvestmentApi.Standard.Models
             DateTime updatedAt,
             string label,
             Models.Currency currency,
-            string chargeMethod,
+            Models.FeeChargeMethod1 chargeMethod,
             Models.ValueType valueType,
             string applicationType,
-            string baseAmountScope,
+            Models.BaseAmountScope baseAmountScope,
             List<FeeConfigurationTiers> tiers)
         {
             this.Id = id;
@@ -88,8 +88,8 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency Currency { get; set; }
@@ -97,9 +97,10 @@ namespace UpvestInvestmentApi.Standard.Models
         /// <summary>
         /// Indicates how the transaction fee is charged.
         /// * `CHARGED_BY_CLIENT` — The fee is charged by the client as part of post-trade settlement; the fee movement occurs outside Upvest cash balances.
+        /// * `COLLECTED_BY_UPVEST` — The fee is charged by the client and collected by Upvest; the fee amount is debited from the user's Upvest cash balance.
         /// </summary>
         [JsonProperty("charge_method")]
-        public string ChargeMethod { get; set; }
+        public Models.FeeChargeMethod1 ChargeMethod { get; set; }
 
         /// <summary>
         /// The value type of the transaction fee model.
@@ -118,10 +119,11 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// The scope of the base amount that fee tiers are evaluated against.
-        /// * `ORDER` — Tiers are evaluated against the total cash value of each order.
+        /// * `GROSS_AMOUNT` — Tiers are evaluated against the gross cash amount of the transaction the fee model is applied to (e.g. the total cash value of an order, a contribution or a transfer).
+        /// * `ORDER` — Tiers are evaluated against the total cash value of each order. DEPRECATED: Use `GROSS_AMOUNT` instead. Existing fee models using `ORDER` continue to work unchanged.
         /// </summary>
         [JsonProperty("base_amount_scope")]
-        public string BaseAmountScope { get; set; }
+        public Models.BaseAmountScope BaseAmountScope { get; set; }
 
         /// <summary>
         /// The tiers of the transaction fee model.
@@ -148,10 +150,10 @@ namespace UpvestInvestmentApi.Standard.Models
             toStringOutput.Add($"UpdatedAt = {this.UpdatedAt}");
             toStringOutput.Add($"Label = {this.Label ?? "null"}");
             toStringOutput.Add($"Currency = {this.Currency}");
-            toStringOutput.Add($"ChargeMethod = {this.ChargeMethod ?? "null"}");
+            toStringOutput.Add($"ChargeMethod = {this.ChargeMethod}");
             toStringOutput.Add($"ValueType = {this.ValueType}");
             toStringOutput.Add($"ApplicationType = {this.ApplicationType ?? "null"}");
-            toStringOutput.Add($"BaseAmountScope = {this.BaseAmountScope ?? "null"}");
+            toStringOutput.Add($"BaseAmountScope = {this.BaseAmountScope}");
             toStringOutput.Add($"Tiers = {(this.Tiers == null ? "null" : this.Tiers.ToString())}");
         }
     }

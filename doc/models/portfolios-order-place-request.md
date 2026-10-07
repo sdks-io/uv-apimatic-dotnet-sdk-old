@@ -12,9 +12,9 @@ Request body for placing a portfolio order. Specifies the account, cash amount, 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `UserId` | `Guid` | Required | Unique identifier of the user, as a UUID. |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
-| `CashAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
+| `CashAmount` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `Side` | [`Side15`](../../doc/models/side-15.md) | Required | Side of the portfolio order.<br><br>* BUY -<br>* SELL - |
 | `PostTax` | `bool?` | Optional | Cash amount is post-tax value<br><br>**Default**: `false` |
 

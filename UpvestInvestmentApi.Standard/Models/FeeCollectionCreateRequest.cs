@@ -48,42 +48,42 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         public Guid AccountId { get; set; }
 
         /// <summary>
-        /// Type of the fee collection
-        /// * SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)
-        /// * SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation
+        /// Type of the fee collection.
+        /// * SERVICE_FEE — Service fee intake in a pre-defined cadence, for example monthly.
+        /// * SERVICE_FEE_LIQUIDATION — Service fee intake resulting from a portfolio liquidation.
         /// </summary>
         [JsonProperty("type")]
         public Models.Type37 Type { get; set; }
 
         /// <summary>
-        /// Gets or sets CollectionAmount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("collection_amount")]
         public string CollectionAmount { get; set; }
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency Currency { get; set; }
 
         /// <summary>
-        /// Start date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
+        /// The start date of the fee collection period, as a [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) full date in `YYYY-MM-DD` format.
         /// </summary>
         [JsonConverter(typeof(CustomDateTimeConverter), "yyyy'-'MM'-'dd")]
         [JsonProperty("period_start")]
         public DateTime PeriodStart { get; set; }
 
         /// <summary>
-        /// End date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
+        /// The end date of the fee collection period, as a [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) full date in `YYYY-MM-DD` format.
         /// </summary>
         [JsonConverter(typeof(CustomDateTimeConverter), "yyyy'-'MM'-'dd")]
         [JsonProperty("period_end")]

@@ -1,12 +1,12 @@
 
 # Type 38
 
-Type of the fee component
+The kind of fee this component represents.
 
-* TRANSACTION_LUMP_SUM - Lump sum transaction fee
-* PLATFORM - Platform fee
-* SERVICE - Service fee (client portfolio)
-* VAT - Value-added tax
+* TRANSACTION_LUMP_SUM — Lump sum transaction fee.
+* PLATFORM — Platform fee.
+* SERVICE — Service fee for a client portfolio.
+* VAT — Value-added tax.
 
 ## Enumeration
 

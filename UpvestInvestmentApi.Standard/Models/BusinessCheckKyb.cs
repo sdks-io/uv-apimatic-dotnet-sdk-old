@@ -72,7 +72,7 @@ namespace UpvestInvestmentApi.Standard.Models
             string type,
             DateTime originallyConfirmedAt,
             DateTime checkConfirmedAt,
-            Models.Status109 status,
+            Models.Status105 status,
             string dataDownloadLink,
             string documentType)
         {
@@ -134,7 +134,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// </summary>
         [JsonProperty("status")]
         [JsonRequired]
-        public Models.Status109 Status { get; set; }
+        public Models.Status105 Status { get; set; }
 
         /// <summary>
         /// Link to download the document bundle submitted for the KYB check

@@ -1,6 +1,8 @@
 
 # Webhook Create Request
 
+Request body for creating a webhook subscription.
+
 ## Structure
 
 `WebhookCreateRequest`

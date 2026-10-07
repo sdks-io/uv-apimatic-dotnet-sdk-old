@@ -110,7 +110,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or sets City.
+        /// The name of a city, as it appears in a postal address.
         /// </summary>
         [JsonProperty("city")]
         public string City { get; set; }

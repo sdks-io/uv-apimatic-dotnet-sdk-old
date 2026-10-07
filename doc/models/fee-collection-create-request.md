@@ -1,6 +1,8 @@
 
 # Fee Collection Create Request
 
+Request body for creating a fee collection from a fee amount the client has already calculated.
+
 ## Structure
 
 `FeeCollectionCreateRequest`
@@ -9,12 +11,12 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
-| `Type` | [`Type37`](../../doc/models/type-37.md) | Required | Type of the fee collection<br><br>* SERVICE_FEE - Service fee intake in a pre-defined cadence (e.g. monthly)<br>* SERVICE_FEE_LIQUIDATION - Service fee intake as a result of a Portfolio liquidation |
-| `CollectionAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
-| `PeriodStart` | `DateTime` | Required | Start date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339 |
-| `PeriodEnd` | `DateTime` | Required | End date of the fee collection period in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339 |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
+| `Type` | [`Type37`](../../doc/models/type-37.md) | Required | Type of the fee collection.<br><br>* SERVICE_FEE — Service fee intake in a pre-defined cadence, for example monthly.<br>* SERVICE_FEE_LIQUIDATION — Service fee intake resulting from a portfolio liquidation. |
+| `CollectionAmount` | `string` | Required | A positive cash amount, as a decimal string with up to two decimal places.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
+| `PeriodStart` | `DateTime` | Required | The start date of the fee collection period, as a [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) full date in `YYYY-MM-DD` format. |
+| `PeriodEnd` | `DateTime` | Required | The end date of the fee collection period, as a [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) full date in `YYYY-MM-DD` format. |
 
 ## Example
 

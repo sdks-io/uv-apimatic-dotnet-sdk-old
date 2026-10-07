@@ -25,7 +25,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal FeesApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Returns a list of fee collections.
+        /// Returns the list of fee collections.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching fee collections. Narrow the result set with the `account_id` and `account_group_id` query parameters.
+        /// See the Fee collection guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_collection) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_collection)) for the collection lifecycle and webhook events.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -48,7 +50,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(ListFeeCollectionsAsync(upvestClientId, upvestApiVersion, accountId, accountGroupId, sort, order, offset, limit));
 
         /// <summary>
-        /// Returns a list of fee collections.
+        /// Returns the list of fee collections.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching fee collections. Narrow the result set with the `account_id` and `account_group_id` query parameters.
+        /// See the Fee collection guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_collection) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_collection)) for the collection lifecycle and webhook events.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -95,7 +99,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Creates a fee collection for pre-calculated fee amounts.
+        /// Creates a fee collection for a fee amount you have already calculated.
+        /// The account must not be in `PENDING_APPROVAL` or `CLOSED` status; a request against an account in either status is rejected with a `400` response. Set `type` to `SERVICE_FEE` for collections that follow your normal fee cadence.
+        /// See the Fee collection guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_collection) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_collection)) for the collection lifecycle and webhook events.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -110,7 +116,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateFeeCollectionAsync(upvestClientId, idempotencyKey, upvestApiVersion, body));
 
         /// <summary>
-        /// Creates a fee collection for pre-calculated fee amounts.
+        /// Creates a fee collection for a fee amount you have already calculated.
+        /// The account must not be in `PENDING_APPROVAL` or `CLOSED` status; a request against an account in either status is rejected with a `400` response. Set `type` to `SERVICE_FEE` for collections that follow your normal fee cadence.
+        /// See the Fee collection guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_collection) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_collection)) for the collection lifecycle and webhook events.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -147,7 +155,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Returns the fee collection specified by its ID.
+        /// Returns the fee collection identified by `fee_collection_id`, including its status and the amount processed so far.
+        /// A fee collection moves through `PROCESSING`, then either `FINALISED` once the fees have been collected from the account and transferred to you, or `CANCELLED`.
+        /// See the Fee collection guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_collection) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_collection)) for the collection lifecycle and webhook events.
         /// </summary>
         /// <param name="feeCollectionId">Required parameter: The unique identifier of the fee collection. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -160,7 +170,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveFeeCollectionAsync(feeCollectionId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Returns the fee collection specified by its ID.
+        /// Returns the fee collection identified by `fee_collection_id`, including its status and the amount processed so far.
+        /// A fee collection moves through `PROCESSING`, then either `FINALISED` once the fees have been collected from the account and transferred to you, or `CANCELLED`.
+        /// See the Fee collection guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_collection) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_collection)) for the collection lifecycle and webhook events.
         /// </summary>
         /// <param name="feeCollectionId">Required parameter: The unique identifier of the fee collection. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>

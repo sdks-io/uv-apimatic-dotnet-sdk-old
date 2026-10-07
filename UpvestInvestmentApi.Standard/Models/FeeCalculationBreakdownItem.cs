@@ -45,27 +45,27 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Fee model unique identifier.
+        /// The unique identifier of the fee model, as a UUID. Upvest provides this value when a fee model is set up.
         /// </summary>
         [JsonProperty("fee_model_id")]
         public Guid FeeModelId { get; set; }
 
         /// <summary>
-        /// Start date of the fee subperiod in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
+        /// The start date of the fee subperiod, as a [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) full date in `YYYY-MM-DD` format.
         /// </summary>
         [JsonConverter(typeof(CustomDateTimeConverter), "yyyy'-'MM'-'dd")]
         [JsonProperty("subperiod_start")]
         public DateTime SubperiodStart { get; set; }
 
         /// <summary>
-        /// End date of the fee subperiod in YYYY-MM-DD format. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) RFC 3339
+        /// The end date of the fee subperiod, as a [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) full date in `YYYY-MM-DD` format.
         /// </summary>
         [JsonConverter(typeof(CustomDateTimeConverter), "yyyy'-'MM'-'dd")]
         [JsonProperty("subperiod_end")]
         public DateTime SubperiodEnd { get; set; }
 
         /// <summary>
-        /// Gets or sets SubtotalAmount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("subtotal_amount")]
         public string SubtotalAmount { get; set; }

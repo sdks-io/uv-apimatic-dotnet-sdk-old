@@ -13,7 +13,7 @@ Required if transfer_type is ISA_INTERNAL.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `TransferAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
+| `TransferAmount` | `string` | Required | A positive cash amount, as a decimal string with up to two decimal places.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
 | `FirstSubscriptionAt` | `DateTime?` | Optional | The date of the first subscription made to the ISA in the current tax year. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html)<br><br>Required if transfer_type is ISA_INTERNAL. |
 
 ## Example

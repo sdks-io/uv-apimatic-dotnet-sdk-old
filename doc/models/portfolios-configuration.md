@@ -13,7 +13,7 @@ Links an investment account to a portfolio allocation and optional rebalancing s
 |  --- | --- | --- | --- |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `AllocationId` | `Guid` | Required | Universally Unique Identifier (UUID) of a portfolio allocation. |
 | `RebalancingStrategyIds` | `List<Guid>` | Optional | List of rebalancing strategy ids |
 

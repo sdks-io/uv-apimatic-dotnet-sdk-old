@@ -58,7 +58,7 @@ ReportOrderExAnteCostCreateRequestSavingsPlanFees value = ReportOrderExAnteCostC
 ReportOrderExAnteCostCreateRequestSavingsPlanFees value = ReportOrderExAnteCostCreateRequestSavingsPlanFees.FromTransactionFee(
     new TransactionFee
     {
-        Type = FeeType.TransactionFeeBuy,
+        Type = FeeType10.TransactionFeeBuy,
         TransactionFeeModelId = new Guid("00001bb2-0000-0000-0000-000000000000"),
     }
 );

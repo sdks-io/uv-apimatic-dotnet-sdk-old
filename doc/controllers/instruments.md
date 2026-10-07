@@ -18,7 +18,11 @@ InstrumentsApi instrumentsApi = client.InstrumentsApi;
 
 # List Instruments
 
-List instruments
+Returns the list of instruments available on the Upvest platform.
+
+Narrow the list with the `trading_status` query parameter, and page through results with `offset` and `limit`; `meta.total_count` gives the total number of matching instruments. The instrument universe reflects onboarding, delisting, and trading bans as they occur.
+
+See the instruments guide ([TOL](https://docs.upvest.co/products/tol/guides/instruments/implementing_instruments) / [BYOL](https://docs.upvest.co/products/byol/guides/instruments/implementing_instruments) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/instruments/implementing_instruments)) for instrument onboarding, delisting, and trading bans.
 
 ```csharp
 ListInstrumentsAsync(
@@ -133,7 +137,9 @@ catch (ApiException e)
 
 # Retrieve Instrument
 
-Returns the instrument.
+Returns the instrument identified by `instrument_id`, including its identifiers, name, trading status, and whether it supports fractional investing.
+
+See the instruments guide ([TOL](https://docs.upvest.co/products/tol/guides/instruments/implementing_instruments) / [BYOL](https://docs.upvest.co/products/byol/guides/instruments/implementing_instruments) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/instruments/implementing_instruments)) for instrument onboarding, delisting, and trading bans.
 
 ```csharp
 RetrieveInstrumentAsync(

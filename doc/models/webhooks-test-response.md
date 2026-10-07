@@ -1,6 +1,8 @@
 
 # Webhooks Test Response
 
+The outcome of a webhook subscription test, reporting what the subscribed URL returned when test data was delivered to it.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -11,8 +13,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Url` | `string` | Required | - |
-| `Response` | [`Response`](../../doc/models/response.md) | Required | - |
+| `Url` | `string` | Required | The URL that the test data was delivered to. |
+| `Response` | [`Response`](../../doc/models/response.md) | Required | What the subscribed endpoint returned in response to the test delivery. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

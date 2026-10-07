@@ -34,13 +34,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets TotalAmount.
+        /// The total tax amount, with its currency.
         /// </summary>
         [JsonProperty("total_amount")]
         public Models.TotalAmount TotalAmount { get; set; }
 
         /// <summary>
-        /// Gets or sets TaxBreakdown.
+        /// The individual tax components making up the total.
         /// </summary>
         [JsonProperty("tax_breakdown")]
         public List<Models.TransactionTax1> TaxBreakdown { get; set; }

@@ -145,7 +145,7 @@ catch (ApiException e)
 
 # Retrieve Account
 
-Returns the account specified by its ID.
+Returns the account specified by its ID, including its type, status, and the account group it belongs to.
 
 ```csharp
 RetrieveAccountAsync(
@@ -253,6 +253,8 @@ catch (ApiException e)
 # Update Account
 
 Updates the account specified by its ID.
+
+Only the account `name` can be updated. Returns the full updated account object.
 
 ```csharp
 UpdateAccountAsync(
@@ -368,7 +370,11 @@ catch (ApiException e)
 
 # Account Closure
 
-Initiates the closure request for an account specified by its ID.
+Initiates the closure of the account specified by its ID.
+
+Closure is a two-step process: the account status changes to `CLOSING`, and once all preconditions are met the account transitions to `CLOSED`. While in `CLOSING`, only sell orders and transfers of positions out of the account are permitted. Subscribe to the `ACCOUNT.CLOSING_INITIATED` and `ACCOUNT.CLOSED` webhook events to track progress.
+
+See the Closing accounts guide ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_close_accounts) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_close_accounts)) for preconditions and implementation details.
 
 ```csharp
 AccountClosureAsync(
@@ -442,7 +448,11 @@ catch (ApiException e)
 
 # List Accounts
 
-Returns a list of all accounts.
+Returns a paginated list of accounts.
+
+Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching accounts. Both user and business accounts are returned.
+
+See the Accounts overview ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/accounts/accounts_overview)) for account types and the account hierarchy.
 
 ```csharp
 ListAccountsAsync(
@@ -464,7 +474,7 @@ This endpoint requires [oauth-client-credentials](../../doc/auth/oauth-2-client-
 |  --- | --- | --- | --- |
 | `upvestClientId` | `Guid` | Header, Required | Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID). |
 | `upvestApiVersion` | [`UpvestApiVersion?`](../../doc/models/upvest-api-version.md) | Header, Optional | Upvest API version (Note: Do not include quotation marks)<br><br>**Default**: `UpvestApiVersion.Enum_1` |
-| `sort` | [`Sort1?`](../../doc/models/sort-1.md) | Query, Optional | Sort the result by `created_at`, `updated_at§`.<br><br>**Default**: `Sort1.created_at` |
+| `sort` | [`Sort1?`](../../doc/models/sort-1.md) | Query, Optional | The field to sort the results by. One of `created_at` or `updated_at`; defaults to `created_at`.<br><br>**Default**: `Sort1.created_at` |
 | `order` | [`Order?`](../../doc/models/order.md) | Query, Optional | Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.<br><br>**Default**: `Order.ASC` |
 | `offset` | `int?` | Query, Optional | Use the `offset` argument to specify where in the list of results to start when returning items for a particular query.<br><br>**Constraints**: `>= 0` |
 | `limit` | `int?` | Query, Optional | Use the `limit` argument to specify the maximum number of items returned.<br><br>**Default**: `100`<br><br>**Constraints**: `>= 1`, `<= 1000` |
@@ -559,7 +569,13 @@ catch (ApiException e)
 
 # Create Account
 
-Creates an account.
+Creates an account for a user or a business within an existing account group.
+
+The account is created with status `PENDING_APPROVAL` and switches to `ACTIVE` once the owner's onboarding is complete; subscribe to the `ACCOUNT.ACTIVATED` webhook event to be notified. An account cannot exist without an account group and holds positions in the form of units.
+
+For a `JOINT` account group, `user_id` must be one of its 2 owners; either owner can be used. The account is shared by both owners and its `users` list both of them with type `OWNER`. A second owner whose `OWNER` role is still `PENDING` is not yet a member of the account group, and the request returns `404`.
+
+See the Creating accounts guide ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_create_accounts) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_create_accounts)) for implementation details.
 
 ```csharp
 CreateAccountAsync(

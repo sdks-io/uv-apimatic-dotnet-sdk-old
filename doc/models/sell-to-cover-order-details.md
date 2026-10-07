@@ -1,6 +1,8 @@
 
 # Sell to Cover Order Details
 
+A sell-to-cover order placed to raise cash for an outstanding fee amount, together with the amount that remains uncovered after the order settles.
+
 ## Structure
 
 `SellToCoverOrderDetails`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid` | Required | Sell to cover order id used to cover fee amount. |
-| `ResidualAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
+| `Id` | `Guid` | Required | The unique identifier of the sell-to-cover order placed to raise cash for a fee amount, as a UUID. |
+| `ResidualAmount` | `string` | Required | A positive cash amount, as a decimal string with up to two decimal places.<br><br>**Constraints**: *Pattern*: `^[0-9]{1,9}(\.[0-9]{2})?$` |
 
 ## Example
 

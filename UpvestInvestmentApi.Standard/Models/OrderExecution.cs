@@ -72,13 +72,13 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("cash_amount")]
         public string CashAmount { get; set; }
 
         /// <summary>
-        /// Gets or sets ShareQuantity.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonProperty("share_quantity")]
         public string ShareQuantity { get; set; }

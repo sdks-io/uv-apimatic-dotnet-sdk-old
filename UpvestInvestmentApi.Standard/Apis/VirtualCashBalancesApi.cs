@@ -26,7 +26,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal VirtualCashBalancesApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Trigger a virtual cash increase.
+        /// Increases an account group's virtual cash balance, making the specified `amount` available for trading before the corresponding real cash has settled.
+        /// Requires the `Idempotency-Key` header to prevent duplicate increases.
+        /// See the Virtual cash guide ([TOL](https://docs.upvest.co/products/tol/guides/virtual_cash/implementing_virtual_cash) / [BYOL](https://docs.upvest.co/products/byol/guides/virtual_cash/implementing_virtual_cash)) for supported use cases.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -41,7 +43,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateVirtualCashIncreaseAsync(upvestClientId, idempotencyKey, upvestApiVersion, body));
 
         /// <summary>
-        /// Trigger a virtual cash increase.
+        /// Increases an account group's virtual cash balance, making the specified `amount` available for trading before the corresponding real cash has settled.
+        /// Requires the `Idempotency-Key` header to prevent duplicate increases.
+        /// See the Virtual cash guide ([TOL](https://docs.upvest.co/products/tol/guides/virtual_cash/implementing_virtual_cash) / [BYOL](https://docs.upvest.co/products/byol/guides/virtual_cash/implementing_virtual_cash)) for supported use cases.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -78,7 +82,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Trigger a virtual cash decrease.
+        /// Decreases an account group's virtual cash balance, for example after an order has settled or before a withdrawal.
+        /// If the account group does not yet have sufficient real cash, the decrease is queued with status `QUEUED` and confirmed automatically once funds arrive rather than being rejected. Requires the `Idempotency-Key` header to prevent duplicate decreases.
+        /// See the Virtual cash guide ([TOL](https://docs.upvest.co/products/tol/guides/virtual_cash/implementing_virtual_cash) / [BYOL](https://docs.upvest.co/products/byol/guides/virtual_cash/implementing_virtual_cash)) for supported use cases.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -93,7 +99,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateVirtualCashDecreaseAsync(upvestClientId, idempotencyKey, upvestApiVersion, body));
 
         /// <summary>
-        /// Trigger a virtual cash decrease.
+        /// Decreases an account group's virtual cash balance, for example after an order has settled or before a withdrawal.
+        /// If the account group does not yet have sufficient real cash, the decrease is queued with status `QUEUED` and confirmed automatically once funds arrive rather than being rejected. Requires the `Idempotency-Key` header to prevent duplicate decreases.
+        /// See the Virtual cash guide ([TOL](https://docs.upvest.co/products/tol/guides/virtual_cash/implementing_virtual_cash) / [BYOL](https://docs.upvest.co/products/byol/guides/virtual_cash/implementing_virtual_cash)) for supported use cases.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>

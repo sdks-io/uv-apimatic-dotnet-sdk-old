@@ -1,6 +1,8 @@
 
 # Business Report Order Ex Ante Cost
 
+An ex-ante cost report generated for a business.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -11,11 +13,11 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid` | Required | Report unique identifier. |
+| `Id` | `Guid` | Required | The unique identifier of the report, as a UUID. |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `BusinessId` | `Guid` | Required | Unique identifier for the business. |
 | `Type` | `string` | Required, Constant | The type of report must be “ORDER_EX_ANTE_COST”. Savings plan ex-ante reports are not supported for business entities.<br><br>**Value**: `"ORDER_EX_ANTE_COST"` |
-| `SubstitutedReportId` | `Guid?` | Required | - |
+| `SubstitutedReportId` | `Guid?` | Required | The unique identifier of the report that this report replaces, as a UUID. Populated when a mistrade causes a corrected report to be issued; `null` otherwise. |
 | `Data` | [`BusinessReportDataOrderExAnteCost`](../../doc/models/business-report-data-order-ex-ante-cost.md) | Optional | Contents of the order ex-ante cost report for a business. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 

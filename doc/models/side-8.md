@@ -1,10 +1,10 @@
 
 # Side 8
 
-Side of the order.
+Whether the order buys or sells the instrument.
 
-* BUY -
-* SELL -
+* BUY — The order buys the instrument.
+* SELL — The order sells the instrument.
 
 ## Enumeration
 

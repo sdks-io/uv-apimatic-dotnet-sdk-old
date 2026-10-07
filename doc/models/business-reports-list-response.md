@@ -11,7 +11,7 @@ Paginated response containing the reports generated for a business.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta27`](../../doc/models/meta-27.md) | Required | - |
+| `Meta` | [`Meta27`](../../doc/models/meta-27.md) | Required | Offset/limit pagination metadata for a list response whose sort field and order are always returned. |
 | `Data` | [`List<BusinessReport>`](../../doc/models/business-report.md) | Required | List of reports generated for the business |
 
 ## Example

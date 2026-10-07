@@ -11,7 +11,7 @@ An account associated with a portfolio allocation, identified by its account UUI
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid` | Required | Account unique identifier. |
+| `Id` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 
 ## Example
 

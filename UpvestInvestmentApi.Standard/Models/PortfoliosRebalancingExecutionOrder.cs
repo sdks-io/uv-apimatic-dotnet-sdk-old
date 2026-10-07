@@ -69,7 +69,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid ExecutionId { get; set; }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         public Guid AccountId { get; set; }

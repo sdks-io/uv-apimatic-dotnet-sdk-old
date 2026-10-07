@@ -43,17 +43,17 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// The retrieved price quality.
-        /// * REALTIME -
-        /// * DELAYED -
+        /// The quality of the price data returned.
+        /// * REALTIME — Priced in real time.
+        /// * DELAYED — Priced with a delay set by the data owner.
         /// </summary>
         [JsonProperty("price_quality")]
         public Models.PriceQuality2 PriceQuality { get; set; }
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency Currency { get; set; }
@@ -71,7 +71,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public List<Models.Ask> Asks { get; set; }
 
         /// <summary>
-        /// Gets or sets LastTrade.
+        /// A single trade in an instrument, with the price and size at which it executed.
         /// </summary>
         [JsonProperty("last_trade", NullValueHandling = NullValueHandling.Ignore)]
         public Models.LastTrade LastTrade { get; set; }

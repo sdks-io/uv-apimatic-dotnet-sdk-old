@@ -71,25 +71,25 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Files download URL.
+        /// The one-time URL for downloading the file. The URL expires 15 minutes after it is issued.
         /// </summary>
         [JsonProperty("signed_url")]
         public string SignedUrl { get; set; }
 
         /// <summary>
-        /// Name of the file.
+        /// The name of the file.
         /// </summary>
         [JsonProperty("file_name")]
         public string FileName { get; set; }
 
         /// <summary>
-        /// Length of the file
+        /// The size of the file in bytes.
         /// </summary>
         [JsonProperty("content_length")]
         public int ContentLength { get; set; }
 
         /// <summary>
-        /// CRC32 of the files content
+        /// The checksum of the file's contents, as a hexadecimal string.
         /// </summary>
         [JsonProperty("checksum")]
         public string Checksum { get; set; }

@@ -25,7 +25,7 @@ CreateRoleBody value = CreateRoleBody.FromAccountGroupRoleCreateRequest(
         UserId = new Guid("000020d0-0000-0000-0000-000000000000"),
         EntityType = "ACCOUNT_GROUP",
         EntityId = new Guid("000003f2-0000-0000-0000-000000000000"),
-        RoleType = "GUARDIAN",
+        RoleType = RoleType2.Guardian,
     }
 );
 ```

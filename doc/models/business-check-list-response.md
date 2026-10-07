@@ -38,7 +38,7 @@ BusinessCheckListResponse businessCheckListResponse = new BusinessCheckListRespo
                 CheckConfirmedAt = DateTime.ParseExact("2016-03-13T12:52:32.123Z", "yyyy'-'MM'-'dd'T'HH':'mm':'ss.FFFFFFFK",
                     provider: CultureInfo.InvariantCulture,
                     DateTimeStyles.RoundtripKind),
-                Status = Status109.Failed,
+                Status = Status105.Failed,
                 DataDownloadLink = "data_download_link0",
                 DocumentType = "document_type6",
                 ["exampleAdditionalProperty"] = ApiHelper.JsonDeserialize<object>("{\"key1\":\"val1\",\"key2\":\"val2\"}"),

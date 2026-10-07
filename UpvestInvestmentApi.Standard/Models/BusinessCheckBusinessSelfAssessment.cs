@@ -74,7 +74,7 @@ namespace UpvestInvestmentApi.Standard.Models
             Guid businessId,
             string type,
             DateTime checkConfirmedAt,
-            Models.Status109 status,
+            Models.Status105 status,
             Models.BusinessIndustry businessIndustry,
             Models.PurposeOfBusinessRelationship purposeOfBusinessRelationship,
             List<Models.PrimaryCountriesOfActivity> primaryCountriesOfActivity,
@@ -135,7 +135,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// </summary>
         [JsonProperty("status")]
         [JsonRequired]
-        public Models.Status109 Status { get; set; }
+        public Models.Status105 Status { get; set; }
 
         /// <summary>
         /// The business industry classification.

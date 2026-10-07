@@ -11,10 +11,10 @@ Aggregated totals of product costs, service costs and third party payments.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Product` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `Service` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `ThirdParty` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `Total` | [`Cost`](../../doc/models/cost.md) | Optional | - |
+| `Product` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `Service` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `ThirdParty` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `Total` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
 
 ## Example
 

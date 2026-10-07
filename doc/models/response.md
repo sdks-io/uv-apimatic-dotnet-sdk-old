@@ -1,6 +1,8 @@
 
 # Response
 
+What the subscribed endpoint returned in response to the test delivery.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -11,10 +13,10 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Status` | `int` | Required | - |
-| `Headers` | `Dictionary<string, string>` | Required | - |
-| `Body` | `string` | Required | - |
-| `Error` | `string` | Optional | - |
+| `Status` | `int` | Required | The HTTP status code returned by the endpoint. |
+| `Headers` | `Dictionary<string, string>` | Required | The HTTP response headers returned by the endpoint. |
+| `Body` | `string` | Required | The response body returned by the endpoint. |
+| `Error` | `string` | Optional | The reason the test delivery failed. Present only when the endpoint could not be reached or did not respond. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

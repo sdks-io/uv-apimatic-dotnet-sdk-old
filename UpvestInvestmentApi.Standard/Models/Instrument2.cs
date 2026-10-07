@@ -74,7 +74,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Isin { get; set; }
 
         /// <summary>
-        /// Instrument short name.
+        /// The short display name of the instrument.
         /// </summary>
         [JsonProperty("short_name", NullValueHandling = NullValueHandling.Ignore)]
         public string ShortName { get; set; }

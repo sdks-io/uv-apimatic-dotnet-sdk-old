@@ -82,7 +82,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Report unique identifier.
+        /// The unique identifier of the report, as a UUID.
         /// </summary>
         [JsonProperty("id")]
         [JsonRequired]
@@ -111,7 +111,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.Type44 Type { get; set; }
 
         /// <summary>
-        /// Gets or sets SubstitutedReportId.
+        /// The unique identifier of the report that this report replaces, as a UUID. Populated when a mistrade causes a corrected report to be issued; `null` otherwise.
         /// </summary>
         [JsonProperty("substituted_report_id", NullValueHandling = NullValueHandling.Include)]
         public Guid? SubstitutedReportId { get; set; }

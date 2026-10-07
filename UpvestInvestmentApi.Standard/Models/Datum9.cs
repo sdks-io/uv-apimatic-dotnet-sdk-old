@@ -51,7 +51,7 @@ namespace UpvestInvestmentApi.Standard.Models
             Guid id,
             DateTime createdAt,
             DateTime updatedAt,
-            Models.Direction4 direction,
+            Models.Direction1 direction,
             Models.Status79 status,
             string transferType,
             string instrumentId,
@@ -94,7 +94,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Securities transfer request unique identifier.
+        /// The unique identifier of the securities transfer, as a UUID.
         /// </summary>
         [JsonProperty("id")]
         public Guid Id { get; set; }
@@ -119,7 +119,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// * `OUTGOING` - Securities transfer is outgoing from the user.
         /// </summary>
         [JsonProperty("direction")]
-        public Models.Direction4 Direction { get; set; }
+        public Models.Direction1 Direction { get; set; }
 
         /// <summary>
         /// Status of the securities transfer
@@ -145,8 +145,8 @@ namespace UpvestInvestmentApi.Standard.Models
         public string InstrumentId { get; set; }
 
         /// <summary>
-        /// Type of the instrument_id
-        /// * `ISIN` - International Securities Identification Number
+        /// The kind of identifier given in `instrument_id`.
+        /// * ISIN — International Securities Identification Number.
         /// </summary>
         [JsonProperty("instrument_id_type")]
         public string InstrumentIdType { get; set; }
@@ -170,7 +170,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         public Guid AccountId { get; set; }
@@ -182,8 +182,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string PlaceOfSettlement { get; set; }
 
         /// <summary>
-        /// Unique identifier of the securities transfer set by API consumers. Useful for API consumers to build special logic on top of it.
-        /// *NOTE: For automatic incoming transfers where API users will subscribe to the corresponding webhook, the value is set by Upvest!*
+        /// A reference for the securities transfer, set by the client and useful for correlating the transfer with client-side records.
         /// </summary>
         [JsonProperty("settlement_reference")]
         public string SettlementReference { get; set; }

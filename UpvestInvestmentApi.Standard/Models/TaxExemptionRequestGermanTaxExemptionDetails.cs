@@ -37,12 +37,13 @@ namespace UpvestInvestmentApi.Standard.Models
         /// Tax exemption type
         /// * SINGLE - Tax exemption for Individual.
         /// * MARRIED - Tax exemption for married couples.
+        /// * CIVIL_PARTNERSHIP - Tax exemption for registered civil partnerships.
         /// </summary>
         [JsonProperty("tax_exemption_type", NullValueHandling = NullValueHandling.Ignore)]
         public Models.TaxExemptionType? TaxExemptionType { get; set; }
 
         /// <summary>
-        /// Gets or sets TaxExemptionAmount.
+        /// A monetary amount relating to a tax exemption order, with its [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency.
         /// </summary>
         [JsonProperty("tax_exemption_amount")]
         public Models.TaxExemptionCreateRequestTaxExemptionDetailsAmount TaxExemptionAmount { get; set; }

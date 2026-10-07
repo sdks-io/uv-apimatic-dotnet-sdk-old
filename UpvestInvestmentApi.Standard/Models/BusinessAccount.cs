@@ -92,7 +92,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("id")]
         [JsonRequired]
@@ -115,7 +115,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("account_group_id")]
         [JsonRequired]
@@ -153,12 +153,12 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// The status of the account
-        /// * PENDING_APPROVAL - Account approval is pending - the account is visible through our API but cannot be acted on.
-        /// * ACTIVE - Account is active - full functionality of the Investment API is accessible.
-        /// * CLOSING - Account is closing - only sell orders or the transfer of positions out are permissible before the account is closed.
-        /// * CLOSED - Account is closed with zero balance successfully.
-        /// * LOCKED - Account is locked for all actions.
+        /// The status of the account.
+        /// * `PENDING_APPROVAL` — Account approval is pending — the account is visible through our API but cannot be acted on.
+        /// * `ACTIVE` — Account is active — full functionality of the Investment API is accessible.
+        /// * `CLOSING` — Account is closing — only sell orders or the transfer of positions out are permissible before the account is closed.
+        /// * `CLOSED` — Account is closed with zero balance.
+        /// * `LOCKED` — Account is locked for all actions.
         /// </summary>
         [JsonProperty("status")]
         [JsonRequired]

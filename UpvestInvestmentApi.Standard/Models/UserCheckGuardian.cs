@@ -71,7 +71,7 @@ namespace UpvestInvestmentApi.Standard.Models
             Guid userId,
             string type,
             Guid roleId,
-            string documentType,
+            Models.DocumentType5 documentType,
             string dataDownloadLink,
             Models.Status10 status,
             DateTime? checkConfirmedAt = null)
@@ -125,13 +125,13 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid RoleId { get; set; }
 
         /// <summary>
-        /// The type of document used in the Guardian check.
+        /// The type of document used in the Guardian check. A check carries one document, so a guardian with sole custody submits the birth certificate and the proof of custody as two checks of this type.
         /// * BIRTH_CERTIFICATE - Birth certificate proving guardian relationship
+        /// * SOLE_CUSTODY_PROOF - Document proving the guardian holds sole custody of the child. Accepted only when the role identified by role_id has a custody_type of SOLE_CUSTODY.
         /// </summary>
-        [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("document_type")]
         [JsonRequired]
-        public string DocumentType { get; set; }
+        public Models.DocumentType5 DocumentType { get; set; }
 
         /// <summary>
         /// Download URL for the guardian evidence file. The file size must not exceed 250 MB.
@@ -170,7 +170,7 @@ namespace UpvestInvestmentApi.Standard.Models
             toStringOutput.Add($"Type = {this.Type ?? "null"}");
             toStringOutput.Add($"CheckConfirmedAt = {(this.CheckConfirmedAt == null ? "null" : this.CheckConfirmedAt.ToString())}");
             toStringOutput.Add($"RoleId = {this.RoleId}");
-            toStringOutput.Add($"DocumentType = {this.DocumentType ?? "null"}");
+            toStringOutput.Add($"DocumentType = {this.DocumentType}");
             toStringOutput.Add($"DataDownloadLink = {this.DataDownloadLink ?? "null"}");
             toStringOutput.Add($"Status = {this.Status}");
 

@@ -43,7 +43,7 @@ namespace UpvestInvestmentApi.Standard
 
         private readonly GlobalConfiguration globalConfiguration;
         private SdkLoggingConfiguration sdkLoggingConfiguration;
-        private const string userAgent = "DotNet-SDK/0.0.5 (OS: {os-info}, Engine: {engine}/{engine-version})";
+        private const string userAgent = "DotNet-SDK/0.0.6 (OS: {os-info}, Engine: {engine}/{engine-version})";
         private readonly HttpCallback httpCallback;
         private readonly Lazy<AccessTokensApi> accessTokens;
         private readonly Lazy<FilesApi> files;
@@ -74,6 +74,7 @@ namespace UpvestInvestmentApi.Standard
         private readonly Lazy<FeesApi> fees;
         private readonly Lazy<FeesConfigurationsApi> feesConfigurations;
         private readonly Lazy<TransactionFeesModelsApi> transactionFeesModels;
+        private readonly Lazy<TransactionFeesConfigurationsApi> transactionFeesConfigurations;
         private readonly Lazy<PortfoliosApi> portfolios;
         private readonly Lazy<PortfoliosRebalancingApi> portfoliosRebalancing;
         private readonly Lazy<ValuationsApi> valuations;
@@ -83,7 +84,6 @@ namespace UpvestInvestmentApi.Standard
         private readonly Lazy<SavingsPlansApi> savingsPlans;
         private readonly Lazy<TestsApi> tests;
         private readonly Lazy<SecuritiesTransfersApi> securitiesTransfers;
-        private readonly Lazy<AccountTransfersApi> accountTransfers;
         private readonly Lazy<IsaTransfersApi> isaTransfers;
         private readonly Lazy<BusinessesApi> businesses;
         private readonly Lazy<BusinessChecksApi> businessChecks;
@@ -174,6 +174,8 @@ namespace UpvestInvestmentApi.Standard
                 () => new FeesConfigurationsApi(globalConfiguration));
             this.transactionFeesModels = new Lazy<TransactionFeesModelsApi>(
                 () => new TransactionFeesModelsApi(globalConfiguration));
+            this.transactionFeesConfigurations = new Lazy<TransactionFeesConfigurationsApi>(
+                () => new TransactionFeesConfigurationsApi(globalConfiguration));
             this.portfolios = new Lazy<PortfoliosApi>(
                 () => new PortfoliosApi(globalConfiguration));
             this.portfoliosRebalancing = new Lazy<PortfoliosRebalancingApi>(
@@ -192,8 +194,6 @@ namespace UpvestInvestmentApi.Standard
                 () => new TestsApi(globalConfiguration));
             this.securitiesTransfers = new Lazy<SecuritiesTransfersApi>(
                 () => new SecuritiesTransfersApi(globalConfiguration));
-            this.accountTransfers = new Lazy<AccountTransfersApi>(
-                () => new AccountTransfersApi(globalConfiguration));
             this.isaTransfers = new Lazy<IsaTransfersApi>(
                 () => new IsaTransfersApi(globalConfiguration));
             this.businesses = new Lazy<BusinessesApi>(
@@ -352,6 +352,11 @@ namespace UpvestInvestmentApi.Standard
         public TransactionFeesModelsApi TransactionFeesModelsApi => this.transactionFeesModels.Value;
 
         /// <summary>
+        /// Gets TransactionFeesConfigurationsApi.
+        /// </summary>
+        public TransactionFeesConfigurationsApi TransactionFeesConfigurationsApi => this.transactionFeesConfigurations.Value;
+
+        /// <summary>
         /// Gets PortfoliosApi.
         /// </summary>
         public PortfoliosApi PortfoliosApi => this.portfolios.Value;
@@ -395,11 +400,6 @@ namespace UpvestInvestmentApi.Standard
         /// Gets SecuritiesTransfersApi.
         /// </summary>
         public SecuritiesTransfersApi SecuritiesTransfersApi => this.securitiesTransfers.Value;
-
-        /// <summary>
-        /// Gets AccountTransfersApi.
-        /// </summary>
-        public AccountTransfersApi AccountTransfersApi => this.accountTransfers.Value;
 
         /// <summary>
         /// Gets IsaTransfersApi.

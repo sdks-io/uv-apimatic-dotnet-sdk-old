@@ -12,7 +12,7 @@ Entity representing security transaction reference.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `Id` | `Guid` | Required | Unique identifier for a resource of given type. |
-| `Type` | [`Type51`](../../doc/models/type-51.md) | Required | Type of the reference.<br><br>* ORDER - Order<br>* ORDER_EXECUTION - Order execution<br>* CORPORATE_ACTION - Corporate action<br>* CORPORATE_ACTION_TRANSACTION_ID - Corporate action transaction ID |
+| `Type` | [`Type51`](../../doc/models/type-51.md) | Required | The kind of resource that this reference points to.<br><br>* ORDER — Order.<br>* ORDER_EXECUTION — Order execution.<br>* CORPORATE_ACTION — Corporate action.<br>* CORPORATE_ACTION_TRANSACTION_ID — Corporate action transaction ID. |
 
 ## Example
 

@@ -25,7 +25,8 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal CashBalancesApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Retrieve an account group's cash balance.
+        /// **Deprecated.** Use `GET /account_groups/{account_group_id}/payments/cash_balances/{currency}` instead.
+        /// Returns the account group's cash balance.
         /// </summary>
         /// <param name="accountGroupId">Required parameter: The unique identifier of the account group. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -39,7 +40,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveCashBalanceAsync(accountGroupId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Retrieve an account group's cash balance.
+        /// **Deprecated.** Use `GET /account_groups/{account_group_id}/payments/cash_balances/{currency}` instead.
+        /// Returns the account group's cash balance.
         /// </summary>
         /// <param name="accountGroupId">Required parameter: The unique identifier of the account group. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -72,7 +74,8 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Retrieve an account group's cash balances.
+        /// Returns the list of cash balances held by the account group.
+        /// See the Cash balances guide ([TOL](https://docs.upvest.co/products/tol/guides/payments/cash_balances/cash_balances_intro) / [BYOL](https://docs.upvest.co/products/byol/guides/payments/cash_balances/cash_balances_intro)) for how `balance`, `locked_for_trading`, `pending_settlement`, `available_for_withdrawal`, and `available_for_trading` relate to each other.
         /// </summary>
         /// <param name="accountGroupId">Required parameter: The unique identifier of the account group. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -85,7 +88,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveCashBalancesAsync(accountGroupId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Retrieve an account group's cash balances.
+        /// Returns the list of cash balances held by the account group.
+        /// See the Cash balances guide ([TOL](https://docs.upvest.co/products/tol/guides/payments/cash_balances/cash_balances_intro) / [BYOL](https://docs.upvest.co/products/byol/guides/payments/cash_balances/cash_balances_intro)) for how `balance`, `locked_for_trading`, `pending_settlement`, `available_for_withdrawal`, and `available_for_trading` relate to each other.
         /// </summary>
         /// <param name="accountGroupId">Required parameter: The unique identifier of the account group. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -117,7 +121,8 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Retrieve an account group's cash balance for particular ISO currency code.
+        /// Returns the account group's cash balance for the given `currency`.
+        /// See the Cash balances guide ([TOL](https://docs.upvest.co/products/tol/guides/payments/cash_balances/cash_balances_retrieving) / [BYOL](https://docs.upvest.co/products/byol/guides/payments/cash_balances/cash_balances_retrieving)) for implementation details.
         /// </summary>
         /// <param name="accountGroupId">Required parameter: The unique identifier of the account group. Universally Unique Identifier (UUID)..</param>
         /// <param name="currency">Required parameter: The [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) alphabetic currency code identifying the cash balance (e.g. `EUR`)..</param>
@@ -132,7 +137,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveCashBalanceWithCurrencyAsync(accountGroupId, currency, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Retrieve an account group's cash balance for particular ISO currency code.
+        /// Returns the account group's cash balance for the given `currency`.
+        /// See the Cash balances guide ([TOL](https://docs.upvest.co/products/tol/guides/payments/cash_balances/cash_balances_retrieving) / [BYOL](https://docs.upvest.co/products/byol/guides/payments/cash_balances/cash_balances_retrieving)) for implementation details.
         /// </summary>
         /// <param name="accountGroupId">Required parameter: The unique identifier of the account group. Universally Unique Identifier (UUID)..</param>
         /// <param name="currency">Required parameter: The [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) alphabetic currency code identifying the cash balance (e.g. `EUR`)..</param>

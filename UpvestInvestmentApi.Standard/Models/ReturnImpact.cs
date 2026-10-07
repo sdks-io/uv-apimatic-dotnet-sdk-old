@@ -71,19 +71,19 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets YearOne.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("year_one", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost YearOne { get; set; }
 
         /// <summary>
-        /// Gets or sets YearTwo.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("year_two", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost YearTwo { get; set; }
 
         /// <summary>
-        /// Gets or sets YearThree.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("year_three", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost YearThree { get; set; }

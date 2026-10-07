@@ -53,13 +53,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         public Guid AccountId { get; set; }
 
         /// <summary>
-        /// Gets or sets Instrument.
+        /// The instrument this position is held in, identified by its `uuid` and, if assigned, its `isin`.
         /// </summary>
         [JsonProperty("instrument")]
         public Models.Instrument Instrument { get; set; }
@@ -71,13 +71,13 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Quantity { get; set; }
 
         /// <summary>
-        /// Gets or sets LockedForTrading.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonProperty("locked_for_trading")]
         public string LockedForTrading { get; set; }
 
         /// <summary>
-        /// Gets or sets PendingSettlement.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonProperty("pending_settlement")]
         public string PendingSettlement { get; set; }
@@ -95,7 +95,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string AvailableForInstruction { get; set; }
 
         /// <summary>
-        /// Gets or sets SettledQuantity.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonProperty("settled_quantity")]
         public string SettledQuantity { get; set; }

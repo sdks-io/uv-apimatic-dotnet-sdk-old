@@ -46,37 +46,37 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets OneOff.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("one_off", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost OneOff { get; set; }
 
         /// <summary>
-        /// Gets or sets Ongoing.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("ongoing", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost Ongoing { get; set; }
 
         /// <summary>
-        /// Gets or sets Transaction.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("transaction", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost Transaction { get; set; }
 
         /// <summary>
-        /// Gets or sets Ancillary.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("ancillary", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost Ancillary { get; set; }
 
         /// <summary>
-        /// Gets or sets Incidental.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("incidental", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost Incidental { get; set; }
 
         /// <summary>
-        /// Gets or sets Total.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("total", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost Total { get; set; }

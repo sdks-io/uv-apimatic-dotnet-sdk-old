@@ -69,7 +69,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Id.
+        /// The unique identifier of the referenced resource, as a UUID.
         /// </summary>
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? Id { get; set; }

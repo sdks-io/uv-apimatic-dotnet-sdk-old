@@ -19,7 +19,11 @@ TaxExemptionsApi taxExemptionsApi = client.TaxExemptionsApi;
 
 # Create Tax Exemption
 
-Creates a tax exemption.
+Creates a tax exemption order for end users who are resident in Germany for tax purposes.
+
+Upvest must hold the end user's Tax Identification Number before an exemption can be created. The request is processed asynchronously: the exemption is created with status `NEW` and moves to `ACTIVE`, which is signalled by a `TAX_EXEMPTION` webhook event. A single exemption covers exactly one `user_ids` entry and an allowance of up to €1,000 per tax year; a joint exemption requires exactly two entries and covers up to €2,000.
+
+See the [Creating a tax exemption order guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_creating) for implementation details.
 
 ```csharp
 CreateTaxExemptionAsync(
@@ -52,7 +56,7 @@ This endpoint requires [oauth-client-credentials](../../doc/auth/oauth-2-client-
 
 **202**: Creation request accepted.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.TaxExemptionsCreateResponse](../../doc/models/tax-exemptions-create-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.WebhookTaxExemptionCreatedTaxExemption](../../doc/models/webhook-tax-exemption-created-tax-exemption.md).
 
 ## Example Usage
 
@@ -76,12 +80,12 @@ TaxesTaxExemptionsCreateRequest body = new TaxesTaxExemptionsCreateRequest
         TaxExemptionType = TaxExemptionType.Single,
     },
     Country = "DE",
-    ValidToDate = DateTime.Parse("2024-12-31"),
+    ValidToDate = DateTime.Parse("2026-12-31"),
 };
 
 try
 {
-    ApiResponse<TaxExemptionsCreateResponse> result = await taxExemptionsApi.CreateTaxExemptionAsync(
+    ApiResponse<WebhookTaxExemptionCreatedTaxExemption> result = await taxExemptionsApi.CreateTaxExemptionAsync(
         upvestClientId,
         idempotencyKey,
         upvestApiVersion,
@@ -102,7 +106,31 @@ catch (ApiException e)
 
 ```json
 {
-  "id": "f1a57a04-1a89-4dab-ae3a-ff9b2a9377c1"
+  "id": "f1a57a04-1a89-4dab-ae3a-ff9b2a9377c1",
+  "created_at": "2026-01-01T10:33:43Z",
+  "updated_at": "2026-01-01T10:33:43Z",
+  "status": "NEW",
+  "user_ids": [
+    "70fd317b-81e1-4f21-9f7e-3b5cb4dfe686"
+  ],
+  "country": "DE",
+  "valid_from_date": "2026-01-01",
+  "valid_to_date": "2026-12-31",
+  "tax_exemption_details": {
+    "tax_exemption_type": "SINGLE",
+    "tax_exemption_amount": {
+      "amount": "1000.00",
+      "currency": "EUR"
+    },
+    "utilized_amount": {
+      "amount": "0.00",
+      "currency": "EUR"
+    },
+    "remaining_amount": {
+      "amount": "1000.00",
+      "currency": "EUR"
+    }
+  }
 }
 ```
 
@@ -123,7 +151,9 @@ catch (ApiException e)
 
 # Retrieve Tax Exemption by Id
 
-Returns the tax exemption specified by its ID
+Returns the tax exemption order identified by `tax_exemption_id`, including its status and the allowance used and remaining for the tax year.
+
+See the [Retrieving tax exemption orders guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_get) for implementation details.
 
 ```csharp
 RetrieveTaxExemptionByIdAsync(
@@ -185,15 +215,15 @@ catch (ApiException e)
 ```json
 {
   "id": "f1a57a04-1a89-4dab-ae3a-ff9b2a9377c1",
-  "created_at": "2024-01-01T10:33:43Z",
-  "updated_at": "2024-01-01T10:33:43Z",
+  "created_at": "2026-01-01T10:33:43Z",
+  "updated_at": "2026-01-01T10:33:43Z",
   "status": "ACTIVE",
   "user_ids": [
     "70821d79-366f-4873-804b-14857d690496"
   ],
   "country": "DE",
-  "valid_from_date": "2024-01-01",
-  "valid_to_date": "2024-12-31",
+  "valid_from_date": "2026-01-01",
+  "valid_to_date": "2026-12-31",
   "tax_exemption_details": {
     "tax_exemption_type": "SINGLE",
     "tax_exemption_amount": {
@@ -228,7 +258,9 @@ catch (ApiException e)
 
 # Update Tax Exemption
 
-Updates a tax exemption specified by its ID.
+Updates the tax exemption order identified by `tax_exemption_id`.
+
+See the [Updating a tax exemption guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_update) for the rules governing reduction, increase, and cancellation of an exemption.
 
 ```csharp
 UpdateTaxExemptionAsync(
@@ -261,7 +293,7 @@ This endpoint requires [oauth-client-credentials](../../doc/auth/oauth-2-client-
 
 **202**: The tax exemption update is submitted.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.TaxExemptionsUpdateResponse](../../doc/models/tax-exemptions-update-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.WebhookTaxExemptionCreatedTaxExemption](../../doc/models/webhook-tax-exemption-created-tax-exemption.md).
 
 ## Example Usage
 
@@ -285,12 +317,12 @@ TaxesTaxExemptionsUpdateRequest body = new TaxesTaxExemptionsUpdateRequest
         TaxExemptionType = TaxExemptionType.Single,
     },
     Country = "DE",
-    ValidToDate = DateTime.Parse("2024-12-31"),
+    ValidToDate = DateTime.Parse("2026-12-31"),
 };
 
 try
 {
-    ApiResponse<TaxExemptionsUpdateResponse> result = await taxExemptionsApi.UpdateTaxExemptionAsync(
+    ApiResponse<WebhookTaxExemptionCreatedTaxExemption> result = await taxExemptionsApi.UpdateTaxExemptionAsync(
         taxExemptionId,
         upvestClientId,
         upvestApiVersion,
@@ -311,7 +343,31 @@ catch (ApiException e)
 
 ```json
 {
-  "id": "f1a57a04-1a89-4dab-ae3a-ff9b2a9377c1"
+  "id": "f1a57a04-1a89-4dab-ae3a-ff9b2a9377c1",
+  "created_at": "2026-01-01T10:33:43Z",
+  "updated_at": "2026-02-01T09:12:05Z",
+  "status": "ACTIVE",
+  "user_ids": [
+    "70fd317b-81e1-4f21-9f7e-3b5cb4dfe686"
+  ],
+  "country": "DE",
+  "valid_from_date": "2026-01-01",
+  "valid_to_date": "2026-12-31",
+  "tax_exemption_details": {
+    "tax_exemption_type": "SINGLE",
+    "tax_exemption_amount": {
+      "amount": "955.00",
+      "currency": "EUR"
+    },
+    "utilized_amount": {
+      "amount": "0.00",
+      "currency": "EUR"
+    },
+    "remaining_amount": {
+      "amount": "955.00",
+      "currency": "EUR"
+    }
+  }
 }
 ```
 
@@ -332,7 +388,11 @@ catch (ApiException e)
 
 # Delete Tax Exemption
 
-Deletes a tax exemption specified by its ID.
+Deletes the tax exemption order identified by `tax_exemption_id` and stops it renewing in subsequent tax years.
+
+Deletion succeeds only while none of the associated end users have claimed an exemption amount in the current tax year. If any amount has already been used, the exemption remains active and the request fails.
+
+See the [Deleting a tax exemption order guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_deleting) for implementation details.
 
 ```csharp
 DeleteTaxExemptionAsync(
@@ -405,7 +465,11 @@ catch (ApiException e)
 
 # Retrieve Tax Exemptions for User
 
-Returns the tax exemptions of the user specified by ID.
+Returns the tax exemption orders of the end user identified by `user_id`.
+
+Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching tax exemptions.
+
+See the [Retrieving tax exemption orders guide](https://docs.upvest.co/products/tol/guides/taxes/tax_exemptions_get) for implementation details.
 
 ```csharp
 RetrieveTaxExemptionsForUserAsync(
@@ -492,15 +556,15 @@ catch (ApiException e)
   "data": [
     {
       "id": "f1a57a04-1a89-4dab-ae3a-ff9b2a9377c1",
-      "created_at": "2024-01-01T10:33:43Z",
-      "updated_at": "2024-01-01T10:33:43Z",
+      "created_at": "2026-01-01T10:33:43Z",
+      "updated_at": "2026-01-01T10:33:43Z",
       "status": "ACTIVE",
       "user_ids": [
         "70821d79-366f-4873-804b-14857d690496"
       ],
       "country": "DE",
-      "valid_from_date": "2024-01-01",
-      "valid_to_date": "2024-12-31",
+      "valid_from_date": "2026-01-01",
+      "valid_to_date": "2026-12-31",
       "tax_exemption_details": {
         "tax_exemption_type": "SINGLE",
         "tax_exemption_amount": {

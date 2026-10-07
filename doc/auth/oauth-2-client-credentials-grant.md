@@ -85,6 +85,8 @@ Scopes enable your application to only request access to the resources it needs 
 | `CASH_BALANCE_TRANSFERSADMIN` | Cash balance transfer operations |
 | `CASH_BALANCE_TRANSFERSREAD` | Cash balance transfer read operations |
 | `CREDIT_FUNDINGSREAD` | Credit Fundings read operations |
+| `CASH_CREDITSADMIN` | Cash credits operations |
+| `CASH_CREDITSREAD` | Cash credits read operations |
 | `SECURITIES_TRANSFERSREAD` | Securities Transfers read transfers |
 | `SECURITIES_TRANSFERSADMIN` | Securities Transfers operations |
 | `ISA_TRANSFERSADMIN` | ISA Transfers operations |

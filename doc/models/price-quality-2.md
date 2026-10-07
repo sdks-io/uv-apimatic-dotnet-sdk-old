@@ -1,10 +1,10 @@
 
 # Price Quality 2
 
-The retrieved price quality.
+The quality of the price data returned.
 
-* REALTIME -
-* DELAYED -
+* REALTIME — Priced in real time.
+* DELAYED — Priced with a delay set by the data owner.
 
 ## Enumeration
 

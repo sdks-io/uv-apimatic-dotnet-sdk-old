@@ -25,7 +25,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal IsaTransfersApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Create ISA transfer.
+        /// Creates an ISA transfer, moving all or part of an end user's existing ISA into an Upvest Stocks and Shares ISA while preserving their current-year allowance.
+        /// Set `transfer_type` to `ISA_EXTERNAL` for a transfer between ISA managers, which requires `counterparty`, or to `ISA_INTERNAL` for a transfer within the same ISA manager, which requires `transfer_value` and `details`. Only cash transfers are supported, so `transfer_method` must be `CASH`.
+        /// See the ISA transfers implementation guide ([TOL](https://docs.upvest.co/products/tol/guides/tax_wrappers/tax_wrappers_isa_transfers_implementation) / [BYOL](https://docs.upvest.co/products/byol/guides/tax_wrappers/tax_wrappers_isa_transfers_implementation)) for the required fields per transfer type.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -40,7 +42,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateIsaTransferAsync(upvestClientId, idempotencyKey, upvestApiVersion, body));
 
         /// <summary>
-        /// Create ISA transfer.
+        /// Creates an ISA transfer, moving all or part of an end user's existing ISA into an Upvest Stocks and Shares ISA while preserving their current-year allowance.
+        /// Set `transfer_type` to `ISA_EXTERNAL` for a transfer between ISA managers, which requires `counterparty`, or to `ISA_INTERNAL` for a transfer within the same ISA manager, which requires `transfer_value` and `details`. Only cash transfers are supported, so `transfer_method` must be `CASH`.
+        /// See the ISA transfers implementation guide ([TOL](https://docs.upvest.co/products/tol/guides/tax_wrappers/tax_wrappers_isa_transfers_implementation) / [BYOL](https://docs.upvest.co/products/byol/guides/tax_wrappers/tax_wrappers_isa_transfers_implementation)) for the required fields per transfer type.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>

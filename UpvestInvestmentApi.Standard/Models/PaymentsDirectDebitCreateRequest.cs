@@ -56,7 +56,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid? UserId { get; set; }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("account_group_id")]
         public Guid AccountGroupId { get; set; }
@@ -75,8 +75,8 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Currency? Currency { get; set; }

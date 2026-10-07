@@ -17,27 +17,21 @@ namespace UpvestInvestmentApi.Standard.Models
     public enum Status82
     {
         /// <summary>
-        /// New.
+        /// Issued.
         /// </summary>
-        [EnumMember(Value = "NEW")]
-        New,
+        [EnumMember(Value = "ISSUED")]
+        Issued,
 
         /// <summary>
-        /// Processing.
+        /// Confirmed.
         /// </summary>
-        [EnumMember(Value = "PROCESSING")]
-        Processing,
+        [EnumMember(Value = "CONFIRMED")]
+        Confirmed,
 
         /// <summary>
         /// Cancelled.
         /// </summary>
         [EnumMember(Value = "CANCELLED")]
-        Cancelled,
-
-        /// <summary>
-        /// Settled.
-        /// </summary>
-        [EnumMember(Value = "SETTLED")]
-        Settled
+        Cancelled
     }
 }

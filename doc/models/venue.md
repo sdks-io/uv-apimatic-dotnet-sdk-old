@@ -1,7 +1,7 @@
 
 # Venue
 
-Venue
+A trading venue at which an instrument is priced, and the price qualities it offers.
 
 *This model accepts additional fields of type object.*
 
@@ -13,8 +13,8 @@ Venue
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Name` | `string` | Optional | The name of venue. |
-| `Id` | `Guid` | Required | Venue unique identifier. |
+| `Name` | `string` | Optional | The name of the trading venue. |
+| `Id` | `Guid` | Required | The unique identifier of the trading venue, as a UUID. |
 | `PriceQualities` | [`List<PriceQuality>`](../../doc/models/price-quality.md) | Optional | The available price qualities. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 

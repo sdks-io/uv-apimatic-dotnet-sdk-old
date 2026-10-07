@@ -68,13 +68,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account information.
+        /// The account that the report relates to.
         /// </summary>
         [JsonProperty("account", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Account7 Account { get; set; }
 
         /// <summary>
-        /// Gets or sets References.
+        /// Identifiers of the resources that the report relates to, such as the order or corporate action that triggered it.
         /// </summary>
         [JsonProperty("references", NullValueHandling = NullValueHandling.Ignore)]
         public List<Models.ReportReferenceData> References { get; set; }

@@ -11,7 +11,7 @@ Request body for creating a virtual bank account for an account group.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `AccountGroupId` | `Guid` | Required | Account group unique identifier. |
+| `AccountGroupId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account group. |
 | `Name` | `string` | Required | Name of the virtual bank account |
 
 ## Example

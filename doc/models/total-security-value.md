@@ -11,8 +11,8 @@ Entity representing the monetary value by amount and currency.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Amount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,2})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `Amount` | `string` | Required | A decimal-string monetary amount used in account valuation calculations.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,2})?$` |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 
 ## Example
 

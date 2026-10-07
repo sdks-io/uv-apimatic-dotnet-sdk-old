@@ -11,11 +11,11 @@ All costs and associated charges related to the financial instrument.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `OneOff` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `Ongoing` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `Transaction` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `Incidental` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `Total` | [`Cost`](../../doc/models/cost.md) | Optional | - |
+| `OneOff` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `Ongoing` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `Transaction` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `Incidental` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `Total` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
 
 ## Example
 

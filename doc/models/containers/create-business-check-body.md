@@ -48,7 +48,7 @@ CreateBusinessCheckBody value = CreateBusinessCheckBody.FromBusinessCheckBusines
         CheckConfirmedAt = DateTime.ParseExact("2016-03-13T12:52:32.123Z", "yyyy'-'MM'-'dd'T'HH':'mm':'ss.FFFFFFFK",
             provider: CultureInfo.InvariantCulture,
             DateTimeStyles.RoundtripKind),
-        BusinessIndustry = BusinessIndustry.WholesaleTradeLuxuryAndCollectibles,
+        BusinessIndustry = BusinessIndustry.TransportationAndLogisticsCruiseLines,
         PurposeOfBusinessRelationship = PurposeOfBusinessRelationship.EmployeeBenefitFunding,
         PrimaryCountriesOfActivity = new List<PrimaryCountriesOfActivity>
         {

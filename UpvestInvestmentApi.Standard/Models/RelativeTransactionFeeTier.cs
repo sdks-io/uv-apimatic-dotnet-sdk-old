@@ -86,7 +86,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string TierId { get; set; }
 
         /// <summary>
-        /// Gets or sets BaseAmountFrom.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("base_amount_from")]
@@ -94,7 +94,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string BaseAmountFrom { get; set; }
 
         /// <summary>
-        /// Gets or sets FeeBps.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("fee_bps")]
@@ -102,14 +102,14 @@ namespace UpvestInvestmentApi.Standard.Models
         public string FeeBps { get; set; }
 
         /// <summary>
-        /// Gets or sets MinFeeAmount.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter))]
         [JsonProperty("min_fee_amount", NullValueHandling = NullValueHandling.Ignore)]
         public string MinFeeAmount { get; set; }
 
         /// <summary>
-        /// Gets or sets MaxFeeAmount.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter))]
         [JsonProperty("max_fee_amount", NullValueHandling = NullValueHandling.Ignore)]

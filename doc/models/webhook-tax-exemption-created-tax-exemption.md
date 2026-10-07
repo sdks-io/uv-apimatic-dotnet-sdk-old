@@ -1,6 +1,8 @@
 
 # Webhook Tax Exemption Created Tax Exemption
 
+A tax exemption order under German tax law. Records the allowance granted, the amounts used and remaining for the tax year, and the period for which the exemption is valid.
+
 ## Structure
 
 `WebhookTaxExemptionCreatedTaxExemption`
@@ -9,7 +11,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid` | Required | Tax Exemption Unique Identifier |
+| `Id` | `Guid` | Required | The unique identifier of the tax exemption order, as a UUID. |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `Status` | [`TaxExemptionStatus`](../../doc/models/tax-exemption-status.md) | Required | Tax exemption status<br><br>* NEW - The tax exemption request is created.<br>* ACTIVE - The tax exemption is valid and active for the current year.<br>* EXPIRED - The tax exemption is no longer `ACTIVE` and the `valid_to_date` already lies in the past. An update is not possible.<br>* CANCELLED - The tax exemption could not be created or was cancelled. |
@@ -17,7 +19,7 @@
 | `Country` | `string` | Required | Country code. [ISO 3166 alpha-2 Codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).<br><br>**Constraints**: *Pattern*: `^[A-Z]{2}$` |
 | `ValidFromDate` | `DateTime` | Required | Date from which the tax exemption is valid. [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) |
 | `ValidToDate` | `DateTime?` | Required | Date until which the tax exemption is valid. If it is unlimited, it is omitted. For Germany it is always the last day of the year (YYYY-12-31). [RFC 3339, section 5.6](https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339) |
-| `TaxExemptionDetails` | [`TaxExemptionGermanTaxExemptionDetails`](../../doc/models/tax-exemption-german-tax-exemption-details.md) | Required | - |
+| `TaxExemptionDetails` | [`TaxExemptionGermanTaxExemptionDetails`](../../doc/models/tax-exemption-german-tax-exemption-details.md) | Required | The German tax exemption details returned for a tax exemption order, including the allowance granted and the amounts used and remaining for the tax year. |
 
 ## Example
 
@@ -46,7 +48,7 @@ WebhookTaxExemptionCreatedTaxExemption webhookTaxExemptionCreatedTaxExemption = 
     ValidToDate = DateTime.Parse("2016-03-13"),
     TaxExemptionDetails = new TaxExemptionGermanTaxExemptionDetails
     {
-        TaxExemptionType = TaxExemptionType.Single,
+        TaxExemptionType = TaxExemptionType.CivilPartnership,
         TaxExemptionAmount = new TaxExemptionCreateRequestTaxExemptionDetailsAmount
         {
             Amount = "amount4",

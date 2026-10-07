@@ -117,7 +117,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid TaxWrapperId { get; set; }
 
         /// <summary>
-        /// Gets or sets TaxYear.
+        /// The UK tax year the allowance applies to, in `yyyy/yyyy` form. The UK tax year runs from 6 April to 5 April.
         /// </summary>
         [JsonProperty("tax_year")]
         public string TaxYear
@@ -151,7 +151,7 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * GBP - British Pound Sterling
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         public string Currency { get; set; }
@@ -176,7 +176,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime ValidFrom { get; set; }
 
         /// <summary>
-        /// Gets or sets ValidTo.
+        /// The date and time at which the allowance expires. Expired allowances do not roll over; a new allowance is created for the next tax year. Applies to allowances of type `ANNUAL`.
         /// </summary>
         [JsonConverter(typeof(IsoDateTimeConverter))]
         [JsonProperty("valid_to")]
@@ -195,7 +195,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets FirstSubscriptionAt.
+        /// The date and time of the first qualifying cash subscription against this allowance. Used for HMRC reporting.
         /// </summary>
         [JsonConverter(typeof(IsoDateTimeConverter))]
         [JsonProperty("first_subscription_at")]

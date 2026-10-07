@@ -20,7 +20,7 @@ Role assignment for a business entity.
 | `EntityType` | `string` | Required | The entity type; must be `BUSINESS` for business roles.<br><br>**Default**: `"BUSINESS"` |
 | `EntityId` | `Guid` | Required | Unique identifier of the entity a role is attached to. |
 | `RoleType` | [`RoleType1`](../../doc/models/role-type-1.md) | Required | Role type for a business entity.<br><br>* `LEGAL_REPRESENTATIVE` — The user is a legal representative of the business.<br>* `AUTHORISED_SIGNATORY` — The user is authorised to sign documents and make commitments on behalf of the business.<br>* `ULTIMATE_BENEFICIAL_OWNER` — The user ultimately owns or controls the business.<br>* `CONTRACTING_EXECUTIVE` — The user is able to enter into contracts on behalf of the business.<br>* `TRADER` — The user is authorised to place orders on behalf of the business.<br>* `SOLE_TRADER` — The user places orders on behalf of a sole trader entity. |
-| `Status` | [`Status115`](../../doc/models/status-115.md) | Required | Status of the role assignment.<br><br>* `PENDING` — The role has been created but is not yet active.<br>* `ACTIVE` — The role is active.<br>* `DEACTIVATED` — The role has been deactivated and cannot be reactivated. |
+| `Status` | [`Status111`](../../doc/models/status-111.md) | Required | Status of the role assignment.<br><br>* `PENDING` — The role has been created but is not yet active.<br>* `ACTIVE` — The role is active.<br>* `DEACTIVATED` — The role has been deactivated and cannot be reactivated. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example
@@ -43,7 +43,7 @@ BusinessRole businessRole = new BusinessRole
     EntityType = "BUSINESS",
     EntityId = new Guid("000000a4-0000-0000-0000-000000000000"),
     RoleType = RoleType1.Trader,
-    Status = Status115.Pending,
+    Status = Status111.Pending,
     ["exampleAdditionalProperty"] = ApiHelper.JsonDeserialize<object>("{\"key1\":\"val1\",\"key2\":\"val2\"}"),
 };
 ```

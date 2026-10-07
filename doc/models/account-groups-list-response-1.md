@@ -1,6 +1,8 @@
 
 # Account Groups List Response 1
 
+Paginated list of account groups. Contains a `data` array of user or business account group objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `AccountGroupsListResponse1`
@@ -9,7 +11,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
 | `Data` | [`List<AccountGroupsListResponse1Data>`](../../doc/models/containers/account-groups-list-response-1-data.md) | Required | This is List of a container for one-of cases. |
 
 ## Example
@@ -61,7 +63,7 @@ AccountGroupsListResponse1 accountGroupsListResponse1 = new AccountGroupsListRes
                     },
                 },
                 Status = Status18.Closed,
-                Type = Type13.Personal,
+                Type = Type13.FrenchPea,
                 SecuritiesAccountNumber = "securities_account_number0",
             }
         ),

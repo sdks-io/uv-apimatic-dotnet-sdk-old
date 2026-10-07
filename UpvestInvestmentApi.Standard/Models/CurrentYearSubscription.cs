@@ -36,7 +36,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets TransferAmount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("transfer_amount")]
         public string TransferAmount { get; set; }

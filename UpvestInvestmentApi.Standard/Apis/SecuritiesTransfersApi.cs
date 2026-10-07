@@ -25,7 +25,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal SecuritiesTransfersApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// List securities transfers.
+        /// Returns the list of securities transfers.
+        /// Restrict the list to one direction with the `direction` query parameter, and page through results with the `offset` and `limit` query parameters; `meta.total_count` gives the total number of matching transfers.
+        /// See the securities transfers guide ([TOL](https://docs.upvest.co/products/tol/guides/transfers/securities_transfers_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/transfers/securities_transfers_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/transfers/securities_transfers_overview)) for the transfer stages and settlement details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="direction">Required parameter: Filter the list by transfer direction..</param>
@@ -41,7 +43,10 @@ namespace UpvestInvestmentApi.Standard.Apis
         /// <returns>Returns the ApiResponse of Models.SecurityTransfersListResponse response from the API call.</returns>
         public ApiResponse<Models.SecurityTransfersListResponse> ListSecuritiesTransfers(
                 Guid upvestClientId,
-                Models.Direction3 direction,
+                string authorization,
+                string signature,
+                string signatureInput,
+                Models.Direction direction,
                 Models.UpvestApiVersion? upvestApiVersion = Models.UpvestApiVersion.Enum1,
                 Models.Sort1? sort = Models.Sort1.CreatedAt,
                 Models.Order? order = Models.Order.Asc,
@@ -50,11 +55,13 @@ namespace UpvestInvestmentApi.Standard.Apis
                 Guid? userId = null,
                 Guid? accountId = null,
                 Guid? accountGroupId = null,
-                Models.Status82? status = null)
-            => CoreHelper.RunTask(ListSecuritiesTransfersAsync(upvestClientId, direction, upvestApiVersion, sort, order, offset, limit, userId, accountId, accountGroupId, status));
+                Models.Status78? status = null)
+            => CoreHelper.RunTask(ListSecuritiesTransfersAsync(upvestClientId, authorization, signature, signatureInput, direction, upvestApiVersion, sort, order, offset, limit, userId, accountId, accountGroupId, status));
 
         /// <summary>
-        /// List securities transfers.
+        /// Returns the list of securities transfers.
+        /// Restrict the list to one direction with the `direction` query parameter, and page through results with the `offset` and `limit` query parameters; `meta.total_count` gives the total number of matching transfers.
+        /// See the securities transfers guide ([TOL](https://docs.upvest.co/products/tol/guides/transfers/securities_transfers_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/transfers/securities_transfers_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/transfers/securities_transfers_overview)) for the transfer stages and settlement details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="direction">Required parameter: Filter the list by transfer direction..</param>
@@ -71,7 +78,10 @@ namespace UpvestInvestmentApi.Standard.Apis
         /// <returns>Returns the ApiResponse of Models.SecurityTransfersListResponse response from the API call.</returns>
         public async Task<ApiResponse<Models.SecurityTransfersListResponse>> ListSecuritiesTransfersAsync(
                 Guid upvestClientId,
-                Models.Direction3 direction,
+                string authorization,
+                string signature,
+                string signatureInput,
+                Models.Direction direction,
                 Models.UpvestApiVersion? upvestApiVersion = Models.UpvestApiVersion.Enum1,
                 Models.Sort1? sort = Models.Sort1.CreatedAt,
                 Models.Order? order = Models.Order.Asc,
@@ -80,7 +90,7 @@ namespace UpvestInvestmentApi.Standard.Apis
                 Guid? userId = null,
                 Guid? accountId = null,
                 Guid? accountGroupId = null,
-                Models.Status82? status = null,
+                Models.Status78? status = null,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.SecurityTransfersListResponse>()
               .RequestBuilder(requestBuilder => requestBuilder
@@ -110,7 +120,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Create securities transfer.
+        /// Creates a securities transfer, moving a position in a single instrument between an Upvest account and an external custodian.
+        /// Set `direction` to `INCOMING` to move securities into an Upvest account, or `OUTGOING` to move them out to an external custodian. Only full units can be transferred — fractional quantities are not supported by the SWIFT messaging used for settlement. Unfulfilled incoming transfer requests are cancelled automatically after 30 days.
+        /// See the securities transfers guide ([TOL](https://docs.upvest.co/products/tol/guides/transfers/securities_transfers_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/transfers/securities_transfers_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/transfers/securities_transfers_overview)) for the transfer stages and settlement details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -125,7 +137,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateSecuritiesTransferAsync(upvestClientId, idempotencyKey, upvestApiVersion, body));
 
         /// <summary>
-        /// Create securities transfer.
+        /// Creates a securities transfer, moving a position in a single instrument between an Upvest account and an external custodian.
+        /// Set `direction` to `INCOMING` to move securities into an Upvest account, or `OUTGOING` to move them out to an external custodian. Only full units can be transferred — fractional quantities are not supported by the SWIFT messaging used for settlement. Unfulfilled incoming transfer requests are cancelled automatically after 30 days.
+        /// See the securities transfers guide ([TOL](https://docs.upvest.co/products/tol/guides/transfers/securities_transfers_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/transfers/securities_transfers_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/transfers/securities_transfers_overview)) for the transfer stages and settlement details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>

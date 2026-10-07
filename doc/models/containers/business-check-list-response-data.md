@@ -31,7 +31,7 @@ BusinessCheckListResponseData value = BusinessCheckListResponseData.FromBusiness
         CheckConfirmedAt = DateTime.ParseExact("2016-03-13T12:52:32.123Z", "yyyy'-'MM'-'dd'T'HH':'mm':'ss.FFFFFFFK",
             provider: CultureInfo.InvariantCulture,
             DateTimeStyles.RoundtripKind),
-        Status = Status109.Failed,
+        Status = Status105.Failed,
         DataDownloadLink = "data_download_link0",
         DocumentType = "KYB_DOCUMENTS",
     }
@@ -54,8 +54,8 @@ BusinessCheckListResponseData value = BusinessCheckListResponseData.FromBusiness
         CheckConfirmedAt = DateTime.ParseExact("2016-03-13T12:52:32.123Z", "yyyy'-'MM'-'dd'T'HH':'mm':'ss.FFFFFFFK",
             provider: CultureInfo.InvariantCulture,
             DateTimeStyles.RoundtripKind),
-        Status = Status109.Failed,
-        BusinessIndustry = BusinessIndustry.EntertainmentArtsAndRecreation,
+        Status = Status105.Failed,
+        BusinessIndustry = BusinessIndustry.PersonalAndOtherServicesAdultAndWellness,
         PurposeOfBusinessRelationship = PurposeOfBusinessRelationship.WealthGrowth,
         PrimaryCountriesOfActivity = new List<PrimaryCountriesOfActivity>
         {

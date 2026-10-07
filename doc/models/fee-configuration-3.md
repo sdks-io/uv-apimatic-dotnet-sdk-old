@@ -1,6 +1,8 @@
 
 # Fee Configuration 3
 
+The assignment of a fee model to an account. An account must have a fee configuration before fees are calculated for it.
+
 ## Structure
 
 `FeeConfiguration3`
@@ -11,8 +13,8 @@
 |  --- | --- | --- | --- |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
-| `FeeModelId` | `Guid` | Required | Fee model unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
+| `FeeModelId` | `Guid` | Required | The unique identifier of the fee model, as a UUID. Upvest provides this value when a fee model is set up. |
 
 ## Example
 

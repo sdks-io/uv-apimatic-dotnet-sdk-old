@@ -11,8 +11,8 @@ Entity representing the transaction taxes details.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `TotalAmount` | [`TotalAmount`](../../doc/models/total-amount.md) | Required | - |
-| `TaxBreakdown` | [`List<TransactionTax1>`](../../doc/models/transaction-tax-1.md) | Required | - |
+| `TotalAmount` | [`TotalAmount`](../../doc/models/total-amount.md) | Required | The total tax amount, with its currency. |
+| `TaxBreakdown` | [`List<TransactionTax1>`](../../doc/models/transaction-tax-1.md) | Required | The individual tax components making up the total. |
 
 ## Example
 

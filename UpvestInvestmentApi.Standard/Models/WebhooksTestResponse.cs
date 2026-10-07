@@ -68,13 +68,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Url.
+        /// The URL that the test data was delivered to.
         /// </summary>
         [JsonProperty("url")]
         public string Url { get; set; }
 
         /// <summary>
-        /// Gets or sets Response.
+        /// What the subscribed endpoint returned in response to the test delivery.
         /// </summary>
         [JsonProperty("response")]
         public Models.Response Response { get; set; }

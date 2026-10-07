@@ -34,17 +34,17 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Type of the fee component
-        /// * TRANSACTION_LUMP_SUM - Lump sum transaction fee
-        /// * PLATFORM - Platform fee
-        /// * SERVICE - Service fee (client portfolio)
-        /// * VAT - Value-added tax
+        /// The kind of fee this component represents.
+        /// * TRANSACTION_LUMP_SUM — Lump sum transaction fee.
+        /// * PLATFORM — Platform fee.
+        /// * SERVICE — Service fee for a client portfolio.
+        /// * VAT — Value-added tax.
         /// </summary>
         [JsonProperty("type")]
         public Models.Type38 Type { get; set; }
 
         /// <summary>
-        /// Gets or sets Amount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("amount")]
         public string Amount { get; set; }

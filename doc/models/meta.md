@@ -1,6 +1,8 @@
 
 # Meta
 
+Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -16,7 +18,7 @@
 | `Count` | `int` | Required | Count of the resources returned in the response. |
 | `TotalCount` | `int` | Required | Total count of all the resources. |
 | `Sort` | `string` | Optional | The field that the list is sorted by. |
-| `Order` | [`Order1?`](../../doc/models/order-1.md) | Optional | The ordering of the response.<br><br>* ASC - Ascending order<br>* DESC - Descending order |
+| `Order` | [`Order1?`](../../doc/models/order-1.md) | Optional | The ordering applied to the list.<br><br>* ASC — Ascending order.<br>* DESC — Descending order. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

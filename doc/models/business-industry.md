@@ -26,6 +26,7 @@ The business industry classification.
 | `EntertainmentArtsAndRecreationSpecificSectors` |
 | `ExtraterritorialAndHouseholdActivities` |
 | `FinancialServices` |
+| `FinancialServicesOthersAndInsurance` |
 | `FoodAndBeverageServices` |
 | `Healthcare` |
 | `HealthcareCounsellingAndSocialServices` |
@@ -65,6 +66,6 @@ The business industry classification.
 ```csharp
 using UpvestInvestmentApi.Standard.Models;
 
-BusinessIndustry businessIndustry = BusinessIndustry.AccommodationAndHospitality;
+BusinessIndustry businessIndustry = BusinessIndustry.Education;
 ```
 

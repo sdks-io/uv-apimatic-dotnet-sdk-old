@@ -1,6 +1,8 @@
 
 # Inducement
 
+A third-party payment received in connection with the investment service, disclosed as required by MiFID II.
+
 ## Structure
 
 `Inducement`
@@ -11,7 +13,7 @@
 |  --- | --- | --- | --- |
 | `ValueType` | `string` | Required | The type of inducement value must be “ABSOLUTE”.<br><br>**Default**: `"ABSOLUTE"` |
 | `CashAmount` | `string` | Required | **Constraints**: *Pattern*: `^-?[0-9]{1,9}(\.[0-9]{2})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 
 ## Example
 

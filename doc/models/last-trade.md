@@ -1,6 +1,8 @@
 
 # Last Trade
 
+A single trade in an instrument, with the price and size at which it executed.
+
 *This model accepts additional fields of type object.*
 
 ## Structure

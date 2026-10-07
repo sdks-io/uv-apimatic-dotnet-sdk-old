@@ -34,13 +34,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Data.
+        /// The end-of-day prices in this page of results.
         /// </summary>
         [JsonProperty("data")]
         public List<Models.Datum8> Data { get; set; }
 
         /// <summary>
-        /// Gets or sets Meta.
+        /// Offset/limit pagination metadata for this page of results.
         /// </summary>
         [JsonProperty("meta")]
         public Models.Meta26 Meta { get; set; }

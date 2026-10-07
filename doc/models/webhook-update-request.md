@@ -1,6 +1,8 @@
 
 # Webhook Update Request
 
+Request body for updating a webhook subscription. Omitted fields keep their current values.
+
 ## Structure
 
 `WebhookUpdateRequest`

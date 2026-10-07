@@ -1,6 +1,8 @@
 
 # Instruments Venues Prices Ohlc Response
 
+Paginated list of end-of-day prices. Contains a `data` array of end-of-day price objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `InstrumentsVenuesPricesOhlcResponse`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Data` | [`List<Datum8>`](../../doc/models/datum-8.md) | Required | - |
-| `Meta` | [`Meta26`](../../doc/models/meta-26.md) | Required | - |
+| `Data` | [`List<Datum8>`](../../doc/models/datum-8.md) | Required | The end-of-day prices in this page of results. |
+| `Meta` | [`Meta26`](../../doc/models/meta-26.md) | Required | Offset/limit pagination metadata for this page of results. |
 
 ## Example
 

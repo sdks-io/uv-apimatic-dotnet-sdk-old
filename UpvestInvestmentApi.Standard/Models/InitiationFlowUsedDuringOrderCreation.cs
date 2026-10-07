@@ -26,6 +26,12 @@ namespace UpvestInvestmentApi.Standard.Models
         /// SavingsPlan.
         /// </summary>
         [EnumMember(Value = "SAVINGS_PLAN")]
-        SavingsPlan
+        SavingsPlan,
+
+        /// <summary>
+        /// AutoInvestment.
+        /// </summary>
+        [EnumMember(Value = "AUTO_INVESTMENT")]
+        AutoInvestment
     }
 }

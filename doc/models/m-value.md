@@ -1,6 +1,8 @@
 
 # M Value
 
+The value of this instrument position, or `null` if no price was available at the requested price quality.
+
 ## Structure
 
 `MValue`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Amount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,2})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `Amount` | `string` | Required | A decimal-string monetary amount used in account valuation calculations.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,2})?$` |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `PriceTime` | `DateTime` | Required | The date and time of the price used for the calculation. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 
 ## Example

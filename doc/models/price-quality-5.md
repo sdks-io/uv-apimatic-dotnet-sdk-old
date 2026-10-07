@@ -1,12 +1,12 @@
 
 # Price Quality 5
 
-The price quality used for the calculation of the value of the position.
+The price quality used to calculate the value of this position.
 
-* EOD - end of day price
-* REALTIME - realtime price
-* DELAYED - delayed price
-* NA - no available price
+* EOD - End of day price
+* REALTIME - Real-time price
+* DELAYED - Delayed price
+* NA - No price was available.
 
 ## Enumeration
 

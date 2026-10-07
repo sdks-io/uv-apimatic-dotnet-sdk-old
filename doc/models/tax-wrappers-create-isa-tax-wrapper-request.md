@@ -1,6 +1,8 @@
 
 # Tax Wrappers Create Isa Tax Wrapper Request
 
+Request body for creating an ISA tax wrapper on an account group.
+
 ## Structure
 
 `TaxWrappersCreateIsaTaxWrapperRequest`
@@ -10,7 +12,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `AccountGroupId` | `Guid` | Required | The ID of the account group to which the tax wrapper belongs. |
-| `Type` | `string` | Required, Constant | Types of the ISA tax wrapper<br><br>**Value**: `"STOCKS_AND_SHARES_ISA"` |
+| `Type` | `string` | Required, Constant | The kind of ISA that the tax wrapper represents.<br><br>* STOCKS_AND_SHARES_ISA — A Stocks and Shares ISA.<br><br>**Value**: `"STOCKS_AND_SHARES_ISA"` |
 | `IsFlexible` | `bool` | Required | True if ISA is flexible. |
 
 ## Example

@@ -1,6 +1,8 @@
 
 # Instruments Venues Prices Latest Response
 
+The latest available price data for an instrument at a venue, comprising the current bids, asks, and last trade.
+
 ## Structure
 
 `InstrumentsVenuesPricesLatestResponse`
@@ -9,11 +11,11 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `PriceQuality` | [`PriceQuality2`](../../doc/models/price-quality-2.md) | Required | The retrieved price quality.<br><br>* REALTIME -<br>* DELAYED - |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `PriceQuality` | [`PriceQuality2`](../../doc/models/price-quality-2.md) | Required | The quality of the price data returned.<br><br>* REALTIME — Priced in real time.<br>* DELAYED — Priced with a delay set by the data owner. |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `Bids` | [`List<Bid>`](../../doc/models/bid.md) | Optional | Bids for the instrument. |
 | `Asks` | [`List<Ask>`](../../doc/models/ask.md) | Optional | Asks for the instrument. |
-| `LastTrade` | [`LastTrade`](../../doc/models/last-trade.md) | Optional | - |
+| `LastTrade` | [`LastTrade`](../../doc/models/last-trade.md) | Optional | A single trade in an instrument, with the price and size at which it executed. |
 
 ## Example
 

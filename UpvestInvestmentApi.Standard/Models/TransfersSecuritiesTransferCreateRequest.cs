@@ -40,7 +40,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// <param name="settlementDate">settlement_date.</param>
         /// <param name="orderDate">order_date.</param>
         public TransfersSecuritiesTransferCreateRequest(
-            Models.Direction4 direction,
+            Models.Direction1 direction,
             string instrumentId,
             string instrumentIdType,
             string quantity,
@@ -77,7 +77,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// * `OUTGOING` - Securities transfer is outgoing from the user.
         /// </summary>
         [JsonProperty("direction")]
-        public Models.Direction4 Direction { get; set; }
+        public Models.Direction1 Direction { get; set; }
 
         /// <summary>
         /// `ISIN` or other identity (depends on instrument_id_type) of the security to be transferred.
@@ -86,15 +86,14 @@ namespace UpvestInvestmentApi.Standard.Models
         public string InstrumentId { get; set; }
 
         /// <summary>
-        /// Type of the instrument_id
-        /// * `ISIN` - International Securities Identification Number
+        /// The kind of identifier given in `instrument_id`.
+        /// * ISIN — International Securities Identification Number.
         /// </summary>
         [JsonProperty("instrument_id_type")]
         public string InstrumentIdType { get; set; }
 
         /// <summary>
-        /// The quantity of instrument to move in or out. The value supported is maximum 15 digits including decimal place.
-        /// *Note: For `INCOMING` the end user ensures that they don't sell their instruments on the counter-broker to enable smooth transfer of their instruments on Upvest platform.*
+        /// The quantity of the instrument to move in or out, as a decimal string of at most 15 digits including the decimal place. Only full units settle; fractional quantities are not supported by the SWIFT messaging used for settlement.
         /// </summary>
         [JsonProperty("quantity")]
         public string Quantity { get; set; }
@@ -113,7 +112,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         public Guid AccountId { get; set; }
@@ -125,9 +124,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string PlaceOfSettlement { get; set; }
 
         /// <summary>
-        /// Unique identifier of the securities transfer set by API consumers. Useful for API consumers to build special logic on top of it.
-        /// *NOTE: For automatic incoming transfers where API users will subscribe to the corresponding webhook, the value is set by Upvest!*
-        /// *TIP: For non-live environment if you prefix the reference with `AUTO` your transfer gets through all lifecycle states.*
+        /// A reference for the securities transfer, set by the client and useful for correlating the transfer with client-side records. For automatic incoming transfers, where the client subscribes to the corresponding webhook, Upvest sets this value.
         /// </summary>
         [JsonProperty("settlement_reference")]
         public string SettlementReference { get; set; }

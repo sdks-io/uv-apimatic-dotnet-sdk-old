@@ -110,9 +110,9 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Sort { get; set; }
 
         /// <summary>
-        /// The ordering of the response.
-        /// * ASC - Ascending order
-        /// * DESC - Descending order
+        /// The ordering applied to the list.
+        /// * ASC — Ascending order.
+        /// * DESC — Descending order.
         /// </summary>
         [JsonProperty("order")]
         public Models.Order1 Order { get; set; }

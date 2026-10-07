@@ -37,19 +37,19 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Total.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("total", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost Total { get; set; }
 
         /// <summary>
-        /// Gets or sets ReceivedByClient.
+        /// A cost figure, given both as a cash amount and as a percentage of the amount invested.
         /// </summary>
         [JsonProperty("received_by_client", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Cost ReceivedByClient { get; set; }
 
         /// <summary>
-        /// Gets or sets ReceivedByUpvest.
+        /// The share of the third-party payments received by Upvest, as a cost figure.
         /// </summary>
         [JsonProperty("received_by_upvest", NullValueHandling = NullValueHandling.Ignore)]
         public Models.ReceivedByUpvest ReceivedByUpvest { get; set; }

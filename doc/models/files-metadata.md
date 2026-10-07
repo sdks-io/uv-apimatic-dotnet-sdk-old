@@ -1,6 +1,8 @@
 
 # Files Metadata
 
+The metadata of a file held for download, together with a signed URL for retrieving it.
+
 ## Structure
 
 `FilesMetadata`
@@ -12,10 +14,10 @@
 | `Id` | `Guid` | Required | Files metadata identifier. |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `SignedUrl` | `string` | Required | Files download URL.<br><br>**Constraints**: *Maximum Length*: `1000` |
-| `FileName` | `string` | Required | Name of the file.<br><br>**Constraints**: *Pattern*: `^[a-z0-9-_\.]{1,32}$` |
-| `ContentLength` | `int` | Required | Length of the file |
-| `Checksum` | `string` | Required | CRC32 of the files content<br><br>**Constraints**: *Pattern*: `^[a-f0-9]{64}$` |
+| `SignedUrl` | `string` | Required | The one-time URL for downloading the file. The URL expires 15 minutes after it is issued.<br><br>**Constraints**: *Maximum Length*: `1000` |
+| `FileName` | `string` | Required | The name of the file.<br><br>**Constraints**: *Pattern*: `^[a-z0-9-_\.]{1,32}$` |
+| `ContentLength` | `int` | Required | The size of the file in bytes. |
+| `Checksum` | `string` | Required | The checksum of the file's contents, as a hexadecimal string.<br><br>**Constraints**: *Pattern*: `^[a-f0-9]{64}$` |
 
 ## Example
 

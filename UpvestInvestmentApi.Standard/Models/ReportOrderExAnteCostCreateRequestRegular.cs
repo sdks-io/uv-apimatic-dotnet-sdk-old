@@ -84,7 +84,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets Order.
+        /// The planned order that an ex-ante cost report is calculated for.
         /// </summary>
         [JsonProperty("order")]
         [JsonRequired]

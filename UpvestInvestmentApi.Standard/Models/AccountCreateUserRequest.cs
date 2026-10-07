@@ -83,7 +83,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("account_group_id")]
         [JsonRequired]

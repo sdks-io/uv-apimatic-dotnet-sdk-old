@@ -176,7 +176,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime? BirthDate { get; set; }
 
         /// <summary>
-        /// Gets or sets BirthCity.
+        /// The name of a city, as it appears in a postal address.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter))]
         [JsonProperty("birth_city", NullValueHandling = NullValueHandling.Ignore)]
@@ -256,8 +256,8 @@ namespace UpvestInvestmentApi.Standard.Models
         public string SocialSecurityNumber { get; set; }
 
         /// <summary>
-        /// Labels applied to the user by the tenant. Omitted for users that have no tags.
-        /// * CLIENT_EMPLOYEE - The user is an employee of the tenant.
+        /// Labels applied to the user by the client. Omitted for users that have no tags.
+        /// * CLIENT_EMPLOYEE - The user is an employee of the client.
         /// Providing this field in a data change request replaces the full set of tags; send an empty array to remove all tags.
         /// </summary>
         [JsonProperty("tags", NullValueHandling = NullValueHandling.Ignore)]

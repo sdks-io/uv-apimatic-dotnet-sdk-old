@@ -48,7 +48,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public List<Guid> UserIds { get; set; }
 
         /// <summary>
-        /// Gets or sets TaxExemptionDetails.
+        /// The German tax exemption details supplied when creating or updating a tax exemption order.
         /// </summary>
         [JsonProperty("tax_exemption_details")]
         public Models.TaxExemptionRequestGermanTaxExemptionDetails TaxExemptionDetails { get; set; }

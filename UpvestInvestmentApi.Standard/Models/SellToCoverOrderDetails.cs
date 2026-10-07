@@ -35,13 +35,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Sell to cover order id used to cover fee amount.
+        /// The unique identifier of the sell-to-cover order placed to raise cash for a fee amount, as a UUID.
         /// </summary>
         [JsonProperty("id")]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets ResidualAmount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("residual_amount")]
         public string ResidualAmount { get; set; }

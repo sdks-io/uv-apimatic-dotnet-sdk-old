@@ -69,7 +69,7 @@ namespace UpvestInvestmentApi.Standard.Models
             DateTime checkConfirmedAt,
             DateTime issuanceDate,
             string dataDownloadLink,
-            Models.DocumentType6 documentType,
+            Models.DocumentType7 documentType,
             Models.Address confirmedAddress)
         {
             this.additionalProperties = new Dictionary<string, JToken>();
@@ -126,7 +126,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// </summary>
         [JsonProperty("document_type")]
         [JsonRequired]
-        public Models.DocumentType6 DocumentType { get; set; }
+        public Models.DocumentType7 DocumentType { get; set; }
 
         /// <summary>
         /// Address. Must not be a P.O. box or c/o address.

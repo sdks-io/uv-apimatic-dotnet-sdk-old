@@ -11,7 +11,7 @@ Request body for creating a portfolio configuration for an account. Links the ac
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `AllocationId` | `Guid` | Required | Universally Unique Identifier (UUID) of a portfolio allocation. |
 | `RebalancingStrategyIds` | `List<Guid>` | Optional | List of rebalancing strategy ids |
 

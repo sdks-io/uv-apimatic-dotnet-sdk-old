@@ -202,7 +202,7 @@ CreateRoleBody body = CreateRoleBody.FromAccountGroupRoleCreateRequest(
         UserId = new Guid("9c36af78-91a0-4174-a515-fc81214e3dab"),
         EntityType = "ACCOUNT_GROUP",
         EntityId = new Guid("413715f2-5401-4b97-8055-034a6b879f8c"),
-        RoleType = "GUARDIAN",
+        RoleType = RoleType2.Guardian,
         CustodyType = CustodyType.SoleCustody,
     }
 );

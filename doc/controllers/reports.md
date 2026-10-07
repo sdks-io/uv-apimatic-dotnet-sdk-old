@@ -20,7 +20,11 @@ ReportsApi reportsApi = client.ReportsApi;
 
 # List User Reports
 
-List user reports
+Returns the list of reports generated for the end user identified by `user_id`.
+
+Narrow the list with the `type`, `instrument`, `start_date`, and `end_date` query parameters, and page through results with `offset` and `limit`; `meta.total_count` gives the total number of matching reports. Subscribe to the `REPORT.CREATED` webhook event to be notified as reports are generated, rather than polling this endpoint.
+
+See the accessing end user reports guide ([TOL](https://docs.upvest.co/products/tol/guides/reports/user_reports_access) / [BYOL](https://docs.upvest.co/products/byol/guides/reports/user_reports_access)) for the available report types and query parameters.
 
 ```csharp
 ListUserReportsAsync(
@@ -160,7 +164,11 @@ catch (ApiException e)
 
 # Create Report
 
-Create a user report
+Creates a report from data the client submits, for either an end user or a business.
+
+This is how clients supply the planned fee structure and order details that Upvest needs to produce a compliant MiFID II ex-ante cost report before an order is placed.
+
+See the ex-ante cost report data submission guide ([TOL](https://docs.upvest.co/products/tol/guides/reports/ex-ante_reports_data) / [BYOL](https://docs.upvest.co/products/byol/guides/reports/ex-ante_reports_data)) for the required fee and order data.
 
 ```csharp
 CreateReportAsync(
@@ -228,7 +236,7 @@ CreateReportBody body = CreateReportBody.FromReportOrderExAnteCostCreateRequestR
             ReportOrderExAnteCostCreateRequestRegularFees.FromTransactionFee(
                 new TransactionFee
                 {
-                    Type = FeeType.TransactionFeeSell,
+                    Type = FeeType10.TransactionFeeSell,
                     TransactionFeeModelId = new Guid("eb5ba93f-5dfe-4bf1-84da-0caacc80c111"),
                 }
             ),

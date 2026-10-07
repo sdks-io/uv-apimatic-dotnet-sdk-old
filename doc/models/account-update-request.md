@@ -1,6 +1,8 @@
 
 # Account Update Request
 
+Request to update an account. Only the account `name` can be updated.
+
 ## Structure
 
 `AccountUpdateRequest`

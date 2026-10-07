@@ -35,13 +35,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         public Guid AccountId { get; set; }
 
         /// <summary>
-        /// Fee model unique identifier.
+        /// The unique identifier of the fee model, as a UUID. Upvest provides this value when a fee model is set up.
         /// </summary>
         [JsonProperty("fee_model_id")]
         public Guid FeeModelId { get; set; }

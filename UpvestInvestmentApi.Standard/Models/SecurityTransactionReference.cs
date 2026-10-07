@@ -41,11 +41,11 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Type of the reference.
-        /// * ORDER - Order
-        /// * ORDER_EXECUTION - Order execution
-        /// * CORPORATE_ACTION - Corporate action
-        /// * CORPORATE_ACTION_TRANSACTION_ID - Corporate action transaction ID
+        /// The kind of resource that this reference points to.
+        /// * ORDER — Order.
+        /// * ORDER_EXECUTION — Order execution.
+        /// * CORPORATE_ACTION — Corporate action.
+        /// * CORPORATE_ACTION_TRANSACTION_ID — Corporate action transaction ID.
         /// </summary>
         [JsonProperty("type")]
         public Models.Type51 Type { get; set; }

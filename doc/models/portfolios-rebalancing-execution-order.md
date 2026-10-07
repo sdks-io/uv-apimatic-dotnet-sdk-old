@@ -13,7 +13,7 @@ An individual account-level order within a rebalancing execution. Each entry cor
 |  --- | --- | --- | --- |
 | `Id` | `Guid` | Required | Universally Unique Identifier (UUID) of a rebalancing execution order. |
 | `ExecutionId` | `Guid` | Required | Universally Unique Identifier (UUID) of a portfolio rebalancing execution. |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `PortfolioOrderId` | `Guid?` | Required | - |
 | `Status` | [`Status71`](../../doc/models/status-71.md) | Required | Status of the Rebalancing Execution Order.<br><br>* NEW -<br>* PROCESSING -<br>* FILLED -<br>* CANCELLED - |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |

@@ -93,7 +93,7 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Returns the account specified by its ID.
+        /// Returns the account specified by its ID, including its type, status, and the account group it belongs to.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -106,7 +106,7 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveAccountAsync(accountId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Returns the account specified by its ID.
+        /// Returns the account specified by its ID, including its type, status, and the account group it belongs to.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -139,6 +139,7 @@ namespace UpvestInvestmentApi.Standard.Apis
 
         /// <summary>
         /// Updates the account specified by its ID.
+        /// Only the account `name` can be updated. Returns the full updated account object.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -154,6 +155,7 @@ namespace UpvestInvestmentApi.Standard.Apis
 
         /// <summary>
         /// Updates the account specified by its ID.
+        /// Only the account `name` can be updated. Returns the full updated account object.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -190,7 +192,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Initiates the closure request for an account specified by its ID.
+        /// Initiates the closure of the account specified by its ID.
+        /// Closure is a two-step process: the account status changes to `CLOSING`, and once all preconditions are met the account transitions to `CLOSED`. While in `CLOSING`, only sell orders and transfers of positions out of the account are permitted. Subscribe to the `ACCOUNT.CLOSING_INITIATED` and `ACCOUNT.CLOSED` webhook events to track progress.
+        /// See the Closing accounts guide ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_close_accounts) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_close_accounts)) for preconditions and implementation details.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -202,7 +206,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunVoidTask(AccountClosureAsync(accountId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Initiates the closure request for an account specified by its ID.
+        /// Initiates the closure of the account specified by its ID.
+        /// Closure is a two-step process: the account status changes to `CLOSING`, and once all preconditions are met the account transitions to `CLOSED`. While in `CLOSING`, only sell orders and transfers of positions out of the account are permitted. Subscribe to the `ACCOUNT.CLOSING_INITIATED` and `ACCOUNT.CLOSED` webhook events to track progress.
+        /// See the Closing accounts guide ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_close_accounts) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_close_accounts)) for preconditions and implementation details.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -235,11 +241,13 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Returns a list of all accounts.
+        /// Returns a paginated list of accounts.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching accounts. Both user and business accounts are returned.
+        /// See the Accounts overview ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/accounts/accounts_overview)) for account types and the account hierarchy.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
-        /// <param name="sort">Optional parameter: Sort the result by `created_at`, `updated_at§`..</param>
+        /// <param name="sort">Optional parameter: The field to sort the results by. One of `created_at` or `updated_at`; defaults to `created_at`..</param>
         /// <param name="order">Optional parameter: Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order..</param>
         /// <param name="offset">Optional parameter: Use the `offset` argument to specify where in the list of results to start when returning items for a particular query..</param>
         /// <param name="limit">Optional parameter: Use the `limit` argument to specify the maximum number of items returned..</param>
@@ -254,11 +262,13 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(ListAccountsAsync(upvestClientId, upvestApiVersion, sort, order, offset, limit));
 
         /// <summary>
-        /// Returns a list of all accounts.
+        /// Returns a paginated list of accounts.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching accounts. Both user and business accounts are returned.
+        /// See the Accounts overview ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/accounts/accounts_overview)) for account types and the account hierarchy.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
-        /// <param name="sort">Optional parameter: Sort the result by `created_at`, `updated_at§`..</param>
+        /// <param name="sort">Optional parameter: The field to sort the results by. One of `created_at` or `updated_at`; defaults to `created_at`..</param>
         /// <param name="order">Optional parameter: Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order..</param>
         /// <param name="offset">Optional parameter: Use the `offset` argument to specify where in the list of results to start when returning items for a particular query..</param>
         /// <param name="limit">Optional parameter: Use the `limit` argument to specify the maximum number of items returned..</param>
@@ -295,7 +305,10 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Creates an account.
+        /// Creates an account for a user or a business within an existing account group.
+        /// The account is created with status `PENDING_APPROVAL` and switches to `ACTIVE` once the owner's onboarding is complete; subscribe to the `ACCOUNT.ACTIVATED` webhook event to be notified. An account cannot exist without an account group and holds positions in the form of units.
+        /// For a `JOINT` account group, `user_id` must be one of its 2 owners; either owner can be used. The account is shared by both owners and its `users` list both of them with type `OWNER`. A second owner whose `OWNER` role is still `PENDING` is not yet a member of the account group, and the request returns `404`.
+        /// See the Creating accounts guide ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_create_accounts) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_create_accounts)) for implementation details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>
@@ -310,7 +323,10 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateAccountAsync(upvestClientId, idempotencyKey, upvestApiVersion, body));
 
         /// <summary>
-        /// Creates an account.
+        /// Creates an account for a user or a business within an existing account group.
+        /// The account is created with status `PENDING_APPROVAL` and switches to `ACTIVE` once the owner's onboarding is complete; subscribe to the `ACCOUNT.ACTIVATED` webhook event to be notified. An account cannot exist without an account group and holds positions in the form of units.
+        /// For a `JOINT` account group, `user_id` must be one of its 2 owners; either owner can be used. The account is shared by both owners and its `users` list both of them with type `OWNER`. A second owner whose `OWNER` role is still `PENDING` is not yet a member of the account group, and the request returns `404`.
+        /// See the Creating accounts guide ([TOL](https://docs.upvest.co/products/tol/guides/accounts/accounts_create_accounts) / [BYOL](https://docs.upvest.co/products/byol/guides/accounts/accounts_create_accounts)) for implementation details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="idempotencyKey">Required parameter: A UUID to be used as an idempotency key.  This prevents a duplicate request from being replayed. https://docs.upvest.co/documentation/concepts/api_concepts/idempotency.</param>

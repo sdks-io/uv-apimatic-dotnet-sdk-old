@@ -1,7 +1,7 @@
 
 # Report Reference Data
 
-Reference data for a report
+A reference from a report to the resource that it relates to.
 
 *This model accepts additional fields of type object.*
 
@@ -13,7 +13,7 @@ Reference data for a report
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid?` | Optional | - |
+| `Id` | `Guid?` | Optional | The unique identifier of the referenced resource, as a UUID. |
 | `Type` | [`ReportReferenceType?`](../../doc/models/report-reference-type.md) | Optional | Report reference type<br><br>* CORPORATE_ACTION_TRANSACTION_ID - Corporate action transaction identifier<br>* ACCOUNT_GROUP_ID - Account group identifier<br>* ACCOUNT_ID - Account identifier<br>* ORDER_ID - Order identifier |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 

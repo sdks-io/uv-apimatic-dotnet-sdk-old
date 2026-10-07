@@ -26,7 +26,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal PositionsApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// List of account positions.
+        /// Returns the list of positions held by the account.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching positions.
+        /// See the Positions guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/retrieving_positions) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/retrieving_positions)) for how to interpret the `quantity`, `locked_for_trading`, `pending_settlement`, `available_for_trading`, `available_for_instruction`, and `settled_quantity` fields.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -43,7 +45,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(ListPositionsAsync(accountId, upvestClientId, upvestApiVersion, offset, limit));
 
         /// <summary>
-        /// List of account positions.
+        /// Returns the list of positions held by the account.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching positions.
+        /// See the Positions guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/retrieving_positions) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/retrieving_positions)) for how to interpret the `quantity`, `locked_for_trading`, `pending_settlement`, `available_for_trading`, `available_for_instruction`, and `settled_quantity` fields.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -82,7 +86,8 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Retrieve an account position.
+        /// Returns the account's position in the given instrument.
+        /// See the Positions guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/interpreting_positions) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/interpreting_positions)) for how to interpret the `quantity`, `locked_for_trading`, `pending_settlement`, `available_for_trading`, `available_for_instruction`, and `settled_quantity` fields.
         /// </summary>
         /// <param name="instrumentId">Required parameter: The unique identifier of the instrument, provided as either an `isin:` URN or a `uuid:` URN..</param>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
@@ -97,7 +102,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrievePositionAsync(instrumentId, accountId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Retrieve an account position.
+        /// Returns the account's position in the given instrument.
+        /// See the Positions guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/interpreting_positions) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/interpreting_positions)) for how to interpret the `quantity`, `locked_for_trading`, `pending_settlement`, `available_for_trading`, `available_for_instruction`, and `settled_quantity` fields.
         /// </summary>
         /// <param name="instrumentId">Required parameter: The unique identifier of the instrument, provided as either an `isin:` URN or a `uuid:` URN..</param>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>

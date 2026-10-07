@@ -11,9 +11,9 @@ Third-party payments associated with the investment service.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Total` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `ReceivedByClient` | [`Cost`](../../doc/models/cost.md) | Optional | - |
-| `ReceivedByUpvest` | [`ReceivedByUpvest`](../../doc/models/received-by-upvest.md) | Optional | - |
+| `Total` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `ReceivedByClient` | [`Cost`](../../doc/models/cost.md) | Optional | A cost figure, given both as a cash amount and as a percentage of the amount invested. |
+| `ReceivedByUpvest` | [`ReceivedByUpvest`](../../doc/models/received-by-upvest.md) | Optional | The share of the third-party payments received by Upvest, as a cost figure. |
 
 ## Example
 

@@ -33,7 +33,7 @@ CreateRoleResponse value = CreateRoleResponse.FromAccountGroupRoleCreateResponse
         EntityType = "ACCOUNT_GROUP",
         EntityId = new Guid("00000ea2-0000-0000-0000-000000000000"),
         RoleType = RoleType.Owner,
-        Status = Status115.Deactivated,
+        Status = Status111.Deactivated,
     }
 );
 ```
@@ -59,7 +59,7 @@ CreateRoleResponse value = CreateRoleResponse.FromBusinessRole(
         EntityType = "BUSINESS",
         EntityId = new Guid("00002172-0000-0000-0000-000000000000"),
         RoleType = RoleType1.Trader,
-        Status = Status115.Pending,
+        Status = Status111.Pending,
     }
 );
 ```

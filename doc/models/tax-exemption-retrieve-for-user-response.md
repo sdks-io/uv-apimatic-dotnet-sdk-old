@@ -1,6 +1,8 @@
 
 # Tax Exemption Retrieve for User Response
 
+Paginated list of tax exemption orders for an end user. Contains a `data` array of tax exemption objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `TaxExemptionRetrieveForUserResponse`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
-| `Data` | [`List<WebhookTaxExemptionCreatedTaxExemption>`](../../doc/models/webhook-tax-exemption-created-tax-exemption.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
+| `Data` | [`List<WebhookTaxExemptionCreatedTaxExemption>`](../../doc/models/webhook-tax-exemption-created-tax-exemption.md) | Required | The tax exemption orders in this page of results. |
 
 ## Example
 
@@ -53,7 +55,7 @@ TaxExemptionRetrieveForUserResponse taxExemptionRetrieveForUserResponse = new Ta
             ValidToDate = DateTime.Parse("2016-03-13"),
             TaxExemptionDetails = new TaxExemptionGermanTaxExemptionDetails
             {
-                TaxExemptionType = TaxExemptionType.Single,
+                TaxExemptionType = TaxExemptionType.CivilPartnership,
                 TaxExemptionAmount = new TaxExemptionCreateRequestTaxExemptionDetailsAmount
                 {
                     Amount = "amount4",

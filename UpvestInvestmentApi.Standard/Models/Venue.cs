@@ -72,13 +72,13 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// The name of venue.
+        /// The name of the trading venue.
         /// </summary>
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Venue unique identifier.
+        /// The unique identifier of the trading venue, as a UUID.
         /// </summary>
         [JsonProperty("id")]
         public Guid Id { get; set; }

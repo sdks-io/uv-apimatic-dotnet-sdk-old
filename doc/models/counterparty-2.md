@@ -1,6 +1,8 @@
 
 # Counterparty 2
 
+The other ISA manager involved in an external ISA transfer.
+
 ## Structure
 
 `Counterparty2`

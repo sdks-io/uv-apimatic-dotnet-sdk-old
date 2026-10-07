@@ -1,6 +1,8 @@
 
 # Fee Configuration Update Request
 
+Request body for changing the fee model assigned to an account.
+
 ## Structure
 
 `FeeConfigurationUpdateRequest`
@@ -9,7 +11,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `FeeModelId` | `Guid` | Required | Fee model unique identifier. |
+| `FeeModelId` | `Guid` | Required | The unique identifier of the fee model, as a UUID. Upvest provides this value when a fee model is set up. |
 
 ## Example
 

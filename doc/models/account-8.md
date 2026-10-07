@@ -1,7 +1,7 @@
 
 # Account 8
 
-Account details.
+The account that the planned order would be placed for.
 
 *This model accepts additional fields of type object.*
 
@@ -13,7 +13,7 @@ Account details.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid?` | Optional | Account unique identifier. |
+| `Id` | `Guid?` | Optional | Universally Unique Identifier (UUID) of the account. |
 | `AccountNumber` | `int?` | Optional | The serial account number of the account in the account group.<br><br>**Constraints**: `>= 1` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 

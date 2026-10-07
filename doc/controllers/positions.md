@@ -18,7 +18,11 @@ PositionsApi positionsApi = client.PositionsApi;
 
 # List Positions
 
-List of account positions
+Returns the list of positions held by the account.
+
+Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching positions.
+
+See the Positions guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/retrieving_positions) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/retrieving_positions)) for how to interpret the `quantity`, `locked_for_trading`, `pending_settlement`, `available_for_trading`, `available_for_instruction`, and `settled_quantity` fields.
 
 ```csharp
 ListPositionsAsync(
@@ -129,7 +133,9 @@ catch (ApiException e)
 
 # Retrieve Position
 
-Retrieve an account position
+Returns the account's position in the given instrument.
+
+See the Positions guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/interpreting_positions) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/interpreting_positions)) for how to interpret the `quantity`, `locked_for_trading`, `pending_settlement`, `available_for_trading`, `available_for_instruction`, and `settled_quantity` fields.
 
 ```csharp
 RetrievePositionAsync(

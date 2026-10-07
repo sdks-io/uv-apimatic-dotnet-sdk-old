@@ -193,7 +193,7 @@ catch (ApiException e)
 
 Creates a user.
 
-The user must complete identity checks and provide any required identifiers before activation.
+The user must complete identity checks and provide any required identifiers before their role for an account group or business becomes active.
 
 See the Creating a user guide ([TOL](https://docs.upvest.co/products/tol/guides/users/users_onboarding_create) / [BYOL](https://docs.upvest.co/products/byol/guides/users/users_onboarding_create)) for the full onboarding flow.
 

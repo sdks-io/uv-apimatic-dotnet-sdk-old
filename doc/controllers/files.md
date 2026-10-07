@@ -13,7 +13,11 @@ FilesApi filesApi = client.FilesApi;
 
 # Fetching File Metadata
 
-Retrieve a file metadata
+Returns the metadata of the file identified by `folder` and `file_name`, together with a signed URL for downloading it.
+
+Downloading a file is a two-step process: request the metadata here, then fetch the file from the returned `signed_url`. The signed URL is a one-time link that expires after 15 minutes, so download the file shortly after requesting it. Set `redirect=1` to have the API respond with an HTTP redirect to the download location instead of returning the URL in the body.
+
+See the file retrieval guide ([TOL](https://docs.upvest.co/products/tol/guides/files/retrieving_data) / [BYOL](https://docs.upvest.co/products/byol/guides/files/retrieving_data) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/files/retrieving_data)) for the download process.
 
 ```csharp
 FetchingFileMetadataAsync(

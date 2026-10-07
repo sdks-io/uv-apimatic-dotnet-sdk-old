@@ -64,49 +64,49 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Holding period.
+        /// The holding period assumed when estimating the costs in this report. Costs are projected on the basis that the instrument is held for this period before being sold.
         /// </summary>
         [JsonProperty("holding_period", NullValueHandling = NullValueHandling.Ignore)]
         public Models.HoldingPeriod HoldingPeriod { get; set; }
 
         /// <summary>
-        /// Instrument details.
+        /// The instrument that the planned order relates to.
         /// </summary>
         [JsonProperty("instrument", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Instrument2 Instrument { get; set; }
 
         /// <summary>
-        /// Venue details.
+        /// The execution venue on which the planned order would be executed.
         /// </summary>
         [JsonProperty("venue", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Venue1 Venue { get; set; }
 
         /// <summary>
-        /// Account details.
+        /// The account that the planned order would be placed for.
         /// </summary>
         [JsonProperty("account", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Account8 Account { get; set; }
 
         /// <summary>
-        /// Account group details.
+        /// The account group that the account belongs to.
         /// </summary>
         [JsonProperty("account_group", NullValueHandling = NullValueHandling.Ignore)]
         public Models.AccountGroup4 AccountGroup { get; set; }
 
         /// <summary>
-        /// Business details.
+        /// The business that the report is addressed to.
         /// </summary>
         [JsonProperty("business")]
         public Models.Business Business { get; set; }
 
         /// <summary>
-        /// Order details.
+        /// The planned order whose costs this report estimates.
         /// </summary>
         [JsonProperty("order", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Order55 Order { get; set; }
 
         /// <summary>
-        /// Return impact.
+        /// The cumulative effect of the estimated costs on the investment return, shown for each year of the assumed holding period.
         /// </summary>
         [JsonProperty("return_impact", NullValueHandling = NullValueHandling.Ignore)]
         public Models.ReturnImpact ReturnImpact { get; set; }

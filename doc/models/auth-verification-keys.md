@@ -11,7 +11,7 @@ Webhooks verification keys.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Keys` | [`List<Key>`](../../doc/models/key.md) | Required | List of verification keys |
+| `Keys` | [`List<Key>`](../../doc/models/key.md) | Required | The public keys available for verifying webhook signatures. |
 
 ## Example
 

@@ -36,7 +36,7 @@ AccountGroupsListResponse1Data value = AccountGroupsListResponse1Data.FromAccoun
             },
         },
         Status = Status18.Closed,
-        Type = Type13.Personal,
+        Type = Type13.FrenchPea,
         SecuritiesAccountNumber = "securities_account_number0",
     }
 );

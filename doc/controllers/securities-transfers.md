@@ -16,12 +16,19 @@ SecuritiesTransfersApi securitiesTransfersApi = client.SecuritiesTransfersApi;
 
 # List Securities Transfers
 
-List securities transfers
+Returns the list of securities transfers.
+
+Restrict the list to one direction with the `direction` query parameter, and page through results with the `offset` and `limit` query parameters; `meta.total_count` gives the total number of matching transfers.
+
+See the securities transfers guide ([TOL](https://docs.upvest.co/products/tol/guides/transfers/securities_transfers_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/transfers/securities_transfers_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/transfers/securities_transfers_overview)) for the transfer stages and settlement details.
 
 ```csharp
 ListSecuritiesTransfersAsync(
     Guid upvestClientId,
-    Models.Direction3 direction,
+    string authorization,
+    string signature,
+    string signatureInput,
+    Models.Direction direction,
     Models.UpvestApiVersion? upvestApiVersion = Models.UpvestApiVersion.Enum1,
     Models.Sort1? sort = Models.Sort1.CreatedAt,
     Models.Order? order = Models.Order.Asc,
@@ -30,7 +37,7 @@ ListSecuritiesTransfersAsync(
     Guid? userId = null,
     Guid? accountId = null,
     Guid? accountGroupId = null,
-    Models.Status82? status = null)
+    Models.Status78? status = null)
 ```
 
 ## Authentication
@@ -42,7 +49,10 @@ This endpoint requires [oauth-client-credentials](../../doc/auth/oauth-2-client-
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `upvestClientId` | `Guid` | Header, Required | Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID). |
-| `direction` | [`Direction3`](../../doc/models/direction-3.md) | Query, Required | Filter the list by transfer direction. |
+| `authorization` | `string` | Header, Required | Bearer (access) token from the OAuth flow with correct scopes.<br>https://datatracker.ietf.org/doc/html/rfc6750<br><br>**Constraints**: *Pattern*: `^Bearer [a-zA-Z0-9\-\._~+/]*=*` |
+| `signature` | `string` | Header, Required | https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-http-header |
+| `signatureInput` | `string` | Header, Required | https://tools.ietf.org/id/draft-ietf-httpbis-message-signatures-01.html#name-the-signature-input-http-he |
+| `direction` | [`Direction`](../../doc/models/direction.md) | Query, Required | Filter the list by transfer direction. |
 | `upvestApiVersion` | [`UpvestApiVersion?`](../../doc/models/upvest-api-version.md) | Header, Optional | Upvest API version (Note: Do not include quotation marks)<br><br>**Default**: `UpvestApiVersion.Enum_1` |
 | `sort` | [`Sort1?`](../../doc/models/sort-1.md) | Query, Optional | Sort the result by `created_at`, `updated_at`.<br><br>**Default**: `Sort1.created_at` |
 | `order` | [`Order?`](../../doc/models/order.md) | Query, Optional | Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order.<br><br>**Default**: `Order.ASC` |
@@ -51,7 +61,7 @@ This endpoint requires [oauth-client-credentials](../../doc/auth/oauth-2-client-
 | `userId` | `Guid?` | Query, Optional | Filters results by user ID. Universally Unique Identifier (UUID). |
 | `accountId` | `Guid?` | Query, Optional | Filters results by account ID. Universally Unique Identifier (UUID). |
 | `accountGroupId` | `Guid?` | Query, Optional | Filters results by account group ID. Universally Unique Identifier (UUID). |
-| `status` | [`Status82?`](../../doc/models/status-82.md) | Query, Optional | Status of the securities transfer<br><br>* NEW - Securities transfer is created but not started processing.<br>* PROCESSING - Securities transfer is in processing.<br>* SETTLED - Securities transfer was successfully settled.<br>* CANCELLED - Securities transfer was cancelled. |
+| `status` | [`Status78?`](../../doc/models/status-78.md) | Query, Optional | Status of the securities transfer<br><br>* NEW - Securities transfer is created but not started processing.<br>* PROCESSING - Securities transfer is in processing.<br>* SETTLED - Securities transfer was successfully settled.<br>* CANCELLED - Securities transfer was cancelled. |
 
 ## Requires scope
 
@@ -69,7 +79,10 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 
 ```csharp
 Guid upvestClientId = new Guid("363f3305-7ab0-4e82-a158-f9d382ad08b6");
-Direction3 direction = Direction3.Incoming;
+string authorization = "Bearer c2VjcmV0Cg==";
+string signature = "signature8";
+string signatureInput = "signature-input2";
+Direction direction = Direction.Incoming;
 UpvestApiVersion? upvestApiVersion = UpvestApiVersion.Enum1;
 Sort1? sort = Sort1.CreatedAt;
 Order? order = Order.Asc;
@@ -224,7 +237,11 @@ catch (ApiException e)
 
 # Create Securities Transfer
 
-Create securities transfer
+Creates a securities transfer, moving a position in a single instrument between an Upvest account and an external custodian.
+
+Set `direction` to `INCOMING` to move securities into an Upvest account, or `OUTGOING` to move them out to an external custodian. Only full units can be transferred — fractional quantities are not supported by the SWIFT messaging used for settlement. Unfulfilled incoming transfer requests are cancelled automatically after 30 days.
+
+See the securities transfers guide ([TOL](https://docs.upvest.co/products/tol/guides/transfers/securities_transfers_overview) / [BYOL](https://docs.upvest.co/products/byol/guides/transfers/securities_transfers_overview) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/transfers/securities_transfers_overview)) for the transfer stages and settlement details.
 
 ```csharp
 CreateSecuritiesTransferAsync(
@@ -266,7 +283,7 @@ Guid upvestClientId = new Guid("363f3305-7ab0-4e82-a158-f9d382ad08b6");
 Guid idempotencyKey = new Guid("ccb07f42-4104-44ad-8e1f-c660bb7b269c");
 TransfersSecuritiesTransferCreateRequest body = new TransfersSecuritiesTransferCreateRequest
 {
-    Direction = Direction4.Incoming,
+    Direction = Direction1.Incoming,
     InstrumentId = "US0378331005",
     InstrumentIdType = "ISIN",
     Quantity = "10",

@@ -14,13 +14,13 @@ Request body for creating an `INSTRUMENT`-type savings plan. Specifies the accou
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `UserId` | `Guid` | Required | Unique identifier of the user, as a UUID. |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `Name` | `string` | Optional | Savings plan name |
 | `Type` | `string` | Required | The type of savings plan must be "INSTRUMENT".<br><br>**Default**: `"INSTRUMENT"` |
 | `InstrumentId` | [`SavingsPlanInstrument2InstrumentId`](../../doc/models/containers/savings-plan-instrument-2-instrument-id.md) | Optional | This is a container for one-of cases. |
 | `InstrumentIdType` | [`InstrumentIdType10?`](../../doc/models/instrument-id-type-10.md) | Optional | The type of the ID used in the request.<br><br>* ISIN - International Securities Identification Number<br>* WKN - German securities identification code<br><br>**Default**: `InstrumentIdType10.ISIN` |
-| `CashAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `CashAmount` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `StartDate` | `string` | Required | First date of the savings plan execution in YYYY-MM-DD format.<br><br>**Constraints**: *Pattern*: `^[12]\d{3}-(0[1-9]\|1[0-2])-(0[1-9]\|[12]\d\|3[01])$` |
 | `Period` | [`Period1`](../../doc/models/period-1.md) | Required | Unit of time.<br><br>* WEEK -<br>* MONTH -<br>* YEAR - |
 | `Interval` | `int` | Required | Number of periods between executions<br><br>**Default**: `1`<br><br>**Constraints**: `>= 1`, `<= 1000` |

@@ -14,7 +14,7 @@ Tax deducted as part of a payment (e.g. a withdrawal). Contains the tax type and
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `Amount` | `string` | Required | **Constraints**: *Pattern*: `^-?[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `Type` | `string` | Required, Constant | Type of the tax.<br><br>* TOTAL - Total taxes<br><br>**Value**: `"TOTAL"` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 

@@ -1,6 +1,8 @@
 
 # Security Transaction List Response
 
+Paginated list of securities transactions. Contains a `data` array of securities transaction objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `SecurityTransactionListResponse`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
-| `Data` | [`List<SecurityTransaction>`](../../doc/models/security-transaction.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
+| `Data` | [`List<SecurityTransaction>`](../../doc/models/security-transaction.md) | Required | The securities transactions in this page of results. |
 
 ## Example
 

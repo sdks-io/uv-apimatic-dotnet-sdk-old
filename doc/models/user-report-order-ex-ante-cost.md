@@ -1,6 +1,8 @@
 
 # User Report Order Ex Ante Cost
 
+An ex-ante cost report generated for an end user.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -11,11 +13,11 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid` | Required | Report unique identifier. |
+| `Id` | `Guid` | Required | The unique identifier of the report, as a UUID. |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UserId` | `Guid` | Required | Unique identifier of the user, as a UUID. |
 | `Type` | [`Type44`](../../doc/models/type-44.md) | Required | The type of report must be “ORDER_EX_ANTE_COST” or “ORDER_EX_ANTE_COST_SAVINGS_PLAN”. |
-| `SubstitutedReportId` | `Guid?` | Required | - |
+| `SubstitutedReportId` | `Guid?` | Required | The unique identifier of the report that this report replaces, as a UUID. Populated when a mistrade causes a corrected report to be issued; `null` otherwise. |
 | `Data` | [`UserReportDataOrderExAnteCost`](../../doc/models/user-report-data-order-ex-ante-cost.md) | Optional | Contents of the order-ex-ante cost report for a user. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
@@ -41,7 +43,7 @@ UserReportOrderExAnteCost userReportOrderExAnteCost = new UserReportOrderExAnteC
         {
             FirstName = "first_name0",
             LastName = "last_name8",
-            Salutation = Salutation.SalutationMale,
+            Salutation = Salutation10.SalutationMale,
             Title = Title10.Magister,
             Address = new Address30
             {

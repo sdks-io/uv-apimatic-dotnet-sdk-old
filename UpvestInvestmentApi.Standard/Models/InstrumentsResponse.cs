@@ -89,7 +89,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Wkn { get; set; }
 
         /// <summary>
-        /// Instrument name
+        /// The name of the instrument.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -109,7 +109,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.InstrumentTradingStatus TradingStatus { get; set; }
 
         /// <summary>
-        /// Details
+        /// Additional descriptive detail about an instrument, including where it may be distributed.
         /// </summary>
         [JsonProperty("details", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Details Details { get; set; }

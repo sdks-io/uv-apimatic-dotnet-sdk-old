@@ -108,7 +108,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         [JsonRequired]
@@ -144,7 +144,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.InstrumentIdType10? InstrumentIdType { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("cash_amount")]
@@ -153,8 +153,8 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         [JsonRequired]

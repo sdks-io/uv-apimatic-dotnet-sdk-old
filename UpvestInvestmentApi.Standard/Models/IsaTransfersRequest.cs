@@ -37,7 +37,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// <param name="counterparty">counterparty.</param>
         /// <param name="details">details.</param>
         public IsaTransfersRequest(
-            Models.Direction7 direction,
+            Models.Direction4 direction,
             Models.TransferType transferType,
             string currency,
             string transferMethod,
@@ -68,7 +68,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// * OUTGOING - Transfer is outgoing from the user.
         /// </summary>
         [JsonProperty("direction")]
-        public Models.Direction7 Direction { get; set; }
+        public Models.Direction4 Direction { get; set; }
 
         /// <summary>
         /// Type of the securities transfer
@@ -79,7 +79,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.TransferType TransferType { get; set; }
 
         /// <summary>
-        /// Gets or sets TransferValue.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("transfer_value", NullValueHandling = NullValueHandling.Ignore)]
         public string TransferValue { get; set; }
@@ -106,7 +106,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("account_group_id")]
         public Guid AccountGroupId { get; set; }
@@ -118,7 +118,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Reference { get; set; }
 
         /// <summary>
-        /// Gets or sets Counterparty.
+        /// The other ISA manager involved in an external ISA transfer.
         /// </summary>
         [JsonProperty("counterparty", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Counterparty2 Counterparty { get; set; }
@@ -131,7 +131,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime TransferDate { get; set; }
 
         /// <summary>
-        /// Gets or sets Details.
+        /// The subscription details of an internal ISA transfer, used to apportion the transfer against the current tax year's allowance.
         /// </summary>
         [JsonProperty("details", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Details2 Details { get; set; }

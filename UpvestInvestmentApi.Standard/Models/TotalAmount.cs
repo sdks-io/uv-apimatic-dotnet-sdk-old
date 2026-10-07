@@ -75,9 +75,9 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
-        /// * USD - The United States dollar
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
+        /// * USD — The United States dollar.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency1 Currency { get; set; }

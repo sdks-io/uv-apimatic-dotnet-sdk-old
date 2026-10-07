@@ -1,9 +1,9 @@
 
 # Kty
 
-Cryptographic algorithm family used with the key.
+The cryptographic algorithm family of the key.
 
-* EC -
+* EC — Elliptic curve.
 
 ## Enumeration
 

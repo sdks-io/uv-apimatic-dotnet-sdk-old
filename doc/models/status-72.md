@@ -1,13 +1,13 @@
 
 # Status 72
 
-Execution status of the Account liquidation.
+Execution status of the account liquidation.
 
-* NEW -
-* PROCESSING -
-* FILLED -
-* CANCELLED -
-* SETTLED -
+* `NEW` — The liquidation has been created and awaits processing.
+* `PROCESSING` — The liquidation orders are being executed.
+* `FILLED` — All liquidation orders have been fully executed.
+* `CANCELLED` — The liquidation was cancelled before completion.
+* `SETTLED` — The liquidation proceeds have settled as cash.
 
 ## Enumeration
 

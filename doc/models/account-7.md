@@ -1,7 +1,7 @@
 
 # Account 7
 
-Account information.
+The account that the report relates to.
 
 *This model accepts additional fields of type object.*
 
@@ -13,7 +13,7 @@ Account information.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid?` | Optional | Account unique identifier. |
+| `Id` | `Guid?` | Optional | Universally Unique Identifier (UUID) of the account. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

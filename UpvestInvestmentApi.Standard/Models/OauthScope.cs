@@ -189,6 +189,20 @@ namespace UpvestInvestmentApi.Standard.Models
         CreditFundingsread,
 
         /// <summary>
+        ///Cash credits operations
+        /// CashCreditsadmin.
+        /// </summary>
+        [EnumMember(Value = "cash_credits:admin")]
+        CashCreditsadmin,
+
+        /// <summary>
+        ///Cash credits read operations
+        /// CashCreditsread.
+        /// </summary>
+        [EnumMember(Value = "cash_credits:read")]
+        CashCreditsread,
+
+        /// <summary>
         ///Securities Transfers read transfers
         /// SecuritiesTransfersread.
         /// </summary>

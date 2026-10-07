@@ -1,6 +1,8 @@
 
 # Details 2
 
+The subscription details of an internal ISA transfer, used to apportion the transfer against the current tax year's allowance.
+
 ## Structure
 
 `Details2`

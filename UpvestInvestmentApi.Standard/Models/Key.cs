@@ -78,33 +78,33 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Key ID
+        /// The identifier of the key, matching the `kid` in the signature header of a webhook payload.
         /// </summary>
         [JsonProperty("kid", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? Kid { get; set; }
 
         /// <summary>
-        /// Cryptographic algorithm family used with the key.
-        /// * EC -
+        /// The cryptographic algorithm family of the key.
+        /// * EC — Elliptic curve.
         /// </summary>
         [JsonProperty("kty", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Kty? Kty { get; set; }
 
         /// <summary>
-        /// Elliptic curve family.
-        /// * P-521 -
+        /// The elliptic curve the key uses.
+        /// * P-521 — NIST P-521.
         /// </summary>
         [JsonProperty("crv", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Crv? Crv { get; set; }
 
         /// <summary>
-        /// Curve parameter
+        /// The x coordinate of the elliptic curve point, base64url encoded.
         /// </summary>
         [JsonProperty("x", NullValueHandling = NullValueHandling.Ignore)]
         public string X { get; set; }
 
         /// <summary>
-        /// Curve parameter
+        /// The y coordinate of the elliptic curve point, base64url encoded.
         /// </summary>
         [JsonProperty("y", NullValueHandling = NullValueHandling.Ignore)]
         public string Y { get; set; }

@@ -17,12 +17,12 @@ Represents a single execution of an `INSTRUMENT`-type savings plan, recording th
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UserId` | `Guid` | Required | Unique identifier of the user, as a UUID. |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `SavingsPlanId` | `Guid` | Required | Universally Unique Identifier (UUID) of a savings plan. |
 | `OrderId` | [`SavingsPlanExecutionInstrumentOrderId`](../../doc/models/containers/savings-plan-execution-instrument-order-id.md) | Required | This is a container for one-of cases. |
-| `CashAmount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
-| `Status` | [`Status93`](../../doc/models/status-93.md) | Required | Status of a Savings Plan Execution.<br><br>* NEW -<br>* PROCESSING -<br>* FILLED -<br>* SETTLED -<br>* CANCELLED - |
+| `CashAmount` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
+| `Status` | [`Status89`](../../doc/models/status-89.md) | Required | Status of a Savings Plan Execution.<br><br>* NEW -<br>* PROCESSING -<br>* FILLED -<br>* SETTLED -<br>* CANCELLED - |
 | `Type` | `string` | Required | The type of savings plan must be "INSTRUMENT".<br><br>**Default**: `"INSTRUMENT"` |
 | `ExecutionDate` | `string` | Required | Date of a savings plan execution in YYYY-MM-DD format.<br><br>**Constraints**: *Pattern*: `^[12]\d{3}-(0[1-9]\|1[0-2])-(0[1-9]\|[12]\d\|3[01])$` |
 | `InstrumentId` | [`SavingsPlanExecutionInstrumentInstrumentId`](../../doc/models/containers/savings-plan-execution-instrument-instrument-id.md) | Optional | This is a container for one-of cases. |
@@ -56,7 +56,7 @@ SavingsPlanExecutionInstrument savingsPlanExecutionInstrument = new SavingsPlanE
     OrderId = SavingsPlanExecutionInstrumentOrderId.FromUUID(new Guid("00001d1a-0000-0000-0000-000000000000")),
     CashAmount = "cash_amount0",
     Currency = Currency.Eur,
-    Status = Status93.Cancelled,
+    Status = Status89.Cancelled,
     Type = "INSTRUMENT",
     ExecutionDate = "execution_date0",
     InstrumentId = SavingsPlanExecutionInstrumentInstrumentId.FromString("String7"),

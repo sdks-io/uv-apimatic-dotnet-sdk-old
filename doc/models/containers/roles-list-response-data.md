@@ -33,7 +33,7 @@ RolesListResponseData value = RolesListResponseData.FromAccountGroupRole(
         EntityType = "ACCOUNT_GROUP",
         EntityId = new Guid("00001688-0000-0000-0000-000000000000"),
         RoleType = RoleType.Child,
-        Status = Status115.Active,
+        Status = Status111.Active,
     }
 );
 ```
@@ -59,7 +59,7 @@ RolesListResponseData value = RolesListResponseData.FromBusinessRole(
         EntityType = "BUSINESS",
         EntityId = new Guid("00002172-0000-0000-0000-000000000000"),
         RoleType = RoleType1.Trader,
-        Status = Status115.Pending,
+        Status = Status111.Pending,
     }
 );
 ```

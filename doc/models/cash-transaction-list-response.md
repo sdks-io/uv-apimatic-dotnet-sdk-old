@@ -1,6 +1,8 @@
 
 # Cash Transaction List Response
 
+Paginated list of cash transactions. Contains a `data` array of cash transaction objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `CashTransactionListResponse`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
-| `Data` | [`List<CashTransaction>`](../../doc/models/cash-transaction.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
+| `Data` | [`List<CashTransaction>`](../../doc/models/cash-transaction.md) | Required | The cash transactions in this page of results. |
 
 ## Example
 

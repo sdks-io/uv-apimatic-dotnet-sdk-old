@@ -1,6 +1,8 @@
 
 # Relative Fee
 
+A fee charged as a rate in basis points on the transaction amount.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -11,7 +13,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Type` | [`FeeType8`](../../doc/models/fee-type-8.md) | Required | Fee type<br><br>* TRANSACTION_FEE_BUY -<br>* TRANSACTION_FEE_SELL -<br>* ANNUAL_AUM_BASED_FEE - |
+| `Type` | [`FeeType8`](../../doc/models/fee-type-8.md) | Required | What the fee is charged for.<br><br>* TRANSACTION_FEE_BUY — A fee charged on a buy order.<br>* TRANSACTION_FEE_SELL — A fee charged on a sell order.<br>* ANNUAL_AUM_BASED_FEE — An annual fee charged as a percentage of assets under management. |
 | `ValueType` | `string` | Required | The type of fee value must be “RELATIVE”.<br><br>**Default**: `"RELATIVE"` |
 | `Bps` | `string` | Required | **Constraints**: *Pattern*: `^-?[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |

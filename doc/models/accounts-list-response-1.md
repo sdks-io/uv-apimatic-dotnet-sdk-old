@@ -1,6 +1,8 @@
 
 # Accounts List Response 1
 
+Paginated list of accounts. Contains a `data` array of user or business account objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `AccountsListResponse1`
@@ -9,7 +11,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
 | `Data` | [`List<AccountsListResponse1Data>`](../../doc/models/containers/accounts-list-response-1-data.md) | Required | This is List of a container for one-of cases. |
 
 ## Example

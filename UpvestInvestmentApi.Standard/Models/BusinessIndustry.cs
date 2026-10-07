@@ -107,6 +107,12 @@ namespace UpvestInvestmentApi.Standard.Models
         FinancialServices,
 
         /// <summary>
+        /// FinancialServicesOthersAndInsurance.
+        /// </summary>
+        [EnumMember(Value = "FINANCIAL_SERVICES_OTHERS_AND_INSURANCE")]
+        FinancialServicesOthersAndInsurance,
+
+        /// <summary>
         /// FoodAndBeverageServices.
         /// </summary>
         [EnumMember(Value = "FOOD_AND_BEVERAGE_SERVICES")]

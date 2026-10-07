@@ -106,6 +106,7 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | FeesApi | Gets FeesApi. |
 | FeesConfigurationsApi | Gets FeesConfigurationsApi. |
 | TransactionFeesModelsApi | Gets TransactionFeesModelsApi. |
+| TransactionFeesConfigurationsApi | Gets TransactionFeesConfigurationsApi. |
 | PortfoliosApi | Gets PortfoliosApi. |
 | PortfoliosRebalancingApi | Gets PortfoliosRebalancingApi. |
 | ValuationsApi | Gets ValuationsApi. |
@@ -115,7 +116,6 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | SavingsPlansApi | Gets SavingsPlansApi. |
 | TestsApi | Gets TestsApi. |
 | SecuritiesTransfersApi | Gets SecuritiesTransfersApi. |
-| AccountTransfersApi | Gets AccountTransfersApi. |
 | IsaTransfersApi | Gets IsaTransfersApi. |
 | BusinessesApi | Gets BusinessesApi. |
 | BusinessChecksApi | Gets BusinessChecksApi. |

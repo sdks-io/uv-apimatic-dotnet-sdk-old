@@ -1,6 +1,8 @@
 
 # Webhook
 
+A webhook subscription, registering a URL that the Investment API calls when the selected events occur.
+
 ## Structure
 
 `Webhook`

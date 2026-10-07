@@ -75,10 +75,10 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Fee type
-        /// * TRANSACTION_FEE_BUY -
-        /// * TRANSACTION_FEE_SELL -
-        /// * ANNUAL_AUM_BASED_FEE -
+        /// What the fee is charged for.
+        /// * TRANSACTION_FEE_BUY — A fee charged on a buy order.
+        /// * TRANSACTION_FEE_SELL — A fee charged on a sell order.
+        /// * ANNUAL_AUM_BASED_FEE — An annual fee charged as a percentage of assets under management.
         /// </summary>
         [JsonProperty("type")]
         [JsonRequired]
@@ -93,7 +93,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string ValueType { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("cash_amount")]
@@ -102,8 +102,8 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         [JsonRequired]

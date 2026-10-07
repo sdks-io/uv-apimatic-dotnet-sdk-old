@@ -1,6 +1,8 @@
 
 # Datum 9
 
+A securities transfer, which moves a position in a single instrument between an Upvest account and an external custodian.
+
 ## Structure
 
 `Datum9`
@@ -9,20 +11,20 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid` | Required | Securities transfer request unique identifier. |
+| `Id` | `Guid` | Required | The unique identifier of the securities transfer, as a UUID. |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `Direction` | [`Direction4`](../../doc/models/direction-4.md) | Required | Direction of the securities transfer<br><br>* `INCOMING` - Securities transfer is incoming to the user.<br>* `OUTGOING` - Securities transfer is outgoing from the user. |
+| `Direction` | [`Direction1`](../../doc/models/direction-1.md) | Required | Direction of the securities transfer<br><br>* `INCOMING` - Securities transfer is incoming to the user.<br>* `OUTGOING` - Securities transfer is outgoing from the user. |
 | `Status` | [`Status79`](../../doc/models/status-79.md) | Required | Status of the securities transfer<br><br>* `NEW` - Securities transfer is created but not started processing.<br>* `PROCESSING` - Securities transfer is in processing.<br>* `SETTLED` - Securities transfer was successfully settled.<br>* `CANCELLED` - Securities transfer was cancelled. |
 | `TransferType` | `string` | Required, Constant | Type of the securities transfer<br><br>* `NO_OWNER_CHANGE` - No change of ownership.<br><br>**Value**: `"NO_OWNER_CHANGE"` |
 | `InstrumentId` | `string` | Required | `ISIN` or other identity (depends on instrument_id_type) of the security to be transferred. |
-| `InstrumentIdType` | `string` | Required, Constant | Type of the instrument_id<br><br>* `ISIN` - International Securities Identification Number<br><br>**Value**: `"ISIN"` |
+| `InstrumentIdType` | `string` | Required, Constant | The kind of identifier given in `instrument_id`.<br><br>* ISIN — International Securities Identification Number.<br><br>**Value**: `"ISIN"` |
 | `Quantity` | `string` | Required | The quantity of instrument to move in or out.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `QuantitySettled` | `string` | Optional | The quantity of instruments settled.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `UserId` | `Guid` | Required | Unique identifier of the user, as a UUID. |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `PlaceOfSettlement` | `string` | Optional | Business Identifier Code (also known as SWIFT-BIC, BIC, SWIFT ID or SWIFT code) [ISO 9362](https://en.wikipedia.org/wiki/ISO_9362).<br><br>**Constraints**: *Pattern*: `^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$` |
-| `SettlementReference` | `string` | Required | Unique identifier of the securities transfer set by API consumers. Useful for API consumers to build special logic on top of it.<br>*NOTE: For automatic incoming transfers where API users will subscribe to the corresponding webhook, the value is set by Upvest!*<br><br>**Constraints**: *Pattern*: `^[0-9A-Za-z+?/\-:()\.,' ]*$` |
+| `SettlementReference` | `string` | Required | A reference for the securities transfer, set by the client and useful for correlating the transfer with client-side records.<br><br>**Constraints**: *Pattern*: `^[0-9A-Za-z+?/\-:()\.,' ]*$` |
 | `Counterparty` | [`SecuritiesTransferCounterpartyBic`](../../doc/models/securities-transfer-counterparty-bic.md) | Required | Counterparty for securities transfer. The `type` field determines which counterparty variant is present in the payload. |
 | `SettlementCounterparties` | [`SettlementCounterparties`](../../doc/models/settlement-counterparties.md) | Optional | Settlement counterparties for the securities transfer.<br>When `settlement_counterparties` is provided, `settlement_agent` is required. Other participants are optional but must respect the following dependency rules:<br><br>* `settlement_custodian` presence requires `settlement_party` to be present.<br>* `settlement_intermediary_1` presence requires `settlement_custodian` to be present.<br>* `settlement_intermediary_2` presence requires `settlement_intermediary_1` to be present.<br><br>Note: `settlement_custodian` can be provided without an explicit `settlement_party` since the default `counterparty` field at transfer level serves as the settlement party. |
 | `TradeDate` | `DateTime` | Required | The forecast date when the trade takes place. Date in YYYY-MM-DD format. |
@@ -47,7 +49,7 @@ Datum9 datum9 = new Datum9
     UpdatedAt = DateTime.ParseExact("2016-03-13T12:52:32.123Z", "yyyy'-'MM'-'dd'T'HH':'mm':'ss.FFFFFFFK",
         provider: CultureInfo.InvariantCulture,
         DateTimeStyles.RoundtripKind),
-    Direction = Direction4.Incoming,
+    Direction = Direction1.Incoming,
     Status = Status79.New,
     TransferType = "NO_OWNER_CHANGE",
     InstrumentId = "instrument_id2",

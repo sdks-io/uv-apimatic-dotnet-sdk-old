@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `VirtualBankAccountId` | `Guid?` | Optional | Virtual bank account request unique identifier. |
 | `Name` | `string` | Optional | Name of the recipient account for the SEPA Credit Transfer |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `Owner` | [`Owner`](../../doc/models/owner.md) | Required | Owner of the virtual bank account |
 | `Identification` | [`Identification`](../../doc/models/identification.md) | Required | Identification details |
 | `RemittanceInformation` | `string` | Optional | Payment reference the one that should be used for SEPA Credit Transfer |

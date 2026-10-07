@@ -47,24 +47,24 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
-        /// * USD - The United States dollar
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
+        /// * USD — The United States dollar.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency1 Currency { get; set; }
 
         /// <summary>
-        /// Type of the fee.
-        /// * TOTAL - Total fees
+        /// What the fee figure covers.
+        /// * TOTAL — Total fees.
         /// </summary>
         [JsonProperty("type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// Indicates whether the fee was charged by client or by other methods.
-        /// * CHARGED_BY_CLIENT - Charged by client
-        /// * COLLECTED_BY_UPVEST - Charged by client and collected by Upvest
+        /// How the fee was charged.
+        /// * CHARGED_BY_CLIENT — Charged by client.
+        /// * COLLECTED_BY_UPVEST — Charged by client and collected by Upvest.
         /// </summary>
         [JsonProperty("charge_method")]
         public Models.ChargeMethod ChargeMethod { get; set; }

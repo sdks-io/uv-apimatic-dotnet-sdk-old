@@ -1,6 +1,8 @@
 
 # Fee Collection List Response
 
+Paginated list of fee collections. Contains a `data` array of fee collection objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `FeeCollectionListResponse`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
-| `Data` | [`List<FeeCollection>`](../../doc/models/fee-collection.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
+| `Data` | [`List<FeeCollection>`](../../doc/models/fee-collection.md) | Required | The fee collections in this page of results. |
 
 ## Example
 

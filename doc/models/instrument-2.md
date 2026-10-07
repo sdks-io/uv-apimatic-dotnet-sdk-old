@@ -1,7 +1,7 @@
 
 # Instrument 2
 
-Instrument details.
+The instrument that the planned order relates to.
 
 *This model accepts additional fields of type object.*
 
@@ -14,7 +14,7 @@ Instrument details.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `Isin` | `string` | Optional | International securities identification number defined by [ISO 6166](https://en.wikipedia.org/wiki/International_Securities_Identification_Number).<br><br>**Constraints**: *Pattern*: `^[A-Z]{2}[A-Z0-9]{9}[0-9]$` |
-| `ShortName` | `string` | Optional | Instrument short name.<br><br>**Constraints**: *Maximum Length*: `100` |
+| `ShortName` | `string` | Optional | The short display name of the instrument.<br><br>**Constraints**: *Maximum Length*: `100` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

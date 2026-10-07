@@ -39,7 +39,7 @@ namespace UpvestInvestmentApi.Standard.Models
             Guid accountGroupId,
             string amount,
             Models.Currency1 currency,
-            Models.Status86 status)
+            Models.Status82 status)
         {
             this.Id = id;
             this.CreatedAt = createdAt;
@@ -51,7 +51,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Virtual cash unique identifier
+        /// The unique identifier of a virtual cash increase or decrease operation.
         /// </summary>
         [JsonProperty("id")]
         public Guid Id { get; set; }
@@ -71,22 +71,22 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("account_group_id")]
         public Guid AccountGroupId { get; set; }
 
         /// <summary>
-        /// Gets or sets Amount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
-        /// * USD - The United States dollar
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
+        /// * USD — The United States dollar.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency1 Currency { get; set; }
@@ -98,7 +98,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// * CANCELLED - Virtual cash increase was cancelled.
         /// </summary>
         [JsonProperty("status")]
-        public Models.Status86 Status { get; set; }
+        public Models.Status82 Status { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

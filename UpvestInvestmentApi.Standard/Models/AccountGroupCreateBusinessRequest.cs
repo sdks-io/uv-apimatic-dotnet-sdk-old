@@ -89,7 +89,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Type { get; set; }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Official securities account number, assigned at account group level. A string of 7 to 12 digits.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter))]
         [JsonProperty("securities_account_number", NullValueHandling = NullValueHandling.Ignore)]

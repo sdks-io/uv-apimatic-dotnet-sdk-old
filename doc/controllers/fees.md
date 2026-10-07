@@ -19,7 +19,11 @@ FeesApi feesApi = client.FeesApi;
 
 # List Fee Collections
 
-Returns a list of fee collections.
+Returns the list of fee collections.
+
+Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching fee collections. Narrow the result set with the `account_id` and `account_group_id` query parameters.
+
+See the Fee collection guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_collection) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_collection)) for the collection lifecycle and webhook events.
 
 ```csharp
 ListFeeCollectionsAsync(
@@ -179,7 +183,11 @@ catch (ApiException e)
 
 # Create Fee Collection
 
-Creates a fee collection for pre-calculated fee amounts.
+Creates a fee collection for a fee amount you have already calculated.
+
+The account must not be in `PENDING_APPROVAL` or `CLOSED` status; a request against an account in either status is rejected with a `400` response. Set `type` to `SERVICE_FEE` for collections that follow your normal fee cadence.
+
+See the Fee collection guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_collection) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_collection)) for the collection lifecycle and webhook events.
 
 ```csharp
 CreateFeeCollectionAsync(
@@ -288,7 +296,11 @@ catch (ApiException e)
 
 # Retrieve Fee Collection
 
-Returns the fee collection specified by its ID.
+Returns the fee collection identified by `fee_collection_id`, including its status and the amount processed so far.
+
+A fee collection moves through `PROCESSING`, then either `FINALISED` once the fees have been collected from the account and transferred to you, or `CANCELLED`.
+
+See the Fee collection guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_collection) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_collection)) for the collection lifecycle and webhook events.
 
 ```csharp
 RetrieveFeeCollectionAsync(

@@ -109,7 +109,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("account_group_id")]
         public Guid AccountGroupId { get; set; }
@@ -147,13 +147,13 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.Instrument8 Instrument { get; set; }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? AccountId { get; set; }
 
         /// <summary>
-        /// Gets or sets Taxes.
+        /// The taxes applied to this transaction.
         /// </summary>
         [JsonProperty("taxes")]
         public List<Models.TransactionTax> Taxes { get; set; }
@@ -165,7 +165,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.TransactionTaxesDetails TaxesDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets Fees.
+        /// The fees applied to this transaction.
         /// </summary>
         [JsonProperty("fees", NullValueHandling = NullValueHandling.Ignore)]
         public List<Models.TransactionFee2> Fees { get; set; }
@@ -177,7 +177,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.Fx Fx { get; set; }
 
         /// <summary>
-        /// Gets or sets References.
+        /// Identifiers of the resources that this transaction relates to, such as the order or fee collection that caused it.
         /// </summary>
         [JsonProperty("references")]
         public List<Models.CashTransactionReference> References { get; set; }

@@ -55,7 +55,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Quantity { get; set; }
 
         /// <summary>
-        /// Gets or sets MValue.
+        /// The value of this instrument position, or `null` if no price was available at the requested price quality.
         /// </summary>
         [JsonProperty("value", NullValueHandling = NullValueHandling.Include)]
         public Models.MValue MValue { get; set; }
@@ -67,11 +67,11 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Weight { get; set; }
 
         /// <summary>
-        /// The price quality used for the calculation of the value of the position.
-        /// * EOD - end of day price
-        /// * REALTIME - realtime price
-        /// * DELAYED - delayed price
-        /// * NA - no available price
+        /// The price quality used to calculate the value of this position.
+        /// * EOD - End of day price
+        /// * REALTIME - Real-time price
+        /// * DELAYED - Delayed price
+        /// * NA - No price was available.
         /// </summary>
         [JsonProperty("price_quality", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PriceQuality5? PriceQuality { get; set; }

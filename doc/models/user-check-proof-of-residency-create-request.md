@@ -17,7 +17,7 @@ The PoR (Proof of residency) check is completed by the client sharing a valid Po
 | `CheckConfirmedAt` | `DateTime` | Required | Completion date and time of the PoR check. |
 | `IssuanceDate` | `DateTime` | Required | Issuance date in YYYY-MM-DD format. |
 | `DataDownloadLink` | `string` | Required | Download URL for the PoR evidence file. The file size must not exceed 250 MB.<br><br>**Constraints**: *Maximum Length*: `1000` |
-| `DocumentType` | [`DocumentType6`](../../doc/models/document-type-6.md) | Required | The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (must be valid and issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid and contains the registration address), ID Card that contains the registration address.<br><br>* UTILITY_BILL -<br>* TELEPHONE_BILL -<br>* INTERNET_BILL -<br>* BANK_STATEMENT -<br>* REGISTRATION_CERT -<br>* RESIDENCE_PERMIT -<br>* ID_CARD - |
+| `DocumentType` | [`DocumentType7`](../../doc/models/document-type-7.md) | Required | The type of document used in the PoR process. Maximum age of the document is 12 months (stated on the document) applicable for: Utility bills (water, gas, electricity), Telephone bills (only landline), Internet bills, Bank account statements. Documents that need to be still valid - Registration certificate (must be valid and issued within the past 5 years), Residence permit e.g. Blue Card (as long as valid and contains the registration address), ID Card that contains the registration address.<br><br>* UTILITY_BILL -<br>* TELEPHONE_BILL -<br>* INTERNET_BILL -<br>* BANK_STATEMENT -<br>* REGISTRATION_CERT -<br>* RESIDENCE_PERMIT -<br>* ID_CARD - |
 | `ConfirmedAddress` | [`Address`](../../doc/models/address.md) | Required | Address. Must not be a P.O. box or c/o address. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
@@ -36,7 +36,7 @@ UserCheckProofOfResidencyCreateRequest userCheckProofOfResidencyCreateRequest = 
         DateTimeStyles.RoundtripKind),
     IssuanceDate = DateTime.Parse("2016-03-13"),
     DataDownloadLink = "data_download_link2",
-    DocumentType = DocumentType6.RegistrationCert,
+    DocumentType = DocumentType7.RegistrationCert,
     ConfirmedAddress = new Address
     {
         AddressLine1 = "address_line16",

@@ -12,7 +12,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `Id` | `Guid?` | Optional | Unique identifier of the user, as a UUID. |
-| `Type` | [`Type12?`](../../doc/models/type-12.md) | Optional | Relation type<br><br>* OWNER - Account Group Owner<br>* CHILD - Child Account Group Owner<br>* GUARDIAN - Child Account Group Guardian |
+| `Type` | [`Type12?`](../../doc/models/type-12.md) | Optional | Relation of the user to the account group.<br><br>* `OWNER` — The user owns the account group. A `JOINT` account group has exactly 2 `OWNER` users.<br>* `CHILD` — The user is the child in a child account group.<br>* `GUARDIAN` — The user is a guardian of a child account group. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

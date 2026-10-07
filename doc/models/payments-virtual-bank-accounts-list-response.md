@@ -11,7 +11,7 @@ Paginated list of virtual bank accounts for an account group, including cursor-b
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
 | `Data` | [`List<Datum6>`](../../doc/models/datum-6.md) | Required | - |
 
 ## Example

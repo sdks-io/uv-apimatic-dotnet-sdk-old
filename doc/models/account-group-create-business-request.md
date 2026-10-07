@@ -1,6 +1,8 @@
 
 # Account Group Create Business Request
 
+Request to create an account group for a business.
+
 *This model accepts additional fields of type object.*
 
 ## Structure
@@ -13,7 +15,7 @@
 |  --- | --- | --- | --- |
 | `BusinessId` | `Guid` | Required | Unique identifier for the business. |
 | `Type` | `string` | Required, Constant | Account group type.<br><br>* BUSINESS - Account group of a business holding assets.<br><br>**Value**: `"BUSINESS"` |
-| `SecuritiesAccountNumber` | `string` | Optional | Account unique identifier. |
+| `SecuritiesAccountNumber` | `string` | Optional | Official securities account number, assigned at account group level. A string of 7 to 12 digits. |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

@@ -25,7 +25,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal FeesConfigurationsApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Creates a fee configuration for a fee collection.
+        /// Assigns a fee model to an account so that fees are calculated for that account.
+        /// Fee models are set up by Upvest from your requirements and identified by the `fee_model_id` Upvest provides. Every account that is to pay fees needs a fee configuration.
+        /// See the Fee model and configuration guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_model_configuration) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_model_configuration)) for implementation details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -38,7 +40,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateFeeConfigurationAsync(upvestClientId, upvestApiVersion, body));
 
         /// <summary>
-        /// Creates a fee configuration for a fee collection.
+        /// Assigns a fee model to an account so that fees are calculated for that account.
+        /// Fee models are set up by Upvest from your requirements and identified by the `fee_model_id` Upvest provides. Every account that is to pay fees needs a fee configuration.
+        /// See the Fee model and configuration guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_model_configuration) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_model_configuration)) for implementation details.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -73,7 +77,8 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Retrieve the fee configuration for a specific account.
+        /// Returns the fee configuration of the account identified by `account_id`.
+        /// See the Fee model and configuration guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_model_configuration) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_model_configuration)) for implementation details.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -86,7 +91,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveFeeConfigurationsAsync(accountId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Retrieve the fee configuration for a specific account.
+        /// Returns the fee configuration of the account identified by `account_id`.
+        /// See the Fee model and configuration guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_model_configuration) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_model_configuration)) for implementation details.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -118,7 +124,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Update fee configuration.
+        /// Updates the fee configuration of the account identified by `account_id`.
+        /// Only the last fee configuration submitted on a given day is used to calculate that day's fees.
+        /// See the Fee model and configuration guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_model_configuration) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_model_configuration)) for implementation details.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -133,7 +141,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(UpdateFeeConfigurationAsync(accountId, upvestClientId, upvestApiVersion, body));
 
         /// <summary>
-        /// Update fee configuration.
+        /// Updates the fee configuration of the account identified by `account_id`.
+        /// Only the last fee configuration submitted on a given day is used to calculate that day's fees.
+        /// See the Fee model and configuration guide ([TOL](https://docs.upvest.co/products/tol/guides/fees/fees_model_configuration) / [BYOL](https://docs.upvest.co/products/byol/guides/fees/fees_model_configuration)) for implementation details.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>

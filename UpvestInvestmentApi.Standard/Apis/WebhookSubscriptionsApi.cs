@@ -26,7 +26,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal WebhookSubscriptionsApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Returns a list of signing keys used to verify webhooks.
+        /// Returns the set of public keys used to verify the signatures on webhook payloads, as a JSON Web Key Set.
+        /// Verify the signature of every webhook you receive against these keys before acting on it. Keys rotate, so fetch the current set rather than hard-coding a key.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -37,7 +39,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(GetJwksAsync(upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Returns a list of signing keys used to verify webhooks.
+        /// Returns the set of public keys used to verify the signatures on webhook payloads, as a JSON Web Key Set.
+        /// Verify the signature of every webhook you receive against these keys before acting on it. Keys rotate, so fetch the current set rather than hard-coding a key.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -65,7 +69,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Returns a list of all webhook subscriptions.
+        /// Returns the list of webhook subscriptions.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching subscriptions.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -84,7 +90,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(ListWebhooksAsync(upvestClientId, upvestApiVersion, sort, order, offset, limit));
 
         /// <summary>
-        /// Returns a list of all webhook subscriptions.
+        /// Returns the list of webhook subscriptions.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching subscriptions.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -125,7 +133,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Creates a webhook subscription.
+        /// Creates a webhook subscription, registering a URL that the Investment API calls when the events you select occur.
+        /// The URL must use HTTPS, resolve to a DNS name rather than an IP address, serve TLS 1.2 or higher, and must not respond with a redirect. Set `type` to `ALL` to receive every event, optionally narrowing it with `exclude_type`, or list only the event types you want. Events are batched by size or by delay according to `config`.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -138,7 +148,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateWebhookAsync(upvestClientId, upvestApiVersion, body));
 
         /// <summary>
-        /// Creates a webhook subscription.
+        /// Creates a webhook subscription, registering a URL that the Investment API calls when the events you select occur.
+        /// The URL must use HTTPS, resolve to a DNS name rather than an IP address, serve TLS 1.2 or higher, and must not respond with a redirect. Set `type` to `ALL` to receive every event, optionally narrowing it with `exclude_type`, or list only the event types you want. Events are batched by size or by delay according to `config`.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -171,7 +183,8 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Returns a webhook subscription specified by its ID.
+        /// Returns the webhook subscription identified by `webhook_id`, including the URL it calls, the event types it covers, and whether it is enabled.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="webhookId">Required parameter: The unique identifier of the webhook subscription. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -184,7 +197,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(RetrieveWebhookAsync(webhookId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Returns a webhook subscription specified by its ID.
+        /// Returns the webhook subscription identified by `webhook_id`, including the URL it calls, the event types it covers, and whether it is enabled.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="webhookId">Required parameter: The unique identifier of the webhook subscription. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -216,7 +230,8 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Deletes a webhook subscription specified by its ID.
+        /// Deletes the webhook subscription identified by `webhook_id`, stopping all further deliveries to its URL.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="webhookId">Required parameter: The unique identifier of the webhook subscription. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -228,7 +243,8 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunVoidTask(DeleteWebhookAsync(webhookId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Deletes a webhook subscription specified by its ID.
+        /// Deletes the webhook subscription identified by `webhook_id`, stopping all further deliveries to its URL.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="webhookId">Required parameter: The unique identifier of the webhook subscription. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -259,7 +275,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Updates a webhook subscription specified by its ID.
+        /// Updates the webhook subscription identified by `webhook_id`.
+        /// Use this to change the callback URL, adjust which event types are delivered, or enable and disable delivery without deleting the subscription.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="webhookId">Required parameter: The unique identifier of the webhook subscription. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -274,7 +292,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(UpdateWebhookAsync(webhookId, upvestClientId, upvestApiVersion, body));
 
         /// <summary>
-        /// Updates a webhook subscription specified by its ID.
+        /// Updates the webhook subscription identified by `webhook_id`.
+        /// Use this to change the callback URL, adjust which event types are delivered, or enable and disable delivery without deleting the subscription.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="webhookId">Required parameter: The unique identifier of the webhook subscription. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -311,7 +331,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Tests a webhook subscription specified by its ID.
+        /// Sends test event data to the URL of the webhook subscription identified by `webhook_id`, so you can confirm your handler is reachable and responding correctly.
+        /// The response reports what your endpoint returned: its HTTP status, response headers, and body. Use it to verify a new subscription before relying on live events.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="webhookId">Required parameter: The unique identifier of the webhook subscription. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
@@ -324,7 +346,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(TestWebhookAsync(webhookId, upvestClientId, upvestApiVersion));
 
         /// <summary>
-        /// Tests a webhook subscription specified by its ID.
+        /// Sends test event data to the URL of the webhook subscription identified by `webhook_id`, so you can confirm your handler is reachable and responding correctly.
+        /// The response reports what your endpoint returned: its HTTP status, response headers, and body. Use it to verify a new subscription before relying on live events.
+        /// See the implementing webhooks guide ([TOL](https://docs.upvest.co/products/tol/getting_started/implementing_webhooks) / [BYOL](https://docs.upvest.co/products/byol/getting_started/implementing_webhooks) / [Omnibus](https://docs.upvest.co/products/omnibus/getting_started/implementing_webhooks)) for handler requirements, event categories, and batching.
         /// </summary>
         /// <param name="webhookId">Required parameter: The unique identifier of the webhook subscription. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>

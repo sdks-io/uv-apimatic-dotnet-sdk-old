@@ -59,7 +59,7 @@ namespace UpvestInvestmentApi.Standard.Models
             string name = null,
             SavingsPlanInstrumentInstrumentId instrumentId = null,
             Models.InstrumentIdType10? instrumentIdType = Models.InstrumentIdType10.Isin,
-            Models.Status88? status = null,
+            Models.Status84? status = null,
             List<Models.SavingsPlanFeeConfigurationOnlyForInstrument> feeConfiguration = null,
             Models.CancellationReasonCodeForSavingsPlan? cancellationReason = null,
             string cancellationDetails = null)
@@ -111,7 +111,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Universally Unique Identifier (UUID) of the account.
         /// </summary>
         [JsonProperty("account_id")]
         public Guid AccountId { get; set; }
@@ -145,7 +145,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.InstrumentIdType10? InstrumentIdType { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonProperty("cash_amount")]
         public string CashAmount { get; set; }
@@ -158,8 +158,8 @@ namespace UpvestInvestmentApi.Standard.Models
 
         /// <summary>
         /// Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
-        /// * EUR - Euro
-        /// * GBP - Pound Sterling
+        /// * EUR — Euro.
+        /// * GBP — Pound Sterling.
         /// </summary>
         [JsonProperty("currency")]
         public Models.Currency Currency { get; set; }
@@ -185,7 +185,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// * CANCELLED -
         /// </summary>
         [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.Status88? Status { get; set; }
+        public Models.Status84? Status { get; set; }
 
         /// <summary>
         /// Fee configuration for instrument-type savings plan executions. Specifies the transaction fee model to apply to each buy order placed on execution.

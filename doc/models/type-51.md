@@ -1,12 +1,12 @@
 
 # Type 51
 
-Type of the reference.
+The kind of resource that this reference points to.
 
-* ORDER - Order
-* ORDER_EXECUTION - Order execution
-* CORPORATE_ACTION - Corporate action
-* CORPORATE_ACTION_TRANSACTION_ID - Corporate action transaction ID
+* ORDER — Order.
+* ORDER_EXECUTION — Order execution.
+* CORPORATE_ACTION — Corporate action.
+* CORPORATE_ACTION_TRANSACTION_ID — Corporate action transaction ID.
 
 ## Enumeration
 

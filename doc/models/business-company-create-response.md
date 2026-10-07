@@ -24,7 +24,7 @@ Response schema for the create business endpoint.
 | `Identification` | [`Identification8`](../../doc/models/identification-8.md) | Optional | Identification information of the business. |
 | `TermsAndConditions` | [`TermsAndConditions4`](../../doc/models/terms-and-conditions-4.md) | Optional | Terms and conditions agreement. |
 | `DataPrivacyAndSharingAgreement` | [`DataPrivacyAndSharingAgreement4`](../../doc/models/data-privacy-and-sharing-agreement-4.md) | Optional | Data privacy and sharing agreement. |
-| `Status` | [`Status103?`](../../doc/models/status-103.md) | Optional | Status of the business.<br><br>* ACTIVE -<br>* INACTIVE -<br>* OFFBOARDING -<br>* OFFBOARDED - |
+| `Status` | [`Status99?`](../../doc/models/status-99.md) | Optional | Status of the business.<br><br>* ACTIVE -<br>* INACTIVE -<br>* OFFBOARDING -<br>* OFFBOARDED - |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

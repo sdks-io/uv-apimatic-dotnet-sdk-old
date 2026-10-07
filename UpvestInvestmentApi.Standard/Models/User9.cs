@@ -63,7 +63,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public User9(
             string firstName = null,
             string lastName = null,
-            Models.Salutation? salutation = null,
+            Models.Salutation10? salutation = null,
             Models.Title10? title = null,
             Models.Address30 address = null)
         {
@@ -89,30 +89,30 @@ namespace UpvestInvestmentApi.Standard.Models
         public string LastName { get; set; }
 
         /// <summary>
-        /// Salutation of the user used in reports and statements.
-        /// * (empty string) -
-        /// * SALUTATION_MALE -
-        /// * SALUTATION_FEMALE -
-        /// * SALUTATION_FEMALE_MARRIED -
-        /// * SALUTATION_DIVERSE -
+        /// The salutation used for the end user in reports and statements.
+        /// * SALUTATION_MALE — Herr.
+        /// * SALUTATION_FEMALE — Frau.
+        /// * SALUTATION_FEMALE_MARRIED — Frau, married form.
+        /// * SALUTATION_DIVERSE — Gender-neutral salutation.
+        /// An empty string means no salutation is printed.
         /// </summary>
         [JsonProperty("salutation", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.Salutation? Salutation { get; set; }
+        public Models.Salutation10? Salutation { get; set; }
 
         /// <summary>
-        /// Addressed user's title is used in reports and statements.
-        /// * (empty string) -
-        /// * DR - Doctor
-        /// * PROF - Professor
-        /// * PROF_DR -
-        /// * DIPL_ING - Graduate engineer (Diplom-Ingenieur)
-        /// * MAGISTER -
+        /// The academic title used for the end user in reports and statements.
+        /// * DR — Doctor.
+        /// * PROF — Professor.
+        /// * PROF_DR — Professor Doctor.
+        /// * DIPL_ING — Graduate engineer (Diplom-Ingenieur).
+        /// * MAGISTER — Magister.
+        /// An empty string means no title is printed.
         /// </summary>
         [JsonProperty("title", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Title10? Title { get; set; }
 
         /// <summary>
-        /// User residential address.
+        /// The residential address of the end user, as printed on the report.
         /// </summary>
         [JsonProperty("address", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Address30 Address { get; set; }

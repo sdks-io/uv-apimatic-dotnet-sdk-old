@@ -1,10 +1,11 @@
 
 # Initiation Flow Used during Order Creation
 
-What triggered the order creation .
+Identifies what triggered the portfolio order.
 
-* API -
-* SAVINGS_PLAN -
+* API — initiated directly via the client API.
+* SAVINGS_PLAN — initiated by a savings plan execution.
+* AUTO_INVESTMENT — initiated automatically by auto-investment to invest incoming cash.
 
 ## Enumeration
 
@@ -16,12 +17,13 @@ What triggered the order creation .
 |  --- |
 | `Api` |
 | `SavingsPlan` |
+| `AutoInvestment` |
 
 ## Example
 
 ```csharp
 using UpvestInvestmentApi.Standard.Models;
 
-InitiationFlowUsedDuringOrderCreation initiationFlowUsedDuringOrderCreation = InitiationFlowUsedDuringOrderCreation.Api;
+InitiationFlowUsedDuringOrderCreation initiationFlowUsedDuringOrderCreation = InitiationFlowUsedDuringOrderCreation.AutoInvestment;
 ```
 

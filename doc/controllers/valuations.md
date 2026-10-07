@@ -18,7 +18,9 @@ ValuationsApi valuationsApi = client.ValuationsApi;
 
 # Get Account Valuation
 
-Get current valuation for an account
+Returns the account's current valuation, calculated from its current positions and the requested `price_quality`.
+
+See the Account valuations guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/valuations) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/valuations)) for the difference between `EOD` and `HIGHEST_AVAILABLE` price quality.
 
 ```csharp
 GetAccountValuationAsync(
@@ -153,7 +155,11 @@ catch (ApiException e)
 
 # List Account Valuation History
 
-List valuation history for an account
+Returns the account's historical end-of-day valuations.
+
+Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching valuations.
+
+See the Account valuations guide ([TOL](https://docs.upvest.co/products/tol/guides/positions/valuations) / [BYOL](https://docs.upvest.co/products/byol/guides/positions/valuations)) for how valuations are calculated.
 
 ```csharp
 ListAccountValuationHistoryAsync(

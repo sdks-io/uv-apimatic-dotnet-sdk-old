@@ -34,7 +34,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets Meta.
+        /// Offset/limit pagination metadata for a list response whose sort field and order are always returned.
         /// </summary>
         [JsonProperty("meta")]
         public Models.Meta27 Meta { get; set; }

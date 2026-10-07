@@ -25,7 +25,9 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal TransactionsApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// List cash transactions.
+        /// Returns the list of cash transactions for an account group.
+        /// Cash movements are recorded at account group level, so this endpoint is filtered by `account_group_id` rather than by account. Restrict the period with the `start_date` and `end_date` query parameters, and page through results with `offset` and `limit`; `meta.total_count` gives the total number of matching transactions.
+        /// See the transactions reports guide ([TOL](https://docs.upvest.co/products/tol/guides/reports/account_reports_transactions) / [BYOL](https://docs.upvest.co/products/byol/guides/reports/account_reports_transactions) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/reports/account_reports_transactions)) for the full list of transaction types.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -50,7 +52,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(ListCashTransactionsAsync(upvestClientId, upvestApiVersion, accountGroupId, startDate, endDate, sort, order, offset, limit));
 
         /// <summary>
-        /// List cash transactions.
+        /// Returns the list of cash transactions for an account group.
+        /// Cash movements are recorded at account group level, so this endpoint is filtered by `account_group_id` rather than by account. Restrict the period with the `start_date` and `end_date` query parameters, and page through results with `offset` and `limit`; `meta.total_count` gives the total number of matching transactions.
+        /// See the transactions reports guide ([TOL](https://docs.upvest.co/products/tol/guides/reports/account_reports_transactions) / [BYOL](https://docs.upvest.co/products/byol/guides/reports/account_reports_transactions) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/reports/account_reports_transactions)) for the full list of transaction types.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -102,7 +106,9 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// List securities transactions.
+        /// Returns the list of securities transactions for an account group or a single account.
+        /// Securities movements are recorded at account level, so this endpoint accepts both `account_group_id` and `account_id`. Restrict the period with the `start_date` and `end_date` query parameters, and page through results with `offset` and `limit`; `meta.total_count` gives the total number of matching transactions.
+        /// See the transactions reports guide ([TOL](https://docs.upvest.co/products/tol/guides/reports/account_reports_transactions) / [BYOL](https://docs.upvest.co/products/byol/guides/reports/account_reports_transactions) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/reports/account_reports_transactions)) for the full list of transaction types.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
@@ -129,7 +135,9 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(ListSecuritiesTransactionsAsync(upvestClientId, upvestApiVersion, accountGroupId, accountId, startDate, endDate, sort, order, offset, limit));
 
         /// <summary>
-        /// List securities transactions.
+        /// Returns the list of securities transactions for an account group or a single account.
+        /// Securities movements are recorded at account level, so this endpoint accepts both `account_group_id` and `account_id`. Restrict the period with the `start_date` and `end_date` query parameters, and page through results with `offset` and `limit`; `meta.total_count` gives the total number of matching transactions.
+        /// See the transactions reports guide ([TOL](https://docs.upvest.co/products/tol/guides/reports/account_reports_transactions) / [BYOL](https://docs.upvest.co/products/byol/guides/reports/account_reports_transactions) / [Omnibus](https://docs.upvest.co/products/omnibus/guides/reports/account_reports_transactions)) for the full list of transaction types.
         /// </summary>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>

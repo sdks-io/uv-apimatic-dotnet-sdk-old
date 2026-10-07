@@ -82,7 +82,7 @@ namespace UpvestInvestmentApi.Standard.Models
             Models.Identification9 identification = null,
             Models.TermsAndConditions4 termsAndConditions = null,
             Models.DataPrivacyAndSharingAgreement4 dataPrivacyAndSharingAgreement = null,
-            Models.Status103? status = null)
+            Models.Status99? status = null)
         {
             this.additionalProperties = new Dictionary<string, JToken>();
             this.propertyName = this.GetPropertyNames();
@@ -179,7 +179,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// * OFFBOARDED -
         /// </summary>
         [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.Status103? Status { get; set; }
+        public Models.Status99? Status { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

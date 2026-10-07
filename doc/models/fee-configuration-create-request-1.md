@@ -1,6 +1,8 @@
 
 # Fee Configuration Create Request 1
 
+Request body for assigning a fee model to an account.
+
 ## Structure
 
 `FeeConfigurationCreateRequest1`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
-| `FeeModelId` | `Guid` | Required | Fee model unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
+| `FeeModelId` | `Guid` | Required | The unique identifier of the fee model, as a UUID. Upvest provides this value when a fee model is set up. |
 
 ## Example
 

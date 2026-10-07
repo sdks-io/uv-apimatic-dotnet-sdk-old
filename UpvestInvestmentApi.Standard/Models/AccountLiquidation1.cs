@@ -44,18 +44,17 @@ namespace UpvestInvestmentApi.Standard.Models
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Side of the order.
-        /// * SELL -
+        /// Side of the order. Liquidation orders are always `SELL`.
         /// </summary>
         [JsonProperty("side")]
         public string Side { get; set; }
 
         /// <summary>
-        /// Execution status of the Account liquidation order.
-        /// * NEW -
-        /// * PROCESSING -
-        /// * FILLED -
-        /// * CANCELLED -
+        /// Execution status of the account liquidation order.
+        /// * `NEW` — The order has been created and awaits processing.
+        /// * `PROCESSING` — The order is being executed.
+        /// * `FILLED` — The order has been fully executed.
+        /// * `CANCELLED` — The order was cancelled before completion.
         /// </summary>
         [JsonProperty("status")]
         public Models.Status73 Status { get; set; }

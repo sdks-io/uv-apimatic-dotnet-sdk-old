@@ -104,7 +104,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.FeeChargeMethod ChargeMethod { get; set; }
 
         /// <summary>
-        /// Gets or sets CashAmount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("cash_amount")]

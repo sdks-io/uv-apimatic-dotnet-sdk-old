@@ -16,7 +16,11 @@ TaxWrappersApi taxWrappersApi = client.TaxWrappersApi;
 
 # Create Isa Tax Wrapper
 
-Creates a tax wrapper for ISA account.
+Creates an ISA tax wrapper for an account group, holding the business rules that apply to the tax-wrapped product.
+
+The account group must have been created with `type` set to `ISA`. For a `STOCKS_AND_SHARES_ISA`, set `is_flexible` to indicate whether the end user may replace withdrawals within the same tax year without using up their annual allowance. A tax wrapper stays inactive until the end user's tax residency has been confirmed, and the ISA account group cannot become `ACTIVE` until the tax wrapper does.
+
+See the ISA tax wrapper integration guide ([TOL](https://docs.upvest.co/products/tol/guides/tax_wrappers/tax_wrappers_isa_integration) / [BYOL](https://docs.upvest.co/products/byol/guides/tax_wrappers/tax_wrappers_isa_integration)) for the onboarding and activation sequence.
 
 ```csharp
 CreateIsaTaxWrapperAsync(
@@ -114,7 +118,11 @@ catch (ApiException e)
 
 # Retrieve Isa Allowances
 
-Retrieves ISA allowances
+Returns the ISA allowances of the tax wrapper identified by `tax_wrapper_id`.
+
+An `ANNUAL` allowance covers one UK tax year, which runs from 6 April to 5 April and is identified in `yyyy/yyyy` form. Allowances expire at `valid_to` and do not roll over; a new allowance is created at the start of each tax year.
+
+See the ISA tax wrapper integration guide ([TOL](https://docs.upvest.co/products/tol/guides/tax_wrappers/tax_wrappers_isa_integration) / [BYOL](https://docs.upvest.co/products/byol/guides/tax_wrappers/tax_wrappers_isa_integration)) for the onboarding and activation sequence.
 
 ```csharp
 RetrieveIsaAllowancesAsync(

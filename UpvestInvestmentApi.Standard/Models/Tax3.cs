@@ -75,7 +75,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets Amount.
+        /// A positive decimal amount, as a string.
         /// </summary>
         [JsonProperty("amount")]
         public string Amount { get; set; }

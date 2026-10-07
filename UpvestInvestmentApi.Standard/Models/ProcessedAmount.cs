@@ -71,19 +71,19 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Gets or sets CashBalance.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("cash_balance", NullValueHandling = NullValueHandling.Ignore)]
         public string CashBalance { get; set; }
 
         /// <summary>
-        /// Gets or sets SellToCover.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("sell_to_cover", NullValueHandling = NullValueHandling.Ignore)]
         public string SellToCover { get; set; }
 
         /// <summary>
-        /// Gets or sets TotalResidualAmount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("total_residual_amount", NullValueHandling = NullValueHandling.Ignore)]
         public string TotalResidualAmount { get; set; }

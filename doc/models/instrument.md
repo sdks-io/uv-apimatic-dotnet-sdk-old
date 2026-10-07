@@ -1,6 +1,8 @@
 
 # Instrument
 
+The instrument this position is held in, identified by its `uuid` and, if assigned, its `isin`.
+
 ## Structure
 
 `Instrument`

@@ -70,7 +70,7 @@ namespace UpvestInvestmentApi.Standard.Apis
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Creates a new identifier for a user that will be used for transaction reporting obligations. This identifier is required for user activation if the user's nationalities do not allow reporting using the CONCAT format.
+        /// Creates a new identifier for a user that will be used for transaction reporting obligations. This identifier is required before the user's `OWNER` role can become active if the user's nationalities do not allow reporting using the CONCAT format.
         /// See the User identifiers guide ([TOL](https://docs.upvest.co/products/tol/guides/users/users_identifiers) / [BYOL](https://docs.upvest.co/products/byol/guides/users/users_identifiers)) for details.
         /// </summary>
         /// <param name="userId">Required parameter: The unique identifier of the user. Universally Unique Identifier (UUID)..</param>
@@ -86,7 +86,7 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(CreateIdentifierAsync(userId, upvestClientId, upvestApiVersion, body));
 
         /// <summary>
-        /// Creates a new identifier for a user that will be used for transaction reporting obligations. This identifier is required for user activation if the user's nationalities do not allow reporting using the CONCAT format.
+        /// Creates a new identifier for a user that will be used for transaction reporting obligations. This identifier is required before the user's `OWNER` role can become active if the user's nationalities do not allow reporting using the CONCAT format.
         /// See the User identifiers guide ([TOL](https://docs.upvest.co/products/tol/guides/users/users_identifiers) / [BYOL](https://docs.upvest.co/products/byol/guides/users/users_identifiers)) for details.
         /// </summary>
         /// <param name="userId">Required parameter: The unique identifier of the user. Universally Unique Identifier (UUID)..</param>

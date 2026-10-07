@@ -1,14 +1,15 @@
 
 # Title 10
 
-Addressed user's title is used in reports and statements.
+The academic title used for the end user in reports and statements.
 
-* (empty string) -
-* DR - Doctor
-* PROF - Professor
-* PROF_DR -
-* DIPL_ING - Graduate engineer (Diplom-Ingenieur)
-* MAGISTER -
+* DR — Doctor.
+* PROF — Professor.
+* PROF_DR — Professor Doctor.
+* DIPL_ING — Graduate engineer (Diplom-Ingenieur).
+* MAGISTER — Magister.
+
+An empty string means no title is printed.
 
 ## Enumeration
 

@@ -131,7 +131,7 @@ UserCheckListResponseData value = UserCheckListResponseData.FromUserCheckGuardia
         UserId = new Guid("00001dac-0000-0000-0000-000000000000"),
         Type = "GUARDIAN",
         RoleId = new Guid("00000ff4-0000-0000-0000-000000000000"),
-        DocumentType = "BIRTH_CERTIFICATE",
+        DocumentType = DocumentType5.BirthCertificate,
         DataDownloadLink = "data_download_link0",
         Status = Status10.Passed,
     }

@@ -10,11 +10,11 @@ Upvest Investment API.
 If you are building with .NET CLI tools then you can also use the following command:
 
 ```bash
-dotnet add package Up-v-ApimaticSDK --version 0.0.5
+dotnet add package Up-v-ApimaticSDK --version 0.0.6
 ```
 
 You can also view the package at:
-https://www.nuget.org/packages/Up-v-ApimaticSDK/0.0.5
+https://www.nuget.org/packages/Up-v-ApimaticSDK/0.0.6
 
 ## Initialize the API Client
 
@@ -137,11 +137,11 @@ carry a cryptographic signature. The SDK creates it for you once you pass
 * [Tax Residencies](doc/controllers/tax-residencies.md)
 * [Fees Configurations](doc/controllers/fees-configurations.md)
 * [Transaction Fees Models](doc/controllers/transaction-fees-models.md)
+* [Transaction Fees Configurations](doc/controllers/transaction-fees-configurations.md)
 * [Portfolios Rebalancing](doc/controllers/portfolios-rebalancing.md)
 * [Virtual Cash Balances](doc/controllers/virtual-cash-balances.md)
 * [Savings Plans](doc/controllers/savings-plans.md)
 * [Securities Transfers](doc/controllers/securities-transfers.md)
-* [Account Transfers](doc/controllers/account-transfers.md)
 * [ISA Transfers](doc/controllers/isa-transfers.md)
 * [Business Checks](doc/controllers/business-checks.md)
 * [Files](doc/controllers/files.md)

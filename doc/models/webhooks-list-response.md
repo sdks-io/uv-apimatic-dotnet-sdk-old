@@ -1,6 +1,8 @@
 
 # Webhooks List Response
 
+Paginated list of webhook subscriptions. Contains a `data` array of webhook subscription objects and a `meta` object with offset/limit pagination metadata.
+
 ## Structure
 
 `WebhooksListResponse`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
-| `Data` | [`List<Webhook>`](../../doc/models/webhook.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
+| `Data` | [`List<Webhook>`](../../doc/models/webhook.md) | Required | The webhook subscriptions in this page of results. |
 
 ## Example
 

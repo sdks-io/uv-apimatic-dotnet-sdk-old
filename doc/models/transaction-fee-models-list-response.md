@@ -11,7 +11,7 @@ Paginated list of transaction fee models. Contains a `data` array of transaction
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | - |
+| `Meta` | [`Meta`](../../doc/models/meta.md) | Required | Offset/limit pagination metadata for a list response. Contains the `offset` and `limit` applied to the request, the `count` of resources returned in this page, and the `total_count` of matching resources. |
 | `Data` | [`List<FeeConfiguration>`](../../doc/models/fee-configuration.md) | Required | List of transaction fee models matching the query. |
 
 ## Example
@@ -48,10 +48,10 @@ TransactionFeeModelsListResponse transactionFeeModelsListResponse = new Transact
                 DateTimeStyles.RoundtripKind),
             Label = "label0",
             Currency = Currency.Eur,
-            ChargeMethod = "CHARGED_BY_CLIENT",
+            ChargeMethod = FeeChargeMethod1.ChargedByClient,
             ValueType = ValueType.Absolute,
             ApplicationType = "VOLUME",
-            BaseAmountScope = "ORDER",
+            BaseAmountScope = BaseAmountScope.GrossAmount,
             Tiers = new List<FeeConfigurationTiers>
             {
                 FeeConfigurationTiers.FromAbsoluteTransactionFeeTier(

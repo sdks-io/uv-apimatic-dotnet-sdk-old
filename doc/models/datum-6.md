@@ -13,7 +13,7 @@ Represents a virtual bank account assigned to an account group. Provides an IBAN
 |  --- | --- | --- | --- |
 | `Id` | `Guid` | Required | Virtual bank account request unique identifier. |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `AccountGroupId` | `Guid` | Required | Account group unique identifier. |
+| `AccountGroupId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account group. |
 | `Name` | `string` | Optional | Name of the virtual bank account |
 | `Owner` | [`Owner`](../../doc/models/owner.md) | Required | Owner of the virtual bank account |
 | `Identification` | [`Identification`](../../doc/models/identification.md) | Required | Identification details |

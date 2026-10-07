@@ -66,7 +66,7 @@ namespace UpvestInvestmentApi.Standard.Models
             Guid userId,
             string entityType,
             Guid entityId,
-            string roleType,
+            Models.RoleType2 roleType,
             Models.CustodyType? custodyType = null)
         {
             this.additionalProperties = new Dictionary<string, JToken>();
@@ -94,20 +94,20 @@ namespace UpvestInvestmentApi.Standard.Models
         public string EntityType { get; set; }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("entity_id")]
         [JsonRequired]
         public Guid EntityId { get; set; }
 
         /// <summary>
-        /// Role type to assign. This request supports only `GUARDIAN`.
+        /// Role type to assign.
         /// * `GUARDIAN` — The user is a legal custodian of the child account group.
+        /// * `OWNER` — The second owner of a `JOINT` account group; the first owner is the user the account group was created with. `custody_type` does not apply.
         /// </summary>
-        [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("role_type")]
         [JsonRequired]
-        public string RoleType { get; set; }
+        public Models.RoleType2 RoleType { get; set; }
 
         /// <summary>
         /// Custody type for child account groups.
@@ -134,7 +134,7 @@ namespace UpvestInvestmentApi.Standard.Models
             toStringOutput.Add($"UserId = {this.UserId}");
             toStringOutput.Add($"EntityType = {this.EntityType ?? "null"}");
             toStringOutput.Add($"EntityId = {this.EntityId}");
-            toStringOutput.Add($"RoleType = {this.RoleType ?? "null"}");
+            toStringOutput.Add($"RoleType = {this.RoleType}");
             toStringOutput.Add($"CustodyType = {(this.CustodyType == null ? "null" : this.CustodyType.ToString())}");
 
             additionalProperties?

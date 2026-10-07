@@ -81,7 +81,7 @@ namespace UpvestInvestmentApi.Standard.Models
             Models.Identification8 identification,
             Models.TermsAndConditions4 termsAndConditions,
             Models.DataPrivacyAndSharingAgreement4 dataPrivacyAndSharingAgreement,
-            Models.Status103 status,
+            Models.Status99 status,
             string registrationNumber = null)
         {
             this.additionalProperties = new Dictionary<string, JToken>();
@@ -190,7 +190,7 @@ namespace UpvestInvestmentApi.Standard.Models
         /// </summary>
         [JsonProperty("status")]
         [JsonRequired]
-        public Models.Status103 Status { get; set; }
+        public Models.Status99 Status { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

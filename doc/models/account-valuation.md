@@ -1,6 +1,8 @@
 
 # Account Valuation
 
+The total value of the instruments held in an account at a specific point in time, calculated from the positions and instrument prices applicable at that time.
+
 ## Structure
 
 `AccountValuation`
@@ -12,7 +14,7 @@
 | `Id` | `Guid` | Required | Account valuation unique identifier. |
 | `CreatedAt` | `DateTime` | Required | Date and time when the resource was created. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `UpdatedAt` | `DateTime` | Required | Date and time when the resource was last updated. [RFC 3339-5](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), [ISO8601 UTC](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `TotalSecurityValue` | [`TotalSecurityValue`](../../doc/models/total-security-value.md) | Required | Entity representing the monetary value by amount and currency. |
 | `PriceQuality` | [`PriceQuality4`](../../doc/models/price-quality-4.md) | Required | The requested price quality.<br><br>* EOD - End of day prices<br>* HIGHEST_AVAILABLE - The most recent available prices |
 | `SecurityPositions` | [`List<AccountValuationSecurityPosition>`](../../doc/models/account-valuation-security-position.md) | Required | Positions associated with this account valuation. |

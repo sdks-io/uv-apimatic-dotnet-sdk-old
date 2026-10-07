@@ -96,8 +96,8 @@ catch (ApiException e)
   "meta": {
     "offset": 0,
     "limit": 100,
-    "count": 5,
-    "total_count": 5,
+    "count": 6,
+    "total_count": 6,
     "sort": "id",
     "order": "ASC"
   },
@@ -111,7 +111,7 @@ catch (ApiException e)
       "charge_method": "CHARGED_BY_CLIENT",
       "value_type": "ABSOLUTE",
       "application_type": "VOLUME",
-      "base_amount_scope": "ORDER",
+      "base_amount_scope": "GROSS_AMOUNT",
       "tiers": [
         {
           "tier_id": "0",
@@ -129,7 +129,7 @@ catch (ApiException e)
       "charge_method": "CHARGED_BY_CLIENT",
       "value_type": "ABSOLUTE",
       "application_type": "VOLUME",
-      "base_amount_scope": "ORDER",
+      "base_amount_scope": "GROSS_AMOUNT",
       "tiers": [
         {
           "tier_id": "0",
@@ -157,7 +157,7 @@ catch (ApiException e)
       "charge_method": "CHARGED_BY_CLIENT",
       "value_type": "RELATIVE",
       "application_type": "VOLUME",
-      "base_amount_scope": "ORDER",
+      "base_amount_scope": "GROSS_AMOUNT",
       "tiers": [
         {
           "tier_id": "0",
@@ -175,7 +175,7 @@ catch (ApiException e)
       "charge_method": "CHARGED_BY_CLIENT",
       "value_type": "RELATIVE",
       "application_type": "VOLUME",
-      "base_amount_scope": "ORDER",
+      "base_amount_scope": "GROSS_AMOUNT",
       "tiers": [
         {
           "tier_id": "0",
@@ -209,7 +209,7 @@ catch (ApiException e)
       "charge_method": "CHARGED_BY_CLIENT",
       "value_type": "RELATIVE",
       "application_type": "VOLUME",
-      "base_amount_scope": "ORDER",
+      "base_amount_scope": "GROSS_AMOUNT",
       "tiers": [
         {
           "tier_id": "0",
@@ -232,6 +232,24 @@ catch (ApiException e)
           "tier_id": "3",
           "base_amount_from": "10000.01",
           "fee_bps": "50"
+        }
+      ]
+    },
+    {
+      "id": "eb5ba93f-5dfe-4bf1-8571-4da0caacc80c",
+      "created_at": "2021-07-21T14:10:00.00Z",
+      "updated_at": "2021-07-21T14:10:00.00Z",
+      "label": "absolute fee collected by Upvest - flat transfer fee",
+      "currency": "EUR",
+      "charge_method": "COLLECTED_BY_UPVEST",
+      "value_type": "ABSOLUTE",
+      "application_type": "VOLUME",
+      "base_amount_scope": "GROSS_AMOUNT",
+      "tiers": [
+        {
+          "tier_id": "0",
+          "base_amount_from": "0",
+          "fee_amount": "150"
         }
       ]
     }
@@ -302,10 +320,10 @@ FeeConfigurationCreateRequest body = new FeeConfigurationCreateRequest
 {
     Label = "transaction fee buy - new year promotion",
     Currency = Currency.Eur,
-    ChargeMethod = "CHARGED_BY_CLIENT",
+    ChargeMethod = FeeChargeMethod1.ChargedByClient,
     ValueType = ValueType.Absolute,
     ApplicationType = "VOLUME",
-    BaseAmountScope = "ORDER",
+    BaseAmountScope = BaseAmountScope.GrossAmount,
     Tiers = new List<FeeConfigurationCreateRequestTiers>
     {
         FeeConfigurationCreateRequestTiers.FromAbsoluteTransactionFeeTier(
@@ -365,7 +383,7 @@ catch (ApiException e)
   "charge_method": "CHARGED_BY_CLIENT",
   "value_type": "ABSOLUTE",
   "application_type": "VOLUME",
-  "base_amount_scope": "ORDER",
+  "base_amount_scope": "GROSS_AMOUNT",
   "tiers": [
     {
       "tier_id": "0",
@@ -475,7 +493,7 @@ catch (ApiException e)
   "charge_method": "CHARGED_BY_CLIENT",
   "value_type": "ABSOLUTE",
   "application_type": "VOLUME",
-  "base_amount_scope": "ORDER",
+  "base_amount_scope": "GROSS_AMOUNT",
   "tiers": [
     {
       "tier_id": "0",

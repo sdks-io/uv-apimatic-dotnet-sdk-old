@@ -11,7 +11,7 @@ A monetary range defined by a lower bound and an optional upper bound.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR - Euro<br>* GBP - Pound Sterling |
+| `Currency` | [`Currency`](../../doc/models/currency.md) | Required | Alphabetic three-letter [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.<br><br>* EUR — Euro.<br>* GBP — Pound Sterling. |
 | `LowerBound` | `double` | Required | The lower bound of the monetary range.<br><br>**Constraints**: `>= 0` |
 | `UpperBound` | `double?` | Optional | The upper bound of the monetary range.<br><br>**Constraints**: `>= 0` |
 

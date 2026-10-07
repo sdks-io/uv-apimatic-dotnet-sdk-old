@@ -11,7 +11,11 @@ IsaTransfersApi isaTransfersApi = client.IsaTransfersApi;
 
 # Create Isa Transfer
 
-Create ISA transfer
+Creates an ISA transfer, moving all or part of an end user's existing ISA into an Upvest Stocks and Shares ISA while preserving their current-year allowance.
+
+Set `transfer_type` to `ISA_EXTERNAL` for a transfer between ISA managers, which requires `counterparty`, or to `ISA_INTERNAL` for a transfer within the same ISA manager, which requires `transfer_value` and `details`. Only cash transfers are supported, so `transfer_method` must be `CASH`.
+
+See the ISA transfers implementation guide ([TOL](https://docs.upvest.co/products/tol/guides/tax_wrappers/tax_wrappers_isa_transfers_implementation) / [BYOL](https://docs.upvest.co/products/byol/guides/tax_wrappers/tax_wrappers_isa_transfers_implementation)) for the required fields per transfer type.
 
 ```csharp
 CreateIsaTransferAsync(
@@ -54,7 +58,7 @@ Guid idempotencyKey = new Guid("ccb07f42-4104-44ad-8e1f-c660bb7b269c");
 UpvestApiVersion? upvestApiVersion = UpvestApiVersion.Enum1;
 IsaTransfersRequest body = new IsaTransfersRequest
 {
-    Direction = Direction7.Incoming,
+    Direction = Direction4.Incoming,
     TransferType = TransferType.IsaExternal,
     Currency = "GBP",
     TransferMethod = "CASH",

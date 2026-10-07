@@ -52,7 +52,7 @@ namespace UpvestInvestmentApi.Standard.Models
         }
 
         /// <summary>
-        /// Account group unique identifier.
+        /// Universally Unique Identifier (UUID) of the account group.
         /// </summary>
         [JsonProperty("id")]
         [JsonRequired]
@@ -75,19 +75,19 @@ namespace UpvestInvestmentApi.Standard.Models
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Gets or sets Users.
+        /// The users associated with the account group, each with their relation type.
         /// </summary>
         [JsonProperty("users")]
         [JsonRequired]
         public List<Models.User> Users { get; set; }
 
         /// <summary>
-        /// Status of the account group
-        /// * PENDING_APPROVAL - Account group approval is pending - the account group is visible through our API but cannot be acted on.
-        /// * ACTIVE - Account group is active - full functionality of the Investment API is accessible.
-        /// * CLOSING - Account group is closing.
-        /// * CLOSED - Account group is closed.
-        /// * LOCKED - Account group is locked for all actions.
+        /// Status of the account group.
+        /// * `PENDING_APPROVAL` — Account group approval is pending — the account group is visible through our API but cannot be acted on.
+        /// * `ACTIVE` — Account group is active — full functionality of the Investment API is accessible.
+        /// * `CLOSING` — Account group is closing.
+        /// * `CLOSED` — Account group is closed.
+        /// * `LOCKED` — Account group is locked for all actions.
         /// </summary>
         [JsonProperty("status")]
         [JsonRequired]
@@ -100,13 +100,14 @@ namespace UpvestInvestmentApi.Standard.Models
         /// * FRENCH_PEA - Account group of a french resident holding assets in Plan d'Epargne en Actions.
         /// * ISA - Account group of a UK resident holding assets in an individual savings account.
         /// * CHILD - Account group of a child user holding assets in a child account.
+        /// * JOINT - Account group legally and beneficially owned by exactly 2 users. The user the account group is created with becomes the first owner and receives an OWNER role. The second owner is added by creating an OWNER role for them (POST /roles); no further owners can be added. The account group activates only once both OWNER roles are active.
         /// </summary>
         [JsonProperty("type")]
         [JsonRequired]
         public Models.Type13 Type { get; set; }
 
         /// <summary>
-        /// Account unique identifier.
+        /// Official securities account number, assigned at account group level. A string of 7 to 12 digits.
         /// </summary>
         [JsonConverter(typeof(JsonStringConverter), true)]
         [JsonProperty("securities_account_number")]

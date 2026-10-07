@@ -14,7 +14,7 @@ Tax deducted as part of an order execution. Contains the tax type and the deduct
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `Type` | `string` | Required, Constant | Tax type<br><br>* TOTAL -<br><br>**Value**: `"TOTAL"` |
-| `Amount` | `string` | Required | **Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `Amount` | `string` | Required | A positive decimal amount, as a string.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

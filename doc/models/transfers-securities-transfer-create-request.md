@@ -1,6 +1,8 @@
 
 # Transfers Securities Transfer Create Request
 
+Request body for creating a securities transfer in either direction.
+
 ## Structure
 
 `TransfersSecuritiesTransferCreateRequest`
@@ -9,15 +11,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Direction` | [`Direction4`](../../doc/models/direction-4.md) | Required | Direction of the securities transfer<br><br>* `INCOMING` - Securities transfer is incoming to the user.<br>* `OUTGOING` - Securities transfer is outgoing from the user. |
+| `Direction` | [`Direction1`](../../doc/models/direction-1.md) | Required | Direction of the securities transfer<br><br>* `INCOMING` - Securities transfer is incoming to the user.<br>* `OUTGOING` - Securities transfer is outgoing from the user. |
 | `InstrumentId` | `string` | Required | `ISIN` or other identity (depends on instrument_id_type) of the security to be transferred. |
-| `InstrumentIdType` | `string` | Required, Constant | Type of the instrument_id<br><br>* `ISIN` - International Securities Identification Number<br><br>**Value**: `"ISIN"` |
-| `Quantity` | `string` | Required | The quantity of instrument to move in or out. The value supported is maximum 15 digits including decimal place.<br>*Note: For `INCOMING` the end user ensures that they don't sell their instruments on the counter-broker to enable smooth transfer of their instruments on Upvest platform.*<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
+| `InstrumentIdType` | `string` | Required, Constant | The kind of identifier given in `instrument_id`.<br><br>* ISIN — International Securities Identification Number.<br><br>**Value**: `"ISIN"` |
+| `Quantity` | `string` | Required | The quantity of the instrument to move in or out, as a decimal string of at most 15 digits including the decimal place. Only full units settle; fractional quantities are not supported by the SWIFT messaging used for settlement.<br><br>**Constraints**: *Pattern*: `^[0-9]{0,63}(\.[0-9]{1,27})?$` |
 | `TransferType` | `string` | Required, Constant | Type of the securities transfer<br><br>* NO_OWNER_CHANGE - No change of ownership.<br><br>**Value**: `"NO_OWNER_CHANGE"` |
 | `UserId` | `Guid` | Required | Unique identifier of the user, as a UUID. |
-| `AccountId` | `Guid` | Required | Account unique identifier. |
+| `AccountId` | `Guid` | Required | Universally Unique Identifier (UUID) of the account. |
 | `PlaceOfSettlement` | `string` | Optional | Business Identifier Code (also known as SWIFT-BIC, BIC, SWIFT ID or SWIFT code) [ISO 9362](https://en.wikipedia.org/wiki/ISO_9362).<br><br>**Constraints**: *Pattern*: `^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$` |
-| `SettlementReference` | `string` | Required | Unique identifier of the securities transfer set by API consumers. Useful for API consumers to build special logic on top of it.<br>*NOTE: For automatic incoming transfers where API users will subscribe to the corresponding webhook, the value is set by Upvest!*<br>*TIP: For non-live environment if you prefix the reference with `AUTO` your transfer gets through all lifecycle states.*<br><br>**Constraints**: *Pattern*: `^[0-9A-Za-z+?/\-:()\.,' ]*$` |
+| `SettlementReference` | `string` | Required | A reference for the securities transfer, set by the client and useful for correlating the transfer with client-side records. For automatic incoming transfers, where the client subscribes to the corresponding webhook, Upvest sets this value.<br><br>**Constraints**: *Pattern*: `^[0-9A-Za-z+?/\-:()\.,' ]*$` |
 | `Counterparty` | [`SecuritiesTransferCounterpartyBic`](../../doc/models/securities-transfer-counterparty-bic.md) | Required | Counterparty for securities transfer. The `type` field determines which counterparty variant is present in the payload. |
 | `SettlementCounterparties` | [`SettlementCounterparties`](../../doc/models/settlement-counterparties.md) | Optional | Settlement counterparties for the securities transfer.<br>When `settlement_counterparties` is provided, `settlement_agent` is required. Other participants are optional but must respect the following dependency rules:<br><br>* `settlement_custodian` presence requires `settlement_party` to be present.<br>* `settlement_intermediary_1` presence requires `settlement_custodian` to be present.<br>* `settlement_intermediary_2` presence requires `settlement_intermediary_1` to be present.<br><br>Note: `settlement_custodian` can be provided without an explicit `settlement_party` since the default `counterparty` field at transfer level serves as the settlement party. |
 | `TradeDate` | `DateTime?` | Optional | Optional forecast date when the trade takes place. If provided, usually T+1 is sufficient. Depending on the market this means valid working days. Date in YYYY-MM-DD format. |
@@ -32,7 +34,7 @@ using UpvestInvestmentApi.Standard.Utilities;
 
 TransfersSecuritiesTransferCreateRequest transfersSecuritiesTransferCreateRequest = new TransfersSecuritiesTransferCreateRequest
 {
-    Direction = Direction4.Incoming,
+    Direction = Direction1.Incoming,
     InstrumentId = "instrument_id0",
     InstrumentIdType = "ISIN",
     Quantity = "quantity2",

@@ -1,7 +1,7 @@
 
 # Account Group 4
 
-Account group details.
+The account group that the account belongs to.
 
 *This model accepts additional fields of type object.*
 
@@ -13,8 +13,8 @@ Account group details.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `Guid?` | Optional | Account group unique identifier. |
-| `SecuritiesAccountNumber` | `string` | Optional | Securities account number.<br><br>**Constraints**: *Pattern*: `^[0-9]{9}$` |
+| `Id` | `Guid?` | Optional | Universally Unique Identifier (UUID) of the account group. |
+| `SecuritiesAccountNumber` | `string` | Optional | The nine-digit securities account number of the account group.<br><br>**Constraints**: *Pattern*: `^[0-9]{9}$` |
 | `AdditionalProperties` | `object this[string key]` | Optional | - |
 
 ## Example

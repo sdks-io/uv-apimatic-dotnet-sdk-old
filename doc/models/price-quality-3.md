@@ -1,7 +1,10 @@
 
 # Price Quality 3
 
-Defines the quality of the price used in the valuation.
+The quality of the price to use in the valuation.
+
+* `EOD` — End of day prices.
+* `HIGHEST_AVAILABLE` — The most recent available prices.
 
 ## Enumeration
 

@@ -25,13 +25,15 @@ namespace UpvestInvestmentApi.Standard.Apis
         internal ReturnsApi(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// List account returns.
+        /// Returns the account's daily time-weighted return (TWR), which measures investment performance independently of deposits, withdrawals, and other external cash flows.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching returns.
+        /// See the Time-weighted returns guide ([TOL](https://docs.upvest.co/products/tol/guides/reports/account_reports_time-weighted-returns) / [BYOL](https://docs.upvest.co/products/byol/guides/reports/account_reports_time-weighted-returns)) for the calculation method.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
-        /// <param name="startDate">Optional parameter: Returns account returns starting from and including this date (UTC).</param>
-        /// <param name="endDate">Optional parameter: Returns account returns up until this date (UTC).</param>
+        /// <param name="startDate">Optional parameter: Returns account returns starting from and including this date (UTC)..</param>
+        /// <param name="endDate">Optional parameter: Returns account returns up until this date (UTC)..</param>
         /// <param name="sort">Optional parameter: Sort the result by `date`..</param>
         /// <param name="order">Optional parameter: Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order..</param>
         /// <param name="offset">Optional parameter: Use the `offset` argument to specify where in the list of results to start when returning items for a particular query..</param>
@@ -50,13 +52,15 @@ namespace UpvestInvestmentApi.Standard.Apis
             => CoreHelper.RunTask(ListAccountReturnsAsync(accountId, upvestClientId, upvestApiVersion, startDate, endDate, sort, order, offset, limit));
 
         /// <summary>
-        /// List account returns.
+        /// Returns the account's daily time-weighted return (TWR), which measures investment performance independently of deposits, withdrawals, and other external cash flows.
+        /// Use the `offset` and `limit` query parameters to page through results; `meta.total_count` gives the total number of matching returns.
+        /// See the Time-weighted returns guide ([TOL](https://docs.upvest.co/products/tol/guides/reports/account_reports_time-weighted-returns) / [BYOL](https://docs.upvest.co/products/byol/guides/reports/account_reports_time-weighted-returns)) for the calculation method.
         /// </summary>
         /// <param name="accountId">Required parameter: The unique identifier of the account. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestClientId">Required parameter: Your client ID, issued by Upvest. Identifies the client making the request. Universally Unique Identifier (UUID)..</param>
         /// <param name="upvestApiVersion">Optional parameter: Upvest API version (Note: Do not include quotation marks).</param>
-        /// <param name="startDate">Optional parameter: Returns account returns starting from and including this date (UTC).</param>
-        /// <param name="endDate">Optional parameter: Returns account returns up until this date (UTC).</param>
+        /// <param name="startDate">Optional parameter: Returns account returns starting from and including this date (UTC)..</param>
+        /// <param name="endDate">Optional parameter: Returns account returns up until this date (UTC)..</param>
         /// <param name="sort">Optional parameter: Sort the result by `date`..</param>
         /// <param name="order">Optional parameter: Sort order of the result list if the `sort` parameter is specified. Use `ASC` for ascending or `DESC` for descending sort order..</param>
         /// <param name="offset">Optional parameter: Use the `offset` argument to specify where in the list of results to start when returning items for a particular query..</param>

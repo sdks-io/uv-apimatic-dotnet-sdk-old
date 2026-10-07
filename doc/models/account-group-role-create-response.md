@@ -19,7 +19,7 @@ Response schema for creating an account group role.
 | `EntityId` | `Guid` | Required | Unique identifier of the entity a role is attached to. |
 | `RoleType` | [`RoleType`](../../doc/models/role-type.md) | Required | Role type for an account group.<br><br>* `OWNER` — The user owns the account group.<br>* `GUARDIAN` — The user is a legal custodian of a child account group.<br>* `CHILD` — The user is the child beneficiary of a child account group. |
 | `CustodyType` | [`CustodyType?`](../../doc/models/custody-type.md) | Optional | Custody type for child account groups.<br><br>* `SOLE_CUSTODY` — A single guardian has custody of the child account group.<br>* `JOINT_CUSTODY` — Multiple guardians are required for the child account group. |
-| `Status` | [`Status115`](../../doc/models/status-115.md) | Required | Status of the role assignment.<br><br>* `PENDING` — The role has been created but is not yet active.<br>* `ACTIVE` — The role is active.<br>* `DEACTIVATED` — The role has been deactivated and cannot be reactivated. |
+| `Status` | [`Status111`](../../doc/models/status-111.md) | Required | Status of the role assignment.<br><br>* `PENDING` — The role has been created but is not yet active.<br>* `ACTIVE` — The role is active.<br>* `DEACTIVATED` — The role has been deactivated and cannot be reactivated. |
 
 ## Example
 
@@ -40,7 +40,7 @@ AccountGroupRoleCreateResponse accountGroupRoleCreateResponse = new AccountGroup
     EntityType = "ACCOUNT_GROUP",
     EntityId = new Guid("00001258-0000-0000-0000-000000000000"),
     RoleType = RoleType.Guardian,
-    Status = Status115.Pending,
+    Status = Status111.Pending,
     CustodyType = CustodyType.SoleCustody,
 };
 ```

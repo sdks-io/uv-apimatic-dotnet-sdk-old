@@ -65,7 +65,7 @@ namespace UpvestInvestmentApi.Standard.Models
         public Models.Account15 Account { get; set; }
 
         /// <summary>
-        /// Gets or sets Amount.
+        /// A positive cash amount, as a decimal string with up to two decimal places.
         /// </summary>
         [JsonProperty("amount")]
         public string Amount { get; set; }
