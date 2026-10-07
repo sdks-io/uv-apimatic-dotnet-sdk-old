@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\poc\\upvest-sdk\\sdk\\csharp\\UpvestInvestmentApi.Standard\\UpvestInvestmentApi.Standard.csproj": {}
+  },
+  "projects": {
+    "D:\\poc\\upvest-sdk\\sdk\\csharp\\UpvestInvestmentApi.Standard\\UpvestInvestmentApi.Standard.csproj": {
+      "version": "1.144.0",
+      "restore": {
+        "projectUniqueName": "D:\\poc\\upvest-sdk\\sdk\\csharp\\UpvestInvestmentApi.Standard\\UpvestInvestmentApi.Standard.csproj",
+        "projectName": "UpvestInvestmentApiStandard",
+        "projectPath": "D:\\poc\\upvest-sdk\\sdk\\csharp\\UpvestInvestmentApi.Standard\\UpvestInvestmentApi.Standard.csproj",
+        "packagesPath": "C:\\Users\\rafay\\.nuget\\packages\\",
+        "outputPath": "D:\\poc\\upvest-sdk\\sdk\\csharp\\UpvestInvestmentApi.Standard\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\rafay\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "APIMatic.Core": {
+              "target": "Package",
+              "version": "[0.4.*, 0.5.0)"
+            },
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Users\\rafay\\.dotnet\\sdk\\8.0.425\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = UpvestInvestmentApi.Standard
+build_property.ProjectDir = D:\poc\upvest-sdk\sdk\csharp\UpvestInvestmentApi.Standard\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
