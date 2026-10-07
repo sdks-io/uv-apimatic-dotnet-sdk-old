@@ -10,11 +10,11 @@ Upvest Investment API.
 If you are building with .NET CLI tools then you can also use the following command:
 
 ```bash
-dotnet add package Up-v-ApimaticSDK --version 0.0.6
+dotnet add package Up-v-ApimaticSDK --version 0.0.7
 ```
 
 You can also view the package at:
-https://www.nuget.org/packages/Up-v-ApimaticSDK/0.0.6
+https://www.nuget.org/packages/Up-v-ApimaticSDK/0.0.7
 
 ## Initialize the API Client
 

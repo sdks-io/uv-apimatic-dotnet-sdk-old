@@ -43,7 +43,7 @@ namespace UpvestInvestmentApi.Standard
 
         private readonly GlobalConfiguration globalConfiguration;
         private SdkLoggingConfiguration sdkLoggingConfiguration;
-        private const string userAgent = "DotNet-SDK/0.0.6 (OS: {os-info}, Engine: {engine}/{engine-version})";
+        private const string userAgent = "DotNet-SDK/0.0.7 (OS: {os-info}, Engine: {engine}/{engine-version})";
         private readonly HttpCallback httpCallback;
         private readonly Lazy<AccessTokensApi> accessTokens;
         private readonly Lazy<FilesApi> files;
